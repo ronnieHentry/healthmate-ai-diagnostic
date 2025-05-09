@@ -1,30 +1,18 @@
-import React, { useState } from 'react';
-import Login from './components/Login';
-import SymptomForm from './components/SymptomForm';
-import { Container, Box, CssBaseline } from '@mui/material';
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import SymptomForm from "./components/SymptomForm";
+import Chat from "./components/Chat";
 
 function App() {
-  const [user, setUser] = useState(null);
+  const user = { name: "Salman Khan", age: 30, gender: "Male" }; // Mock user
 
   return (
-    <>
-      <CssBaseline />
-      <Container maxWidth="md">
-        <Box
-          display="flex"
-          flexDirection="column"
-          justifyContent="center"
-          alignItems="center"
-          minHeight="100vh"
-        >
-          {user ? (
-            <SymptomForm user={user} />
-          ) : (
-            <Login onLogin={setUser} />
-          )}
-        </Box>
-      </Container>
-    </>
+    <Router>
+      <Routes>
+        <Route path="/" element={<SymptomForm user={user} />} />
+        <Route path="/chat" element={<Chat />} />
+      </Routes>
+    </Router>
   );
 }
 

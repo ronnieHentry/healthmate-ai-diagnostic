@@ -9,14 +9,17 @@ import {
   Paper,
 } from "@mui/material";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const SymptomForm = ({ user }) => {
+  const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
     name: user.name,
     age: user.age,
     gender: user.gender,
-    symptoms: "",
-    duration: "",
+    symptoms: "runny nose",
+    duration: "4",
   });
 
   const [report, setReport] = useState(null);
@@ -28,12 +31,25 @@ const SymptomForm = ({ user }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const sessionId = `${user.name}-${Date.now()}`;
+    const message = `
+  Name: ${formData.name}
+  Age: ${formData.age}
+  Gender: ${formData.gender}
+  Symptoms: ${formData.symptoms}
+  Duration: ${formData.duration}
+  
+  Check for vague or missing info. Ask follow-up questions if needed. If all info is sufficient, say 'All clear'.
+    `.trim();
+
     try {
-      const res = await axios.post(
-        "http://localhost:8000/api/symptoms",
-        formData
-      );
+      const res = await axios.post("http://localhost:8000/api/intake", {
+        session_id: sessionId,
+        message,
+      });
+
       setReport(res.data);
+      navigate("/chat", { state: { report: res.data, sessionId } });
     } catch (err) {
       console.error(err);
       alert("Error submitting symptoms");
