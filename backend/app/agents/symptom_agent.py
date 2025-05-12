@@ -94,8 +94,19 @@ def symptom_intake_agent(session_id, data):
     messages.append(reply)
     save_session(session_id, messages)
 
+    # Check if all intake data is provided (e.g., symptoms, duration, etc.)
+    if "All clear" in reply["content"]:
+        # Generate the diagnosis and doctor suggestions
+        return {
+            "status": "diagnosis-in-progress",
+            session_id: session_id
+        }
+
+    # If more data is needed, return an in-progress status
     return {
         "reply": reply["content"],
         "history": messages,
-        "timestamp": datetime.now().isoformat()
+        "status": "in-progress",
+        "timestamp": datetime.now().isoformat(),
+        session_id: session_id
     }

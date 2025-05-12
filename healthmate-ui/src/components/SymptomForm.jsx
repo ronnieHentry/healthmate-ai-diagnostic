@@ -18,8 +18,8 @@ const SymptomForm = ({ user }) => {
     name: user.name,
     age: user.age,
     gender: user.gender,
-    symptoms: "runny nose",
-    duration: "4",
+    symptoms: "Breathing difficulty",
+    duration: "4 days",
   });
 
   const [report, setReport] = useState(null);
@@ -33,13 +33,13 @@ const SymptomForm = ({ user }) => {
     e.preventDefault();
     const sessionId = `${user.name}-${Date.now()}`;
     const message = `
-  Name: ${formData.name}
-  Age: ${formData.age}
-  Gender: ${formData.gender}
-  Symptoms: ${formData.symptoms}
-  Duration: ${formData.duration}
-  
-  Check for vague or missing info. Ask follow-up questions if needed. If all info is sufficient, say 'All clear'.
+      Name: ${formData.name}
+      Age: ${formData.age}
+      Gender: ${formData.gender}
+      Symptoms: ${formData.symptoms}
+      Duration: ${formData.duration}
+      
+      Check for vague or missing info. Ask follow-up questions if needed. If all info is sufficient, say 'All clear'.
     `.trim();
 
     try {
@@ -58,8 +58,8 @@ const SymptomForm = ({ user }) => {
 
   return (
     <Container maxWidth="sm">
-      <Box mt={5} p={4} component={Paper} elevation={3}>
-        <Typography variant="h6" gutterBottom>
+      <Box mt={5} p={3} component={Paper} elevation={3}>
+        <Typography variant="h5" align="center" gutterBottom>
           Symptom Input Form
         </Typography>
         <form onSubmit={handleSubmit}>
@@ -70,6 +70,7 @@ const SymptomForm = ({ user }) => {
             label="Name"
             value={formData.name}
             disabled
+            variant="outlined"
           />
           <TextField
             fullWidth
@@ -78,6 +79,7 @@ const SymptomForm = ({ user }) => {
             label="Age"
             value={formData.age}
             disabled
+            variant="outlined"
           />
           <TextField
             fullWidth
@@ -87,6 +89,7 @@ const SymptomForm = ({ user }) => {
             label="Gender"
             value={formData.gender}
             disabled
+            variant="outlined"
           >
             <MenuItem value="Male">Male</MenuItem>
             <MenuItem value="Female">Female</MenuItem>
@@ -102,6 +105,7 @@ const SymptomForm = ({ user }) => {
             value={formData.symptoms}
             onChange={handleChange}
             required
+            variant="outlined"
           />
           <TextField
             fullWidth
@@ -111,8 +115,9 @@ const SymptomForm = ({ user }) => {
             value={formData.duration}
             onChange={handleChange}
             required
+            variant="outlined"
           />
-          <Box mt={2}>
+          <Box mt={3}>
             <Button variant="contained" color="primary" type="submit" fullWidth>
               Submit
             </Button>
@@ -122,8 +127,22 @@ const SymptomForm = ({ user }) => {
 
       {report && (
         <Box mt={4} p={3} component={Paper} elevation={2}>
-          <Typography variant="h6">Diagnosis Report</Typography>
-          <pre>{JSON.stringify(report, null, 2)}</pre>
+          <Typography variant="h6" gutterBottom>
+            Diagnosis Report
+          </Typography>
+          <Box
+            component="pre"
+            sx={{
+              backgroundColor: "#f4f4f4",
+              padding: 2,
+              borderRadius: 1,
+              fontSize: "1rem",
+              whiteSpace: "pre-wrap",
+              wordBreak: "break-word",
+            }}
+          >
+            {JSON.stringify(report, null, 2)}
+          </Box>
         </Box>
       )}
     </Container>

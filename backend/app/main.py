@@ -2,6 +2,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi import FastAPI, Request
 from pydantic import BaseModel
 from app.agents.symptom_agent import symptom_intake_agent
+from app.agents.diagnosis_agent import diagnosis_agent
 
 app = FastAPI()
 
@@ -25,12 +26,18 @@ class SymptomRequest(BaseModel):
     
 class ChatMessage(BaseModel):
     session_id: str
-    message: str  # Unified field: initial + follow-up
+    message: str
+class DiagnosisRequest(BaseModel):
+    session_id: str
 
 @app.post("/api/intake")
 async def chat_with_symptom_agent(msg: ChatMessage):
     result = symptom_intake_agent(msg.session_id, {"message": msg.message})
     return result
+
+@app.post("/api/diagnosis")
+async def generate_diagnosis(req: DiagnosisRequest):
+    return diagnosis_agent(req.session_id)
 
 @app.get("/ping")
 def ping():

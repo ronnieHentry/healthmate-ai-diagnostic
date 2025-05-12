@@ -7,11 +7,13 @@ import {
   Typography,
   Box,
 } from "@mui/material";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 const Chat = () => {
   const location = useLocation();
+  const navigate = useNavigate();
+
   const { report, sessionId, user } = location.state;
   const [messages, setMessages] = useState([
     { role: "assistant", content: report.reply },
@@ -28,7 +30,6 @@ const Chat = () => {
     scrollToBottom();
   }, [messages]);
 
-
   const handleSend = async () => {
     if (!input.trim()) return;
 
@@ -42,6 +43,11 @@ const Chat = () => {
         message: input,
       });
 
+      if (res.data.status === "diagnosis-in-progress") {
+        navigate("/diagnosis", { state: { sessionId, user } });
+        return;
+      }
+
       const reply = { role: "assistant", content: res.data.reply };
       setMessages((prev) => [...prev, reply]);
       setInput("");
@@ -52,40 +58,63 @@ const Chat = () => {
 
   return (
     <Container maxWidth="sm">
-      <Paper elevation={3} sx={{ p: 2, mt: 4 }}>
-        <Typography variant="h6">Agent Chat</Typography>
-        <Box sx={{ maxHeight: 400, overflowY: "auto", my: 2 }}>
+      <Paper elevation={3} sx={{ p: 3, mt: 4 }}>
+        <Typography variant="h5" align="center" gutterBottom>
+          Agent Chat
+        </Typography>
+
+        <Box sx={{ maxHeight: 400, overflowY: "auto", my: 2, p: 2 }}>
           {messages.map((msg, idx) => (
             <Box
               key={idx}
-              sx={{ mb: 1, textAlign: msg.role === "user" ? "right" : "left" }}
+              sx={{
+                mb: 2,
+                textAlign: msg.role === "user" ? "right" : "left",
+              }}
             >
               <Typography
-                variant="body2"
+                variant="body1"
                 sx={{
-                  p: 1,
-                  bgcolor: msg.role === "user" ? "primary.light" : "grey.200",
+                  p: 2,
+                  bgcolor: msg.role === "user" ? "primary.main" : "grey.300",
+                  color: msg.role === "user" ? "white" : "text.primary",
                   display: "inline-block",
                   borderRadius: 2,
+                  maxWidth: "80%",
+                  wordBreak: "break-word",
                 }}
               >
                 {msg.content}
               </Typography>
             </Box>
           ))}
-          <div ref={messagesEndRef}/>
+          <div ref={messagesEndRef} />
         </Box>
+
         <TextField
           fullWidth
           label="Your message"
           value={input}
           onChange={(e) => setInput(e.target.value)}
+          sx={{ mb: 2 }}
+          variant="outlined"
+          autoComplete="off"
+          autoCorrect="off"
+          spellCheck="false"
         />
-        <Box mt={2}>
-          <Button variant="contained" fullWidth onClick={handleSend}>
-            Send
-          </Button>
-        </Box>
+
+        <Button
+          variant="contained"
+          fullWidth
+          onClick={handleSend}
+          sx={{
+            padding: "10px",
+            backgroundColor: "primary.main",
+            "&:hover": { backgroundColor: "primary.dark" },
+          }}
+        >
+          Send
+        </Button>
       </Paper>
     </Container>
   );
