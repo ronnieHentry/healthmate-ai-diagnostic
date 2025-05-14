@@ -3,6 +3,7 @@ from fastapi import FastAPI, Request
 from pydantic import BaseModel
 from app.agents.symptom_agent import symptom_intake_agent
 from app.agents.diagnosis_agent import diagnosis_agent
+from app.agents.doctor_agent import doctor_recommendation_agent
 
 app = FastAPI()
 
@@ -29,6 +30,8 @@ class ChatMessage(BaseModel):
     message: str
 class DiagnosisRequest(BaseModel):
     session_id: str
+class DoctorRecommendation(BaseModel):
+    session_id: str
 
 @app.post("/api/intake")
 async def chat_with_symptom_agent(msg: ChatMessage):
@@ -38,6 +41,10 @@ async def chat_with_symptom_agent(msg: ChatMessage):
 @app.post("/api/diagnosis")
 async def generate_diagnosis(req: DiagnosisRequest):
     return diagnosis_agent(req.session_id)
+
+@app.post("/api/doctors")
+async def recommend_doctors(req: DoctorRecommendation):
+    return doctor_recommendation_agent(req.session_id)
 
 @app.get("/ping")
 def ping():

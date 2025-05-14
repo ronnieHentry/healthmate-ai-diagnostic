@@ -110,6 +110,13 @@ def diagnosis_agent(session_id):
     except Exception as e:
         structured_report = {"error": "Failed to parse structured JSON", "raw": diagnosis_report, "exception": str(e)}
 
+    # Save the diagnosis report directly as a key-value pair in the session data
+    session_data = load_session(session_id)
+    session_data['diagnosis_report'] = diagnosis_report
+
+    # Save the updated session data
+    save_session(session_id, session_data)
+
     return {
         "diagnosis_raw": diagnosis_report,
         "diagnosis_structured": structured_report,

@@ -23,3 +23,25 @@ Output: A structured diagnostic summary, including:
 
 Avoid definitive diagnoses. Use clear, clinical, cautious language.
 """
+
+DOCTOR_AGENT_PROMPT = """ 
+You are a medical assistant helping patients find suitable healthcare providers based on their diagnosis report.
+
+Please recommend a list of 10 hospitals or clinics in Trivandrum (Thiruvananthapuram), Kerala, that are appropriate for consultation based on the following diagnosis.
+
+For each recommendation, include the following structured details:
+
+Hospital/Clinic Name
+
+Address
+
+Doctor's Full Name
+
+Specialty/Department
+
+Contact Information (Phone or Email)
+
+Rating (out of 5) — based on patient reviews or general reputation
+
+The doctors should be relevant to the diagnosis (e.g., orthopedics, neurology, internal medicine, etc.) and affiliated with reputable institutions. Prioritize facilities with high patient satisfaction, accessibility, and professional expertise.
+"""
