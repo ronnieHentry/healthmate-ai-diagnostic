@@ -8,15 +8,20 @@ from app.utils.prompt import DOCTOR_AGENT_PROMPT
 
 load_dotenv()
 GROQ_API_KEY = os.getenv("GROQ_API_KEY")
-DATA_FILE = "data/sessions.json"
+DIAGNOSIS_REPORT_FILE = "data/report.json"
 
-def load_session(session_id):
-    if os.path.exists(DATA_FILE):
-        with open(DATA_FILE, "r") as f:
-            data = json.load(f)
-            return data.get(session_id, {})  # Expecting a dict now
+def load_diagnosis_reports():
+    if os.path.exists(DIAGNOSIS_REPORT_FILE):
+        with open(DIAGNOSIS_REPORT_FILE, "r", encoding="utf-8") as f:
+            return json.load(f)
     return {}
 
+def save_diagnosis_report(session_id, report_text):
+    data = load_diagnosis_reports()
+    data[session_id] = report_text
+    with open(DIAGNOSIS_REPORT_FILE, "w", encoding="utf-8") as f:
+        json.dump(data, f, indent=2, ensure_ascii=False)
+        
 def extract_json(text):
     match = re.search(r"\{[\s\S]*\}", text)
     if match:
@@ -34,7 +39,8 @@ def call_groq(messages, model="llama3-70b-8192", temperature=0.7):
             "model": model,
             "messages": messages,
             "temperature": temperature
-        }
+        },
+        verify=False
     )
     response.raise_for_status()
     return response.json()["choices"][0]["message"]["content"]
@@ -68,9 +74,7 @@ INSTRUCTIONS:
         }
 
 def doctor_recommendation_agent(session_id):
-    session_data = load_session(session_id)
-    diagnosis_report = session_data.get("diagnosis_report", None)
-
+    diagnosis_report = load_diagnosis_reports()
     if not diagnosis_report:
         return {
             "reply": "Error: No diagnosis data found.",
@@ -87,19 +91,19 @@ def doctor_recommendation_agent(session_id):
     doctors = call_groq(messages)
 
     # Step 2: Convert to structured JSON
-json_format = {
-  "recommendations": [
-    {
-      "hospital": "",
-      "address": "",
-      "doctor_name": "",
-      "specialty": "",
-      "contact": "",
-      "rating": ""
+    json_format = {
+        "recommendations": [
+            {
+                "hospital": "",
+                "address": "",
+                "doctor_name": "",
+                "specialty": "",
+                "contact": "",
+                "rating": "",
+                "image_url": ""
+            }
+        ]
     }
-  ]
-}
-
 
     structured_response = json_agent(doctors, json_format)
 

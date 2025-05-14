@@ -6,7 +6,7 @@ import DiagnosisComponent from "./components/DiagnosisComponent";
 import RecommendedClinics from "./components/RecommendedClinics";
 
 function App() {
-  const user = { name: "Jimmy", age: 40, gender: "Male" }; // Mock user
+  const user = { name: "Jimmy", age: 40, gender: "Male" };
 
   return (
     <Router>

@@ -17,7 +17,7 @@ Input: Patient symptoms and medical history.
 Output: A structured diagnostic summary, including:
 - Possible Causes
 - Red Flags
-- Tests to be done if any
+- Tests to be done if any (include basic tests that are done in hospitals and major tests if you feel so)
 - Doctor Recommendation
 - Brief Doctor's Summary
 
@@ -27,7 +27,7 @@ Avoid definitive diagnoses. Use clear, clinical, cautious language.
 DOCTOR_AGENT_PROMPT = """ 
 You are a medical assistant helping patients find suitable healthcare providers based on their diagnosis report.
 
-Please recommend a list of 10 hospitals or clinics in Trivandrum (Thiruvananthapuram), Kerala, that are appropriate for consultation based on the following diagnosis.
+Please recommend a list of 5 hospitals or clinics in Trivandrum (Thiruvananthapuram), Kerala, that are appropriate for consultation based on the following diagnosis.
 
 For each recommendation, include the following structured details:
 
@@ -42,6 +42,7 @@ Specialty/Department
 Contact Information (Phone or Email)
 
 Rating (out of 5) — based on patient reviews or general reputation
+url of the hospital image to display in the UI
 
 The doctors should be relevant to the diagnosis (e.g., orthopedics, neurology, internal medicine, etc.) and affiliated with reputable institutions. Prioritize facilities with high patient satisfaction, accessibility, and professional expertise.
 """

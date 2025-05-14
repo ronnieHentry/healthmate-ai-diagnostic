@@ -87,7 +87,7 @@ def symptom_intake_agent(session_id, data):
         "temperature": 0.7
     }
 
-    response = requests.post(url, headers=headers, json=payload)
+    response = requests.post(url, headers=headers, json=payload, verify=False )
     response.raise_for_status()
     reply = response.json()['choices'][0]['message']
 

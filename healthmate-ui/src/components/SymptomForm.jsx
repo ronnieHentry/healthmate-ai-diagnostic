@@ -58,7 +58,7 @@ const SymptomForm = ({ user }) => {
 
   return (
     <Container maxWidth="sm">
-      <Box mt={5} p={3} component={Paper} elevation={3}>
+      <Box mt={2} p={2} component={Paper} elevation={1}>
         <Typography variant="h5" align="center" gutterBottom>
           Symptom Input Form
         </Typography>

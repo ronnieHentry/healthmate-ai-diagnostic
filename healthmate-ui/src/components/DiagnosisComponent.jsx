@@ -29,7 +29,6 @@ const DiagnosisComponent = () => {
 
   useEffect(() => {
     const fetchDiagnosis = async () => {
-      console.log("Fetching diagnosis for session:", sessionId);
       try {
         const res = await axios.post("http://localhost:8000/api/diagnosis", {
           session_id: sessionId,
@@ -46,128 +45,138 @@ const DiagnosisComponent = () => {
     fetchDiagnosis();
   }, []);
 
-  // Navigate to the next step (recommendations page)
   const goToNextPage = () => {
     navigate("/next-step", { state: { sessionId } });
   };
 
   if (loading) {
     return (
-      <Paper sx={{ p: 4, mt: 4 }}>
-        <Typography variant="h6" gutterBottom>
-          Generating your report...
-        </Typography>
-        <Skeleton height={40} />
-        <Skeleton height={20} width="90%" />
-        <Skeleton height={20} width="85%" />
-        <Skeleton height={20} width="60%" sx={{ mb: 2 }} />
-        <Skeleton variant="rectangular" height={120} />
-      </Paper>
+      <Box
+        sx={{
+          height: "100%",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          px: 2,
+        }}
+      >
+        <Paper sx={{ p: 3, width: "100%", maxWidth: "800px" }}>
+          <Typography variant="h6" gutterBottom color="primary">
+            🩺 Generating your report...
+          </Typography>
+          {[...Array(2)].map((_, i) => (
+            <Box key={i} sx={{ mb: 2 }}>
+              <Skeleton height={24} width="40%" />
+              <Skeleton height={18} width="90%" />
+              <Skeleton height={18} width="80%" />
+              <Skeleton height={18} width="70%" />
+              <Skeleton height={18} width="40%" />
+              <Skeleton height={18} width="20%" />
+              <Skeleton height={18} width="60%" />
+              <Skeleton height={18} width="70%" />
+            </Box>
+          ))}
+          <Stack direction="row" spacing={2} sx={{ mt: 2, justifyContent: "flex-end" }}>
+            <Skeleton variant="rectangular" width={120} height={36} />
+            <Skeleton variant="rectangular" width={120} height={36} />
+          </Stack>
+        </Paper>
+      </Box>
     );
   }
 
   if (error || !diagnosisData) {
     return (
-      <Paper sx={{ p: 4, mt: 4 }}>
-        <Alert severity="error">
-          Failed to generate diagnosis. Please try again later.
-        </Alert>
-      </Paper>
+      <Box
+        sx={{
+          height: "calc(100vh - 64px)",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          px: 2,
+        }}
+      >
+        <Paper sx={{ p: 4, width: "100%", maxWidth: "800px" }}>
+          <Alert severity="error">
+            Failed to generate diagnosis. Please try again later.
+          </Alert>
+        </Paper>
+      </Box>
     );
   }
 
   const { diagnosis_structured, diagnosis_raw } = diagnosisData;
 
+  // Define sections dynamically
+  const sections = [
+    { title: "Possible Causes", items: diagnosis_structured?.possible_causes },
+    { title: "Red Flags", items: diagnosis_structured?.red_flags, fallback: "None identified." },
+    { title: "Tests Suggested", items: diagnosis_structured?.tests_suggested },
+    { title: "Doctor Recommendation", content: diagnosis_structured?.doctor_recommendation },
+    { title: "Doctor's Summary", content: diagnosis_structured?.doctor_summary },
+  ];
+
   return (
-    <Paper sx={{ p: 4, mt: 4 }}>
-      <Box ref={reportRef}>
-        <Typography variant="h4" gutterBottom color="primary">
-          🩺 Pre-Diagnosis Report
-        </Typography>
-
-        {diagnosis_structured ? (
-          <>
-            <Section
-              title="Possible Causes"
-              items={diagnosis_structured.possible_causes}
-            />
-            <Section
-              title="Red Flags"
-              items={diagnosis_structured.red_flags}
-              fallback="None identified."
-            />
-            <Section
-              title="Tests Suggested"
-              items={diagnosis_structured.tests_suggested}
-            />
-            <TextSection
-              title="Doctor Recommendation"
-              content={diagnosis_structured.doctor_recommendation}
-            />
-            <TextSection
-              title="Brief Doctor's Summary"
-              content={diagnosis_structured.doctor_summary}
-            />
-          </>
-        ) : (
-          <Typography variant="body1" sx={{ mt: 2, whiteSpace: "pre-wrap" }}>
-            {diagnosis_raw || "No diagnosis content available."}
+    <Box
+      sx={{
+        height: "100%",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        px: 1,
+      }}
+    >
+      <Paper sx={{ p: 2, width: "100%", maxWidth: "800px" }}>
+        <Box ref={reportRef}>
+          <Typography variant="h4" gutterBottom color="primary">
+            🩺 Pre-Diagnosis Report
           </Typography>
-        )}
-      </Box>
 
-      {/* Buttons */}
-      <Stack
-        direction="row"
-        spacing={2}
-        sx={{ mt: 4, justifyContent: "flex-end" }}
-      >
-        <Button
-          variant="outlined"
-          color="primary"
-          onClick={() => downloadPDF(reportRef, sessionId)}
-        >
-          Download PDF
-        </Button>
-        <Button variant="contained" color="primary" onClick={goToNextPage}>
-          Continue
-        </Button>
-      </Stack>
-    </Paper>
+          {/* Map through sections dynamically */}
+          {sections.map((section, index) => (
+            <Section key={index} title={section.title} items={section.items} content={section.content} fallback={section.fallback} />
+          ))}
+        </Box>
+
+        <Stack direction="row" spacing={2} sx={{ mt: 3, justifyContent: "flex-end" }}>
+          <Button variant="outlined" size="small" onClick={() => downloadPDF(reportRef, sessionId)}>
+            Download PDF
+          </Button>
+          <Button variant="contained" size="small" onClick={goToNextPage}>
+            Continue
+          </Button>
+        </Stack>
+      </Paper>
+    </Box>
   );
 };
 
-const Section = ({ title, items, fallback }) => (
-  <Box sx={{ mt: 3 }}>
-    <Typography variant="h6" color="text.secondary">
+// Reusable Section Component
+const Section = ({ title, items, content, fallback }) => (
+  <Box sx={{ mt: 0.5 }}>
+    <Typography variant="subtitle1" color="text.secondary">
       {title}
     </Typography>
-    <Divider sx={{ mb: 1 }} />
-    {items && items.length > 0 ? (
-      <List dense>
-        {items.map((item, i) => (
-          <ListItem key={i} sx={{ pl: 2 }}>
-            <ListItemText primary={`• ${item}`} />
-          </ListItem>
-        ))}
+    <Divider sx={{ my: 0.5 }} />
+    {items ? (
+      <List dense disablePadding>
+        {items.length > 0 ? (
+          items.map((item, i) => (
+            <ListItem key={i} sx={{ pl: 2, py: 0.5 }}>
+              <ListItemText primary={`• ${item}`} primaryTypographyProps={{ variant: "body2" }} />
+            </ListItem>
+          ))
+        ) : (
+          <Typography variant="body2" color="text.secondary" sx={{ pl: 2 }}>
+            {fallback || "None."}
+          </Typography>
+        )}
       </List>
     ) : (
       <Typography variant="body2" color="text.secondary" sx={{ pl: 2 }}>
-        {fallback || "None."}
+        {content || "No additional information available."}
       </Typography>
     )}
-  </Box>
-);
-
-const TextSection = ({ title, content }) => (
-  <Box sx={{ mt: 3 }}>
-    <Typography variant="h6" color="text.secondary">
-      {title}
-    </Typography>
-    <Divider sx={{ mb: 1 }} />
-    <Typography variant="body1" sx={{ whiteSpace: "pre-wrap", pl: 2 }}>
-      {content}
-    </Typography>
   </Box>
 );
 

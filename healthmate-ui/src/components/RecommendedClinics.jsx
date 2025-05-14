@@ -7,13 +7,10 @@ import {
   ListItemText,
   Button,
   Box,
-  CircularProgress,
-  Alert,
   Divider,
-  Rating,
+  Skeleton,
 } from "@mui/material";
 import { useLocation, useNavigate } from "react-router-dom";
-import axios from "axios";
 
 const RecommendedClinics = () => {
   const location = useLocation();
@@ -22,27 +19,20 @@ const RecommendedClinics = () => {
 
   const [clinics, setClinics] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState("");
 
   useEffect(() => {
     const fetchClinics = async () => {
       try {
-        const response = await axios.post("http://localhost:8000/api/doctors", {
-          session_id: sessionId,
+        const response = await fetch("http://localhost:8000/api/doctors", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ session_id: sessionId }),
         });
-
-        if (response.data.doctor_recommendation_structured) {
-          const structured = response.data.doctor_recommendation_structured;
-
-          // If it's a list, use directly. If a single object, wrap it.
-          const list = Array.isArray(structured) ? structured : [structured];
-          setClinics(list);
-        } else {
-          setError("No structured data returned.");
-        }
-      } catch (err) {
-        console.error("Failed to fetch recommended clinics:", err);
-        setError("Failed to load recommended clinics.");
+        const data = await response.json();
+        const recommendations = data?.doctor_recommendation_structured?.recommendations || [];
+        setClinics(recommendations);
+      } catch (error) {
+        console.error("Failed to load clinics:", error);
       } finally {
         setLoading(false);
       }
@@ -51,78 +41,87 @@ const RecommendedClinics = () => {
     fetchClinics();
   }, [sessionId]);
 
+  const handleBookNow = (clinic) => {
+    alert(`Booking started for ${clinic.hospital} / ${clinic.doctor_name}`);
+  };
+
   const goBackToDiagnosis = () => {
     navigate("/diagnosis", { state: { sessionId } });
   };
 
+  const renderSkeletons = () => {
+    return Array.from({ length: 3 }).map((_, index) => (
+      <React.Fragment key={index}>
+        <ListItem alignItems="flex-start" sx={{ flexDirection: "column", alignItems: "start" }}>
+          <Skeleton variant="text" width="60%" height={24} />
+          <Skeleton variant="text" width="40%" />
+          <Skeleton variant="text" width="80%" />
+          <Skeleton variant="text" width="50%" />
+          <Skeleton variant="rectangular" width={100} height={36} sx={{ mt: 1, borderRadius: 1 }} />
+        </ListItem>
+        <Divider sx={{ my: 2 }} />
+      </React.Fragment>
+    ));
+  };
+
   return (
-    <Paper sx={{ p: 4, mt: 4 }}>
-      <Typography variant="h4" gutterBottom>
-        🏥 Recommended Hospitals & Clinics
+    <Paper elevation={2} sx={{ p: 4, mt: 4, backgroundColor: "#fff" }}>
+      <Typography variant="h5" gutterBottom>
+        Recommended Hospitals & Clinics
       </Typography>
 
-      {loading && (
-        <Box sx={{ display: "flex", justifyContent: "center", my: 4 }}>
-          <CircularProgress />
-        </Box>
-      )}
-
-      {error && <Alert severity="error">{error}</Alert>}
-
-      {!loading && !error && clinics.length > 0 ? (
+      {loading ? (
+        <List>{renderSkeletons()}</List>
+      ) : clinics.length > 0 ? (
         <List>
           {clinics.map((clinic, index) => (
             <React.Fragment key={index}>
-              <ListItem alignItems="flex-start">
+              <ListItem alignItems="flex-start" sx={{ flexDirection: "column", alignItems: "start" }}>
                 <ListItemText
                   primary={
-                    <Typography variant="h6">
-                      {clinic.hospital} – {clinic.doctor_name}
-                    </Typography>
+                    <Typography variant="h7">{clinic.hospital}</Typography>
                   }
                   secondary={
                     <>
-                      <Typography variant="body2" color="text.secondary">
-                        Specialty: {clinic.specialty}
+                      <Typography variant="subtitle1">
+                        {clinic.doctor_name} — {clinic.specialty}
                       </Typography>
                       <Typography variant="body2" color="text.secondary">
-                        Address: {clinic.address}
+                        {clinic.address}
                       </Typography>
                       <Typography variant="body2" color="text.secondary">
                         Contact: {clinic.contact}
                       </Typography>
-                      <Box
-                        sx={{ display: "flex", alignItems: "center", mt: 1 }}
-                      >
-                        <Rating
-                          value={parseFloat(clinic.rating)}
-                          precision={0.1}
-                          readOnly
-                        />
-                        <Typography variant="body2" sx={{ ml: 1 }}>
-                          {clinic.rating}
-                        </Typography>
+                      <Typography variant="body2" color="text.secondary">
+                        Rating: {clinic.rating}
+                      </Typography>
+                      <Box sx={{ mt: 1 }}>
+                        <Button
+                          size="small"
+                          variant="contained"
+                          color="primary"
+                          onClick={() => handleBookNow(clinic)}
+                        >
+                          Book Now
+                        </Button>
                       </Box>
                     </>
                   }
                 />
               </ListItem>
-              {index < clinics.length - 1 && <Divider />}
+              {index < clinics.length - 1 && <Divider sx={{ my: 1 }} />}
             </React.Fragment>
           ))}
         </List>
       ) : (
-        !loading &&
-        !error && (
-          <Typography variant="body1" color="text.secondary">
-            No recommendations available at the moment.
-          </Typography>
-        )
+        <Typography variant="body1" color="text.secondary">
+          No recommendations available at the moment. Please try again later.
+        </Typography>
       )}
 
       <Box sx={{ mt: 4 }}>
-        <Button variant="contained" color="primary" onClick={goBackToDiagnosis}>
-          ← Back to Diagnosis
+        <Button variant="outlined" color="primary" onClick={goBackToDiagnosis}>
+          Back to Diagnosis
         </Button>
       </Box>
     </Paper>

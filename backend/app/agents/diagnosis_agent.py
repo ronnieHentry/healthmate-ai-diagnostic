@@ -10,6 +10,7 @@ load_dotenv()
 GROQ_API_KEY = os.getenv("GROQ_API_KEY")
 
 DATA_FILE = "data/sessions.json"
+DIAGNOSIS_REPORT_FILE = "data/report.json"
 
 def load_session(session_id):
     if os.path.exists(DATA_FILE):
@@ -17,6 +18,30 @@ def load_session(session_id):
             data = json.load(f)
             return data.get(session_id, [])
     return []
+
+def save_session(session_id, messages):
+    if os.path.exists(DATA_FILE):
+        with open(DATA_FILE, "r") as f:
+            data = json.load(f)
+    else:
+        data = {}
+    
+    data[session_id] = messages
+
+    with open(DATA_FILE, "w") as f:
+        json.dump(data, f, indent=2)
+
+def load_diagnosis_reports():
+    if os.path.exists(DIAGNOSIS_REPORT_FILE):
+        with open(DIAGNOSIS_REPORT_FILE, "r", encoding="utf-8") as f:
+            return json.load(f)
+    return {}
+
+def save_diagnosis_report(session_id, report_text):
+    data = load_diagnosis_reports()
+    data[session_id] = report_text
+    with open(DIAGNOSIS_REPORT_FILE, "w", encoding="utf-8") as f:
+        json.dump(data, f, indent=2, ensure_ascii=False)
 
 def extract_json(text):
     # Remove triple backtick blocks like ```json ... ```
@@ -36,7 +61,8 @@ def call_groq(messages, model="llama3-70b-8192", temperature=0.7):
             "model": model,
             "messages": messages,
             "temperature": temperature
-        }
+        },
+        verify=False
     )
     response.raise_for_status()
     return response.json()["choices"][0]["message"]["content"]
@@ -110,12 +136,8 @@ def diagnosis_agent(session_id):
     except Exception as e:
         structured_report = {"error": "Failed to parse structured JSON", "raw": diagnosis_report, "exception": str(e)}
 
-    # Save the diagnosis report directly as a key-value pair in the session data
-    session_data = load_session(session_id)
-    session_data['diagnosis_report'] = diagnosis_report
-
-    # Save the updated session data
-    save_session(session_id, session_data)
+    save_diagnosis_report(session_id, diagnosis_report)
+    save_session(session_id, messages)
 
     return {
         "diagnosis_raw": diagnosis_report,
