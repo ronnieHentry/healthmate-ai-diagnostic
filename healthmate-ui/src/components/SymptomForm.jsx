@@ -31,7 +31,8 @@ const SymptomForm = ({ user }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const sessionId = `${user.name}-${Date.now()}`;
+    const formattedName = user.name.toLowerCase().replace(/\s+/g, '_');
+    const sessionId = `${formattedName}-${Date.now()}`;
     const message = `
       Name: ${formData.name}
       Age: ${formData.age}

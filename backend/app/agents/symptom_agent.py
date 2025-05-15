@@ -37,10 +37,23 @@ def load_session(session_id):
             return data.get(session_id, [])
     return []
 
-def get_medical_history(user_id):
-    with open("data/history.json") as f:
-        db = json.load(f)
-    return db.get(user_id.lower().replace(" ", "_"), {})
+def load_medical_history(patient_name):
+    file_path = "data/medical_histories.json"
+    
+    if os.path.exists(file_path):
+        with open(file_path, 'r') as f:
+            all_patient_data = json.load(f)
+        
+        # Convert the patient name to the appropriate format (firstname_lastname)
+        patient_key = patient_name.lower().replace(" ", "_")
+        
+        # Check if the patient exists in the data
+        if patient_key in all_patient_data:
+            return all_patient_data[patient_key]
+        else:
+            raise ValueError(f"Medical history for {patient_name} not found.")
+    else:
+        raise FileNotFoundError("Medical histories file not found.")
 
 
 def save_session(session_id, messages):
@@ -58,11 +71,28 @@ def save_session(session_id, messages):
 def symptom_intake_agent(session_id, data):
     messages = load_session(session_id)
 
+    print(data)
     if not messages:
         # Start with the system role message
-        # fetch the medical history of the patient from the database...
         # append the medical history to the messages for the LLM to have some context
-        messages.append({"role": "system", "content": SYMPTOM_AGENT_SYSTEM_PROMPT})
+        
+        patient_name = "Jimmy James"  # You can dynamically pull this from the data
+        try:
+            medical_history = load_medical_history(patient_name)
+        except (FileNotFoundError, ValueError) as e:
+            return {"reply": str(e), "status": "error", "timestamp": datetime.now().isoformat(), session_id: session_id}
+
+        # Add the medical history to the system prompt
+        medical_history_str = json.dumps(medical_history, indent=4)  # Convert to string
+        
+        system_prompt = f"""
+        The patient is {patient_name}. Here is their medical history:
+        {medical_history_str}
+
+        {SYMPTOM_AGENT_SYSTEM_PROMPT}
+        """
+        
+        messages.append({"role": "system", "content": system_prompt})
 
     user_input = data.get("message", "").strip()
 
@@ -87,7 +117,7 @@ def symptom_intake_agent(session_id, data):
         "temperature": 0.7
     }
 
-    response = requests.post(url, headers=headers, json=payload, verify=False )
+    response = requests.post(url, headers=headers, json=payload, verify=False)
     response.raise_for_status()
     reply = response.json()['choices'][0]['message']
 

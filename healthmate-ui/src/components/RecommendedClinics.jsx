@@ -39,7 +39,7 @@ const RecommendedClinics = () => {
     };
 
     fetchClinics();
-  }, [sessionId]);
+  }, []);
 
   const handleBookNow = (clinic) => {
     alert(`Booking started for ${clinic.hospital} / ${clinic.doctor_name}`);

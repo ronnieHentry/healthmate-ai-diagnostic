@@ -1,0 +1,82 @@
+{
+  "jimmy_james": {
+    "past_illnesses": "Asthma, Seasonal allergies",
+    "medications": "Albuterol Inhaler, Loratadine (Claritin)",
+    "allergies": "Peanuts, Penicillin",
+    "chronic_conditions": "Asthma, Hypertension",
+    "family_history": "Father: Hypertension, Heart disease; Mother: Breast cancer",
+    "recent_test_results": "Blood pressure: 130/85 mmHg; Cholesterol: 210 mg/dL"
+  },
+  "susan_smith": {
+    "past_illnesses": "Diabetes, Hypertension",
+    "medications": "Metformin, Lisinopril",
+    "allergies": "Aspirin",
+    "chronic_conditions": "Diabetes, Hypertension",
+    "family_history": "Father: Stroke, Diabetes; Mother: Breast cancer",
+    "recent_test_results": "Blood sugar: 180 mg/dL; Cholesterol: 250 mg/dL"
+  },
+  "john_doe": {
+    "past_illnesses": "Migraine",
+    "medications": "Sumatriptan",
+    "allergies": "Shellfish",
+    "chronic_conditions": "Migraine",
+    "family_history": "Father: Heart disease; Mother: Osteoarthritis",
+    "recent_test_results": "Blood pressure: 120/80 mmHg; Cholesterol: 220 mg/dL"
+  },
+  "jane_doe": {
+    "past_illnesses": "Hypothyroidism, Allergies",
+    "medications": "Levothyroxine, Cetirizine",
+    "allergies": "Penicillin",
+    "chronic_conditions": "Hypothyroidism",
+    "family_history": "Father: Diabetes; Mother: Osteoporosis",
+    "recent_test_results": "TSH: 3.5 mIU/L; Cholesterol: 190 mg/dL"
+  },
+  "robert_williams": {
+    "past_illnesses": "Gout, Hypertension",
+    "medications": "Allopurinol, Amlodipine",
+    "allergies": "Pollen",
+    "chronic_conditions": "Gout, Hypertension",
+    "family_history": "Father: Hypertension, Stroke; Mother: Osteoporosis",
+    "recent_test_results": "Uric acid: 8.5 mg/dL; Blood pressure: 140/90 mmHg"
+  },
+  "emily_brown": {
+    "past_illnesses": "Anxiety, Asthma",
+    "medications": "Albuterol, Fluoxetine",
+    "allergies": "Dairy",
+    "chronic_conditions": "Anxiety, Asthma",
+    "family_history": "Father: Anxiety, Depression; Mother: Asthma",
+    "recent_test_results": "Heart rate: 72 bpm; Cholesterol: 180 mg/dL"
+  },
+  "michael_johnson": {
+    "past_illnesses": "Celiac disease, Chronic fatigue syndrome",
+    "medications": "Gluten-free diet, Vitamin D supplements",
+    "allergies": "Gluten",
+    "chronic_conditions": "Celiac disease",
+    "family_history": "Father: Crohn's disease; Mother: Autoimmune diseases",
+    "recent_test_results": "Vitamin D: 25 ng/mL; Cholesterol: 210 mg/dL"
+  },
+  "linda_martin": {
+    "past_illnesses": "Chronic pain, Osteoarthritis",
+    "medications": "Ibuprofen, Meloxicam",
+    "allergies": "Latex",
+    "chronic_conditions": "Osteoarthritis, Chronic pain",
+    "family_history": "Father: Osteoarthritis, Prostate cancer; Mother: Rheumatoid arthritis",
+    "recent_test_results": "Joint range of motion: Decreased in knees and hips; Cholesterol: 230 mg/dL"
+  },
+  "david_moore": {
+    "past_illnesses": "Stroke, High cholesterol",
+    "medications": "Aspirin, Statins",
+    "allergies": "None",
+    "chronic_conditions": "High cholesterol",
+    "family_history": "Father: Stroke, Hypertension; Mother: Cancer",
+    "recent_test_results": "Cholesterol: 280 mg/dL; Blood pressure: 135/85 mmHg"
+  },
+  "nancy_taylor": {
+    "past_illnesses": "Depression, Hypothyroidism",
+    "medications": "Sertraline, Levothyroxine",
+    "allergies": "None",
+    "chronic_conditions": "Depression, Hypothyroidism",
+    "family_history": "Father: Parkinson's disease; Mother: Breast cancer",
+    "recent_test_results": "TSH: 4.2 mIU/L; Cholesterol: 200 mg/dL"
+  }
+}

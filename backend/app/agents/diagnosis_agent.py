@@ -11,6 +11,7 @@ GROQ_API_KEY = os.getenv("GROQ_API_KEY")
 
 DATA_FILE = "data/sessions.json"
 DIAGNOSIS_REPORT_FILE = "data/report.json"
+MEDICAL_HISTORY_FILE = "data/medical_histories.json"
 
 def load_session(session_id):
     if os.path.exists(DATA_FILE):
@@ -42,6 +43,24 @@ def save_diagnosis_report(session_id, report_text):
     data[session_id] = report_text
     with open(DIAGNOSIS_REPORT_FILE, "w", encoding="utf-8") as f:
         json.dump(data, f, indent=2, ensure_ascii=False)
+        
+def load_medical_history(patient_name):
+    file_path = MEDICAL_HISTORY_FILE
+    
+    if os.path.exists(file_path):
+        with open(file_path, "r") as f:
+            all_patient_data = json.load(f)
+        
+        patient_key = patient_name
+        
+        # Check if the patient exists in the data
+        if patient_key in all_patient_data:
+            return all_patient_data[patient_key]
+        else:
+            raise ValueError(f"Medical history for {patient_name} not found.")
+    else:
+        raise FileNotFoundError("Medical histories file not found.")
+
 
 def extract_json(text):
     # Remove triple backtick blocks like ```json ... ```
@@ -95,6 +114,7 @@ INSTRUCTIONS:
             "exception": str(e)
         }
 
+# Diagnosis agent that generates the diagnosis report
 def diagnosis_agent(session_id):
     messages = load_session(session_id)
     if not messages:
@@ -104,22 +124,56 @@ def diagnosis_agent(session_id):
             "timestamp": datetime.now().isoformat()
         }
 
+    # Extract the patient's name from the session ID (this assumes it's part of the session key)
+    patient_name_match = re.match(r"([a-zA-Z]+_[a-zA-Z]+)-\d+", session_id)
+    if not patient_name_match:
+        return {
+            "reply": "Error: Could not extract patient name from session ID.",
+            "status": "error",
+            "timestamp": datetime.now().isoformat()
+        }
+
+    # Extract patient name (e.g., "jimmy_james") from session ID
+    patient_name = patient_name_match.group(1)
+
+    try:
+        # Load the medical history for the patient
+        medical_history = load_medical_history(patient_name)
+    except (FileNotFoundError, ValueError) as e:
+        return {
+            "reply": str(e),
+            "status": "error",
+            "timestamp": datetime.now().isoformat(),
+            "session_id": session_id
+        }
+
+    # If the last message from assistant includes "All clear", prompt the user to generate a report
     if messages[-1]["role"] == "assistant" and "All clear" in messages[-1]["content"]:
         messages.append({
             "role": "user",
             "content": "Please now generate the preliminary health summary report based on the information we've discussed."
         })
 
+    # Filter out system messages
     non_system_messages = [msg for msg in messages if msg["role"] != "system"]
+
+    # Create a system prompt with medical history context
+    medical_history_str = json.dumps(medical_history, indent=4)  # Convert medical history to string
 
     diagnosis_prompt = {
         "role": "system",
-        "content": DIAGNOSIS_AGENT_PROMPT
+        "content": f"""
+        The patient is {patient_name}. Here is their medical history:
+        {medical_history_str}
+
+        {DIAGNOSIS_AGENT_PROMPT}
+        """
     }
 
+    # Add diagnosis prompt to the messages
     new_messages = [diagnosis_prompt] + non_system_messages
 
-    # Step 1: Get raw diagnosis report
+    # Step 1: Get raw diagnosis report from Groq API
     diagnosis_report = call_groq(new_messages)
 
     # Step 2: Convert to structured JSON using json_agent
@@ -136,6 +190,7 @@ def diagnosis_agent(session_id):
     except Exception as e:
         structured_report = {"error": "Failed to parse structured JSON", "raw": diagnosis_report, "exception": str(e)}
 
+    # Save the diagnosis report
     save_diagnosis_report(session_id, diagnosis_report)
     save_session(session_id, messages)
 

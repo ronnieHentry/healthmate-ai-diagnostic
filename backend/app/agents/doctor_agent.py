@@ -100,7 +100,6 @@ def doctor_recommendation_agent(session_id):
                 "specialty": "",
                 "contact": "",
                 "rating": "",
-                "image_url": ""
             }
         ]
     }
