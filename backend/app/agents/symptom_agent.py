@@ -1,4 +1,5 @@
 import os
+import re
 import json
 from datetime import datetime
 import requests
@@ -67,6 +68,17 @@ def save_session(session_id, messages):
 
     with open(DATA_FILE, "w") as f:
         json.dump(data, f, indent=2)
+        
+def extract_name(data):
+    message = data['message']  # Get the message from the dictionary
+    
+    # Use regular expression to find the name after "Name: " and before the first newline
+    match = re.search(r"Name:\s*(.*?)(\n|$)", message)
+    
+    if match:
+        return match.group(1).strip()  # Return the name, stripping any extra spaces
+    else:
+        return None  # Return None if no match is found
 
 def symptom_intake_agent(session_id, data):
     messages = load_session(session_id)
@@ -76,7 +88,7 @@ def symptom_intake_agent(session_id, data):
         # Start with the system role message
         # append the medical history to the messages for the LLM to have some context
         
-        patient_name = "Jimmy James"  # You can dynamically pull this from the data
+        patient_name = extract_name(data)  # You can dynamically pull this from the data
         try:
             medical_history = load_medical_history(patient_name)
         except (FileNotFoundError, ValueError) as e:

@@ -24,6 +24,7 @@ const SymptomForm = ({ user }) => {
 
   const [report, setReport] = useState(null);
 
+  // Handle changes for form fields
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
@@ -31,7 +32,7 @@ const SymptomForm = ({ user }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const formattedName = user.name.toLowerCase().replace(/\s+/g, '_');
+    const formattedName = formData.name.toLowerCase().replace(/\s+/g, '_');
     const sessionId = `${formattedName}-${Date.now()}`;
     const message = `
       Name: ${formData.name}
@@ -70,7 +71,7 @@ const SymptomForm = ({ user }) => {
             name="name"
             label="Name"
             value={formData.name}
-            disabled
+            onChange={handleChange} // Added onChange for name field
             variant="outlined"
           />
           <TextField
@@ -79,7 +80,7 @@ const SymptomForm = ({ user }) => {
             name="age"
             label="Age"
             value={formData.age}
-            disabled
+            onChange={handleChange} // Added onChange for age field
             variant="outlined"
           />
           <TextField
@@ -89,7 +90,7 @@ const SymptomForm = ({ user }) => {
             name="gender"
             label="Gender"
             value={formData.gender}
-            disabled
+            onChange={handleChange} // Added onChange for gender field
             variant="outlined"
           >
             <MenuItem value="Male">Male</MenuItem>
