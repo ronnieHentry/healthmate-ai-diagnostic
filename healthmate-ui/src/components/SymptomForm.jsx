@@ -18,8 +18,8 @@ const SymptomForm = ({ user }) => {
     name: user.name,
     age: user.age,
     gender: user.gender,
-    symptoms: "Breathing difficulty",
-    duration: "4 days",
+    symptoms: "",
+    duration: "",
   });
 
   const [report, setReport] = useState(null);
@@ -73,6 +73,9 @@ const SymptomForm = ({ user }) => {
             value={formData.name}
             onChange={handleChange} // Added onChange for name field
             variant="outlined"
+            autoComplete="off"
+            autoCorrect="off"
+            spellCheck="false"
           />
           <TextField
             fullWidth
@@ -82,6 +85,9 @@ const SymptomForm = ({ user }) => {
             value={formData.age}
             onChange={handleChange} // Added onChange for age field
             variant="outlined"
+            autoComplete="off"
+            autoCorrect="off"
+            spellCheck="false"
           />
           <TextField
             fullWidth
@@ -92,6 +98,9 @@ const SymptomForm = ({ user }) => {
             value={formData.gender}
             onChange={handleChange} // Added onChange for gender field
             variant="outlined"
+            autoComplete="off"
+            autoCorrect="off"
+            spellCheck="false"
           >
             <MenuItem value="Male">Male</MenuItem>
             <MenuItem value="Female">Female</MenuItem>
@@ -108,6 +117,9 @@ const SymptomForm = ({ user }) => {
             onChange={handleChange}
             required
             variant="outlined"
+            autoComplete="off"
+            autoCorrect="off"
+            spellCheck="false"
           />
           <TextField
             fullWidth
@@ -118,6 +130,9 @@ const SymptomForm = ({ user }) => {
             onChange={handleChange}
             required
             variant="outlined"
+            autoComplete="off"
+            autoCorrect="off"
+            spellCheck="false"
           />
           <Box mt={3}>
             <Button variant="contained" color="primary" type="submit" fullWidth>
