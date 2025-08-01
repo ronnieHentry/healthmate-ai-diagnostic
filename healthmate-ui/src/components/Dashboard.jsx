@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 import './Dashboard.css';
+import Modal from './Modal'; 
 
 const Dashboard = () => {
   const [showModal, setShowModal] = useState(false);
+  const [modalType, setModalType] = useState(''); // 'form' or 'details'
+  const [detailText, setDetailText] = useState('');
   const [formData, setFormData] = useState({
     name: '',
     age: '',
@@ -11,11 +14,21 @@ const Dashboard = () => {
     duration: ''
   });
 
-  const handleChange = (e) => {
+  const handleStartSymptomCheck = () => {
+  setModalType('form');
+  setShowModal(true);
+};
+
+const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
+const handleViewDetails = (text) => {
+  setDetailText(text);
+  setModalType('details');
+  setShowModal(true);
+};
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log('Submitted:', formData);
@@ -42,12 +55,9 @@ const Dashboard = () => {
         <button className="complete-profile-btn">Complete Profile</button>
       </div>
 
-       <button
-        className="start-check-btn"
-        onClick={() => setShowModal(true)}
-      >
-        + Start New Symptom Check
-      </button>
+       <button className="start-check-btn" onClick={handleStartSymptomCheck}>
+          + Start New Symptom Check
+       </button>
 
       <section className="history-section">
         <h2>Assistant History</h2>
@@ -55,17 +65,23 @@ const Dashboard = () => {
           <div className="card">
             <p>Jul 21</p>
             <h3>Cold & Flu</h3>
-            <a href="#">View Details</a>
+            <button onClick={() => handleViewDetails('Details about Cold & Flu')}>
+            View Details
+            </button>
           </div>
           <div className="card">
             <p>Jul 10</p>
             <h3>Headache</h3>
-            <a href="#">View Details</a>
+            <button onClick={() => handleViewDetails('Details about Headache')}>
+            View Details
+            </button>
           </div>
           <div className="card">
             <p>Jun 26</p>
             <h3>Back Pain</h3>
-            <a href="#">View Details</a>
+            <button onClick={() => handleViewDetails('Details about Back Pain')}>
+            View Details
+            </button>
           </div>
         </div>
       </section>
@@ -103,61 +119,32 @@ const Dashboard = () => {
         </div>
       </section>
     </div>
-      {showModal && (
-        <div className="modal-overlay">
-          <div className="modal-content">
-            <h2>Symptom Input Form</h2>
+      <Modal
+          isOpen={showModal}
+          onClose={() => setShowModal(false)}
+          title={modalType === 'form' ? 'Symptom Input Form' : 'Details'}
+        >
+          {modalType === 'form' ? (
             <form className="symptom-form" onSubmit={handleSubmit}>
-              <input
-                type="text"
-                name="name"
-                placeholder="Name"
-                value={formData.name}
-                onChange={handleChange}
-                required
-              />
-              <input
-                type="number"
-                name="age"
-                placeholder="Age"
-                value={formData.age}
-                onChange={handleChange}
-                required
-              />
-              <select
-                name="gender"
-                value={formData.gender}
-                onChange={handleChange}
-                required
-              >
+              <input name="name" placeholder="Name" value={formData.name} onChange={handleChange} required />
+              <input name="age" type="number" placeholder="Age" value={formData.age} onChange={handleChange} required />
+              <select name="gender" value={formData.gender} onChange={handleChange} required>
                 <option value="">Gender</option>
                 <option value="male">Male</option>
                 <option value="female">Female</option>
                 <option value="other">Other</option>
               </select>
-              <textarea
-                name="symptoms"
-                placeholder="Describe your symptoms *"
-                rows="3"
-                value={formData.symptoms}
-                onChange={handleChange}
-                required
-              />
-              <input
-                type="text"
-                name="duration"
-                placeholder="Duration (e.g. 3 days) *"
-                value={formData.duration}
-                onChange={handleChange}
-                required
-              />
+              <textarea name="symptoms" placeholder="Describe your symptoms *" value={formData.symptoms} onChange={handleChange} required />
+              <input name="duration" placeholder="Duration (e.g. 3 days) *" value={formData.duration} onChange={handleChange} required />
               <button type="submit" className="submit-btn">Submit</button>
             </form>
-            <button className="close-btn" onClick={() => setShowModal(false)}>Close</button>
-          </div>
-        </div>
-      )}
-    </div>
+          ) : (
+            <p style={{ fontSize: '16px', lineHeight: '1.5', color: '#333' }}>
+              {detailText}
+            </p>
+          )}
+        </Modal>
+      </div>
   );
 };
 
