@@ -1,0 +1,171 @@
+    body {
+  font-family: Arial, sans-serif;
+  background: #f9fbfc;
+  margin: 0;
+  padding: 0;
+}
+
+.dashboard-container {
+  max-width: 1000px;
+  margin-left: 17em;
+  padding: 20px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-weight: bold;
+  font-size: 24px;
+}
+
+.nav-links a {
+  margin: 0 10px;
+  text-decoration: none;
+  color: #333;
+}
+
+.profile-pic {
+  display: inline-block;
+  margin-left: 10px;
+  font-weight: bold;
+}
+
+.profile-completion {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.complete-profile-btn {
+  background-color: white;
+  border: 1px solid #ccc;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.start-check-btn {
+  width: 100%;
+  background-color: #1a73e8;
+  color: white;
+  padding: 15px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  margin: 20px 0;
+  cursor: pointer;
+}
+
+section {
+  margin-bottom: 30px;
+}
+
+.cards-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.card {
+  background: white;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  flex: 1;
+  min-width: 200px;
+}
+
+.card.wide {
+  flex: 2;
+}
+
+.card h3 {
+  margin: 8px 0;
+}
+
+.card a {
+  color: #1a73e8;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.card span.pending {
+  background: #ffcc00;
+  padding: 3px 8px;
+  border-radius: 12px;
+  font-size: 12px;
+  display: inline-block;
+  margin-top: 5px;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+.modal-content {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 500px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.modal-content h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.symptom-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.symptom-form input,
+.symptom-form select,
+.symptom-form textarea {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+.submit-btn {
+  background-color: #1a73e8;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+  background-color: #1663c7;
+}
+
+.close-btn {
+  margin-top: 15px;
+  margin-left: 15em;
+  background-color: #eee;
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+}

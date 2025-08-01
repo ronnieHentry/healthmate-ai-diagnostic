@@ -4,6 +4,7 @@ import SymptomForm from "./components/SymptomForm";
 import Chat from "./components/Chat";
 import DiagnosisComponent from "./components/DiagnosisComponent";
 import RecommendedClinics from "./components/RecommendedClinics";
+import Dashboard from "./components/Dashboard";
 
 function App() {
   const user = { name: "", age: "", gender: "" };
@@ -11,7 +12,8 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<SymptomForm user={user} />} />
+        <Route path="/" element={<Dashboard />} />
+        {/* <Route path="/" element={<SymptomForm user={user} />} /> */}
         <Route path="/chat" element={<Chat />} />
         <Route path="/diagnosis" element={<DiagnosisComponent />} />
         <Route path="/next-step" element={<RecommendedClinics />} />
