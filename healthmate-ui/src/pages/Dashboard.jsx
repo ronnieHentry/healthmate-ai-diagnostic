@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './Dashboard.css';
 import Modal from '../components/Modal/Modal';
-import SymptomForm from '../components/SymptomForm';
+import SymptomForm from '../components/SymptomForm2';
 import Header from '../components/Header';
 import ProfileCompletion from '../components/ProfileCompletion';
 import SymptomHistory from '../components/SymptomHistory';
