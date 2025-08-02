@@ -1,16 +1,79 @@
+.history-section {
+  margin-bottom: 32px;
+  border: 1px solid #e3e8ee;
+  border-radius: 14px;
+  background: #fafdff;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.02);
+  padding: 18px 0 8px 0;
+}
+.history-title {
+  font-size: 1.5rem;
+  margin-bottom: 18px;
+  color: #2a3b4c;
+  font-weight: 600;
+  padding-left: 32px;
+  border-bottom: 1px solid #e3e8ee;
+  padding-bottom: 10px;
+  margin-top: 0;
+  margin-right: 32px;
+  margin-left: 0;
+}
 .cards-row {
   display: flex;
   flex-wrap: wrap;
-  gap: 15px;
+  gap: 0;
+  border-radius: 0 0 12px 12px;
+  overflow: hidden;
+  box-shadow: none;
+  border-top: none;
 }
-.card {
-  background: white;
-  padding: 15px;
-  border-radius: 10px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-  flex: 1;
-  min-width: 200px;
+.card.card-history {
+  background: linear-gradient(135deg, #e3eafc 0%, #f9fbfc 100%);
+  padding: 22px 20px 18px 20px;
+  border-radius: 0;
+  box-shadow: none;
+  flex: 1 1 240px;
+  min-width: 240px;
+  max-width: 320px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  transition: box-shadow 0.2s;
+  border-right: 1px solid #e3e8ee;
+  border-bottom: 1px solid #e3e8ee;
 }
-.card h3 {
-  margin: 8px 0;
+.card.card-history:last-child {
+  border-right: none;
+}
+.card.card-history:hover {
+  box-shadow: 0 8px 24px rgba(0,0,0,0.13);
+}
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 6px;
+}
+.card-icon {
+  font-size: 1.7rem;
+}
+.card-date {
+  color: #6b7a8f;
+  font-size: 0.98rem;
+  margin-bottom: 18px;
+}
+.view-details-btn {
+  background: #3b82f6;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 7px 18px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  margin-top: auto;
+  transition: background 0.18s;
+}
+.view-details-btn:hover {
+  background: #2563eb;
 }

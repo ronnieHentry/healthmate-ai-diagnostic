@@ -2,9 +2,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 10%;
-}
-.header {
+  height: 64px;
   position: fixed;
   top: 0;
   left: 0;

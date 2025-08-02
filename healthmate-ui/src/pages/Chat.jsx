@@ -1,12 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
-import {
-  Container,
-  TextField,
-  Button,
-  Paper,
-  Typography,
-  Box,
-} from "@mui/material";
+import { TextField, Button } from "@mui/material";
+import "./Chat.css";
 import { useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
 
@@ -57,66 +51,44 @@ const Chat = () => {
   };
 
   return (
-    <Container maxWidth="sm">
-      <Paper elevation={3} sx={{ p: 3, mt: 4 }}>
-        <Typography variant="h5" align="center" gutterBottom>
-          Agent Chat
-        </Typography>
-
-        <Box sx={{ maxHeight: 400, overflowY: "auto", my: 2, p: 2 }}>
+    <div className="chat-container">
+      <div className="chat-paper">
+        <div className="chat-title">Agent Chat</div>
+        <div className="chat-messages">
           {messages.map((msg, idx) => (
-            <Box
+            <div
               key={idx}
-              sx={{
-                mb: 2,
-                textAlign: msg.role === "user" ? "right" : "left",
-              }}
+              className={`chat-message-row ${msg.role}`}
             >
-              <Typography
-                variant="body1"
-                sx={{
-                  p: 2,
-                  bgcolor: msg.role === "user" ? "primary.main" : "grey.300",
-                  color: msg.role === "user" ? "white" : "text.primary",
-                  display: "inline-block",
-                  borderRadius: 2,
-                  maxWidth: "80%",
-                  wordBreak: "break-word",
-                }}
-              >
+              <div className="chat-bubble">
                 {msg.content}
-              </Typography>
-            </Box>
+              </div>
+            </div>
           ))}
           <div ref={messagesEndRef} />
-        </Box>
-
-        <TextField
-          fullWidth
-          label="Your message"
-          value={input}
-          onChange={(e) => setInput(e.target.value)}
-          sx={{ mb: 2 }}
-          variant="outlined"
-          autoComplete="off"
-          autoCorrect="off"
-          spellCheck="false"
-        />
-
-        <Button
-          variant="contained"
-          fullWidth
-          onClick={handleSend}
-          sx={{
-            padding: "10px",
-            backgroundColor: "primary.main",
-            "&:hover": { backgroundColor: "primary.dark" },
-          }}
-        >
-          Send
-        </Button>
-      </Paper>
-    </Container>
+        </div>
+        <div className="chat-input-section">
+          <TextField
+            fullWidth
+            label="Your message"
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
+            className="chat-input"
+            variant="outlined"
+            autoComplete="off"
+            autoCorrect="off"
+            spellCheck="false"
+          />
+          <button
+            className="chat-send-btn"
+            onClick={handleSend}
+            type="button"
+          >
+            Send
+          </button>
+        </div>
+      </div>
+    </div>
   );
 };
 

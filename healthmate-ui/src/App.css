@@ -1,8 +1,41 @@
-#root {
+/* App layout for full viewport occupation with header reserved */
+.app-root {
+  min-height: 100vh;
+  min-width: 100vw;
+  display: flex;
+  flex-direction: column;
+  background: #f9fbfc;
+}
+
+.app-header-wrapper {
+  width: 100vw;
+  flex-shrink: 0;
+  z-index: 1000;
+}
+
+.app-content {
+  flex: 1 1 0;
+  min-height: 0;
+  min-width: 0;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  padding-top: 0;
+}#root {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+}
+
+    body {
+  font-family: Arial, sans-serif;
+  background: #f9fbfc;
+  margin: 0;
+  padding: 0;
 }
 
 .logo {

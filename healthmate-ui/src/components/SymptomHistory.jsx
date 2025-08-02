@@ -8,13 +8,18 @@ const historyData = [
 
 const SymptomHistory = ({ onViewDetails }) => (
   <section className="history-section">
-    <h2>Assistant History</h2>
+    <h2 className="history-title">Assistant History</h2>
     <div className="cards-row">
       {historyData.map(({ date, title }) => (
-        <div className="card" key={title}>
-          <p>{date}</p>
-          <h3>{title}</h3>
-          <button onClick={() => onViewDetails(`Details about ${title}`)}>View Details</button>
+        <div className="card card-history" key={title}>
+          <div className="card-header">
+            <span className="card-icon" role="img" aria-label="history">🩺</span>
+            <h3>{title}</h3>
+          </div>
+          <p className="card-date">{date}</p>
+          <button className="view-details-btn" onClick={() => onViewDetails(`Details about ${title}`)}>
+            View Details
+          </button>
         </div>
       ))}
     </div>
