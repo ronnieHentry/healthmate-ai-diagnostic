@@ -1,0 +1,21 @@
+.cards-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+.card {
+  background: white;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  flex: 1;
+  min-width: 200px;
+}
+.card span.pending {
+  background: #ffcc00;
+  padding: 3px 8px;
+  border-radius: 12px;
+  font-size: 12px;
+  display: inline-block;
+  margin-top: 5px;
+}

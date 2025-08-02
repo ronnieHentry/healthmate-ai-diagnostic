@@ -22,25 +22,6 @@
   font-size: 24px;
 }
 
-.nav-links a {
-  margin: 0 10px;
-  text-decoration: none;
-  color: #333;
-}
-
-.profile-pic {
-  display: inline-block;
-  margin-left: 10px;
-  font-weight: bold;
-}
-
-.profile-completion {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 20px;
-}
-
 .complete-profile-btn {
   background-color: white;
   border: 1px solid #ccc;

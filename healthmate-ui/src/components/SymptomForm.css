@@ -1,0 +1,29 @@
+.symptom-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.symptom-form input,
+.symptom-form select,
+.symptom-form textarea {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+.submit-btn {
+  background-color: #1a73e8;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+  background-color: #1663c7;
+}

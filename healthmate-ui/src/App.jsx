@@ -1,10 +1,5 @@
-import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import SymptomForm from "./components/SymptomForm";
-import Chat from "./components/Chat";
-import DiagnosisComponent from "./components/DiagnosisComponent";
-import RecommendedClinics from "./components/RecommendedClinics";
-import Dashboard from "./components/Dashboard";
+import Dashboard from "./pages/Dashboard";
 
 function App() {
   const user = { name: "", age: "", gender: "" };
@@ -13,10 +8,6 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<Dashboard />} />
-        {/* <Route path="/" element={<SymptomForm user={user} />} /> */}
-        <Route path="/chat" element={<Chat />} />
-        <Route path="/diagnosis" element={<DiagnosisComponent />} />
-        <Route path="/next-step" element={<RecommendedClinics />} />
       </Routes>
     </Router>
   );
