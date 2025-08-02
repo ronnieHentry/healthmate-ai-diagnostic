@@ -40,19 +40,21 @@ const SymptomForm = ({ user = { name: '', age: '', gender: '' } }) => {
   };
 
   return (
-    <form className="symptom-form" onSubmit={handleSubmit}>
-      <input name="name" placeholder="Name" value={formData.name} onChange={handleChange} required />
-      <input name="age" type="number" placeholder="Age" value={formData.age} onChange={handleChange} required />
-      <select name="gender" value={formData.gender} onChange={handleChange} required>
-        <option value="">Gender</option>
-        <option value="male">Male</option>
-        <option value="female">Female</option>
-        <option value="other">Other</option>
-      </select>
-      <textarea name="symptoms" placeholder="Describe your symptoms *" value={formData.symptoms} onChange={handleChange} required />
-      <input name="duration" placeholder="Duration (e.g. 3 days) *" value={formData.duration} onChange={handleChange} required />
-      <button type="submit" className="submit-btn">Submit</button>
-    </form>
+    <div className="symptom-form-container">
+      <form className="symptom-form" onSubmit={handleSubmit}>
+        <input name="name" placeholder="Name" value={formData.name} onChange={handleChange} required />
+        <input name="age" type="number" placeholder="Age" value={formData.age} onChange={handleChange} required />
+        <select name="gender" value={formData.gender} onChange={handleChange} required>
+          <option value="">Gender</option>
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+          <option value="other">Other</option>
+        </select>
+        <textarea name="symptoms" placeholder="Describe your symptoms *" value={formData.symptoms} onChange={handleChange} required />
+        <input name="duration" placeholder="Duration (e.g. 3 days) *" value={formData.duration} onChange={handleChange} required />
+        <button type="submit" className="submit-btn">Submit</button>
+      </form>
+    </div>
   );
 };
 

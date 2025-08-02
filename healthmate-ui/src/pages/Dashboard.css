@@ -6,15 +6,9 @@
 }
 
 .dashboard-container {
-  max-width: 1000px;
-  margin-left: 17em;
+  width: 115em;
+  /* margin-left: 17em; */
   padding: 20px;
-}
-
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
 }
 
 .logo {
@@ -31,7 +25,7 @@
 }
 
 .start-check-btn {
-  width: 100%;
+  width: 60%;
   background-color: #1a73e8;
   color: white;
   padding: 15px;
@@ -50,9 +44,10 @@ section {
   display: flex;
   flex-wrap: wrap;
   gap: 15px;
-}
-
-.card {
+  max-width: 1000px;
+  margin-left: 17em;
+  padding: 20px;
+  padding-top: 80px; /* Adjust for fixed header height */
   background: white;
   padding: 15px;
   border-radius: 10px;

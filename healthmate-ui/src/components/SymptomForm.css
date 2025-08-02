@@ -1,3 +1,10 @@
+/* Make the form container match the dashboard dimensions */
+.symptom-form-container {
+  width: 100em;
+  padding: 20px;
+  margin: auto;
+  height: 50vh;
+}
 .symptom-form {
   display: flex;
   flex-direction: column;
@@ -22,6 +29,8 @@
   font-size: 16px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  width: 60%;
+  margin: auto;
 }
 
 .submit-btn:hover {
