@@ -1,20 +1,17 @@
-
-
-# ==================== Imports ====================
-from fastapi import FastAPI, Request, Body
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi import FastAPI, Request, Body
 from pydantic import BaseModel
 import os
 import json
+
 
 # Agent imports
 from app.agents.symptom_agent import symptom_intake_agent
 from app.agents.diagnosis_agent import diagnosis_agent
 from app.agents.doctor_agent import doctor_recommendation_agent
-from app.agents.history_agent import get_user_history
 from app.agents.healthy_products_agent import fetch_healthy_products
+from app.agents.static_health_products_agent import get_static_health_products
 
-# ==================== App Initialization ====================
 app = FastAPI()
 
 # CORS Middleware
@@ -110,11 +107,11 @@ async def history_post_endpoint(payload: dict = Body(...)):
     }
 ]
 
-# Healthy products (GET)
-@app.get("/api/healthy-products")
-async def healthy_products():
+# Static health products (GET)
+@app.get("/api/health-products-static")
+async def health_products_static():
     """
-    Fetch healthy products from Walmart API for Reminders section.
+    Return static health product suggestions for John Doe.
     """
-    return fetch_healthy_products()
+    return get_static_health_products()
 
