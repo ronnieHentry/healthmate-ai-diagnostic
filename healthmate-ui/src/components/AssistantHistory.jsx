@@ -3,6 +3,7 @@
 import React, { useRef, useEffect, useState } from "react";
 import axios from "axios";
 import "./AssistantHistory.css";
+import ConsultationDetailsModal from "./ConsultationDetailsModal";
 
 const ShimmerCard = () => (
   <div className="card card-history shimmer-card">
@@ -16,11 +17,13 @@ const ShimmerCard = () => (
   </div>
 );
 
-const AssistantHistory = ({ onViewDetails, username = "john_doe" }) => {
+const AssistantHistory = ({ username = "john_doe" }) => {
   const rowRef = useRef(null);
   const [historyData, setHistoryData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [modalOpen, setModalOpen] = useState(false);
+  const [modalDetails, setModalDetails] = useState(null);
 
   useEffect(() => {
     const fetchHistory = async () => {
@@ -44,44 +47,60 @@ const AssistantHistory = ({ onViewDetails, username = "john_doe" }) => {
     }
   };
 
+  const handleViewDetails = (details) => {
+    setModalDetails(details);
+    setModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setModalOpen(false);
+    setModalDetails(null);
+  };
+
   return (
     <section className="history-section">
       <h2 className="history-title">Assistant History</h2>
       {loading ? (
-        <div className="cards-row" ref={rowRef}>
-          {[...Array(3)].map((_, i) => (
-            <ShimmerCard key={i} />
-          ))}
+        <div className="cards-row-wrapper" style={{ position: 'relative' }}>
+          <div className="cards-row" ref={rowRef}>
+            {[...Array(3)].map((_, i) => (
+              <ShimmerCard key={i} />
+            ))}
+          </div>
+          <button className="scroll-btn scroll-btn-abs" onClick={() => scroll(1)} title="Scroll right">&#8594;</button>
         </div>
       ) : error ? (
         <div style={{ color: "red" }}>{error}</div>
       ) : (
-        <div className="cards-row" ref={rowRef}>
-          {historyData.length === 0 ? (
-            <div style={{ padding: 16 }}>No history found.</div>
-          ) : (
-            historyData.map(({ date, title, shortSummary, fullDate }, idx) => (
-              <div className="card card-history" key={title + fullDate + idx}>
-                <div className="card-header">
-                  <span className="card-icon" role="img" aria-label="history">
-                    🩺
-                  </span>
-                  <h3>{title}</h3>
+        <div className="cards-row-wrapper" style={{ position: 'relative' }}>
+          <div className="cards-row" ref={rowRef}>
+            {historyData.length === 0 ? (
+              <div style={{ padding: 16 }}>No history found.</div>
+            ) : (
+              historyData.map((item, idx) => (
+                <div className="card card-history" key={item.title + item.fullDate + idx}>
+                  <div className="card-header">
+                    <span className="card-icon" role="img" aria-label="history">
+                      🩺
+                    </span>
+                    <h3>{item.title}</h3>
+                  </div>
+                  <p className="card-date">{item.date}</p>
+                  <button
+                    className="view-details-btn"
+                    onClick={() => handleViewDetails(item)}
+                  >
+                    View Details
+                  </button>
                 </div>
-                <p className="card-date">{date} <span style={{ fontSize: "0.8em", color: "#888" }}>{fullDate}</span></p>
-                <p className="card-summary">{shortSummary}</p>
-                <button
-                  className="view-details-btn"
-                  onClick={() => onViewDetails(shortSummary)}
-                >
-                  View Details
-                </button>
-              </div>
-            ))
-          )}
+              ))
+            )}
+          </div>
+          <button className="scroll-btn scroll-btn-abs" onClick={() => scroll(1)} title="Scroll right">&#8594;</button>
         </div>
       )}
 
+      <ConsultationDetailsModal open={modalOpen} onClose={handleCloseModal} details={modalDetails} />
     </section>
   );
 };

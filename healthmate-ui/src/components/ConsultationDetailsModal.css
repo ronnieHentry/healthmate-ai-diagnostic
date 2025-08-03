@@ -1,0 +1,122 @@
+/* Modal overlay and container */
+.modal-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(44, 62, 80, 0.18);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.consultation-modal {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(44,62,80,0.18);
+  width: 410px;
+  max-width: 95vw;
+  padding: 32px 28px 22px 28px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+.modal-close {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  background: none;
+  border: none;
+  font-size: 1.6rem;
+  color: #6b7a8f;
+  cursor: pointer;
+}
+.modal-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: #2a3b4c;
+}
+.modal-section {
+  margin-bottom: 12px;
+}
+.modal-step {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #3b82f6;
+  margin-bottom: 4px;
+}
+.modal-step span {
+  color: #2a3b4c;
+  font-weight: 500;
+  margin-left: 6px;
+}
+.modal-consult-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0 0 4px 0;
+  color: #222b45;
+}
+.modal-summary {
+  font-size: 1rem;
+  color: #4b5563;
+  margin-bottom: 0;
+}
+.modal-upload-box {
+  border: 1.5px dashed #b6c3d1;
+  border-radius: 10px;
+  background: #fafdff;
+  padding: 22px 0 18px 0;
+  text-align: center;
+  margin-bottom: 0;
+  color: #6b7a8f;
+  font-size: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+.modal-upload-icon {
+  font-size: 2.2rem;
+  color: #3b82f6;
+  margin-bottom: 2px;
+}
+.modal-browse {
+  color: #3b82f6;
+  font-weight: 500;
+  cursor: pointer;
+  text-decoration: underline;
+}
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 10px;
+}
+.modal-cancel {
+  background: #f3f4f6;
+  color: #2a3b4c;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 18px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.18s;
+}
+.modal-cancel:hover {
+  background: #e5e7eb;
+}
+.modal-upload-btn {
+  background: #3b82f6;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 18px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.18s;
+}
+.modal-upload-btn:hover {
+  background: #2563eb;
+}
