@@ -1,8 +1,106 @@
-.cards-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 15px;
+.insights-section {
+  margin-bottom: 3px;
+  width: 100%;
+  border: 1px solid #e3e8ee;
+  border-radius: 14px;
+  background: #fafdff;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.02);
+  padding: 8px 0 4px 0;
 }
+
+.insights-title {
+  font-size: 1.3rem;
+  margin-bottom: 4px;
+  color: #2a3b4c;
+  font-weight: 600;
+  padding-left: 20px;
+  border-bottom: 1px solid #e3e8ee;
+  padding-bottom: 6px;
+  margin-top: 0;
+  margin-right: 20px;
+  margin-left: 0;
+}
+
+.insights-row {
+  display: flex;
+  flex-direction: row;
+  gap: 1.1rem;
+  border-radius: 0 0 12px 12px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  box-shadow: none;
+  border-top: none;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+.card.card-insight {
+  background: #fffbe7;
+  padding: 10px 14px 8px 14px;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  flex: 1 1 240px;
+  min-width: 240px;
+  max-width: 320px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  transition: box-shadow 0.2s;
+  border-right: 1px solid #e3e8ee;
+  border-bottom: 1px solid #e3e8ee;
+}
+.card.card-insight:last-child {
+  border-right: none;
+}
+.card.card-insight:hover {
+  box-shadow: 0 8px 24px rgba(0,0,0,0.13);
+}
+.card-header-insight {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 6px;
+}
+.card-icon-insight {
+  font-size: 1.7rem;
+}
+.insight-content {
+  font-size: 1.05rem;
+  color: #2a3b4c;
+}
+.insight-sub {
+  color: #6b7a8f;
+  font-size: 0.95rem;
+  margin-left: 6px;
+}
+.insight-value {
+  color: #1a73e8;
+  font-size: 1.1rem;
+  margin-top: 4px;
+}
+.cards-row {
+  margin-bottom: 3px;
+  width: 100%;
+  border: 1px solid #e3e8ee;
+  border-radius: 14px;
+  background: #fafdff;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.02);
+  padding: 8px 0 4px 0;
+}
+
+.insights-title {
+  font-size: 1.3rem;
+  margin-bottom: 4px;
+  color: #2a3b4c;
+  font-weight: 600;
+  padding-left: 20px;
+  border-bottom: 1px solid #e3e8ee;
+  padding-bottom: 6px;
+  margin-top: 0;
+  margin-right: 20px;
+  margin-left: 0;
+}
+
 .card {
   background: white;
   padding: 15px;

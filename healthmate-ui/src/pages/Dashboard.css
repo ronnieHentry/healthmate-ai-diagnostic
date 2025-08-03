@@ -1,8 +1,28 @@
+/* Center dashboard content and constrain width */
+.dashboard-wrapper {
+  width: 100vw;
+  max-height: calc(100vh - 64px);
+  margin: 0 auto;
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 4px 24px rgba(30, 64, 175, 0.07);
+  padding: 32px 32px 24px 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  overflow-y: auto;
+  box-sizing: border-box;
+}
+border-radius: 14px; /* Adjusted to match the original */
+box-shadow: 0 4px 24px rgba(30, 64, 175, 0.07); /* Adjusted to match the original */
+padding: 32px 32px 24px 32px; /* Adjusted to match the original */
+/* Removed border property */
 .dashboard-container {
-  width: 115em;
-  /* margin-left: 17em; */
-  padding: 20px;
-  padding-top: 64px;
+  width: 100vw;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
 .logo {
@@ -19,7 +39,8 @@
 }
 
 .start-check-btn {
-  width: 60%;
+  width: 100%;
+  max-width: 860px;
   background-color: #1a73e8;
   color: white;
   padding: 15px;
@@ -32,22 +53,6 @@
 
 section {
   margin-bottom: 30px;
-}
-
-.cards-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 15px;
-  max-width: 1000px;
-  margin-left: 17em;
-  padding: 20px;
-  padding-top: 80px; /* Adjust for fixed header height */
-  background: white;
-  padding: 15px;
-  border-radius: 10px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-  flex: 1;
-  min-width: 200px;
 }
 
 .card.wide {

@@ -7,12 +7,16 @@ const remindersData = [
 ];
 
 const Reminders = () => (
-  <section className="reminders-section">
-    <h2>Reminders & Alerts</h2>
-    <div className="cards-row">
+  <section className="history-section reminders-section">
+    <h2 className="history-title reminders-title">Reminders & Alerts</h2>
+    <div className="cards-row reminders-row">
       {remindersData.map(({ title, note, status }, i) => (
-        <div className="card" key={i}>
-          <p><strong>{title}</strong><br />{note}</p>
+        <div className="card card-reminder" key={i}>
+          <div className="card-header-reminder">
+            <span className="card-icon-reminder" role="img" aria-label="reminder">⏰</span>
+            <strong>{title}</strong>
+          </div>
+          <p className="reminder-note">{note}</p>
           {status && <span className="pending">{status}</span>}
         </div>
       ))}

@@ -7,13 +7,16 @@ const insightsData = [
 ];
 
 const HealthInsights = () => (
-  <section className="insights-section">
-    <h2>Your Health Insights</h2>
-    <div className="cards-row">
+  <section className="history-section insights-section">
+    <h2 className="history-title insights-title">Your Health Insights</h2>
+    <div className="cards-row insights-row">
       {insightsData.map(({ content, sub, value, wide }, i) => (
-        <div className={`card${wide ? ' wide' : ''}`} key={i}>
-          <p>{content} {sub && <span>{sub}</span>}</p>
-          {value && <h3>{value}</h3>}
+        <div className={`card card-insight${wide ? ' wide' : ''}`} key={i}>
+          <div className="card-header-insight">
+            <span className="card-icon-insight" role="img" aria-label="insight">💡</span>
+            <p className="insight-content">{content} {sub && <span className="insight-sub">{sub}</span>}</p>
+          </div>
+          {value && <h3 className="insight-value">{value}</h3>}
         </div>
       ))}
     </div>
