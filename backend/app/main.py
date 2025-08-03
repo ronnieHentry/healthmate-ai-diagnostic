@@ -1,9 +1,13 @@
+
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi import FastAPI, Request
 from pydantic import BaseModel
 from app.agents.symptom_agent import symptom_intake_agent
 from app.agents.diagnosis_agent import diagnosis_agent
 from app.agents.doctor_agent import doctor_recommendation_agent
+from app.agents.history_agent import get_user_history
+import json
+import os
 
 app = FastAPI()
 
@@ -45,6 +49,19 @@ async def generate_diagnosis(req: DiagnosisRequest):
 @app.post("/api/doctors")
 async def recommend_doctors(req: DoctorRecommendation):
     return doctor_recommendation_agent(req.session_id)
+
+
+from fastapi import Body
+
+@app.post("/api/history")
+async def history_post_endpoint(payload: dict = Body(...)):
+    """
+    Fetch all previous consultation reports for a user from report.json using history_agent, POST version.
+    Expects: { "user_key": "username" }
+    """
+    user_key = payload.get("user_key")
+    summaries = get_user_history(user_key)
+    return summaries
 
 @app.get("/ping")
 def ping():
