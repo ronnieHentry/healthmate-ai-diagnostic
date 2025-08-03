@@ -8,7 +8,7 @@ const COMMON_ILLNESSES = [
   'Cold', 'Fever', 'Headache', 'Cough', 'Stomach Ache', 'Allergy', 'Sore Throat', 'Body Pain'
 ];
 
-const SymptomForm = ({ user = { name: '', age: '', gender: '' } }) => {
+const SymptomForm = ({ user = { name: 'John Doe', age: '45', gender: 'Male' } }) => {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     name: "John Doe",

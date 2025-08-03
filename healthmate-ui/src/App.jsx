@@ -6,7 +6,7 @@ import Header from "./components/Header";
 import SymptomForm from "./components/SymptomForm";
 
 function App() {
-  const user = { name: "", age: "", gender: "" };
+  const user = { name: "John Doe", age: "45", gender: "Male" };
 
   return (
     <Router>

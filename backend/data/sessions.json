@@ -344,5 +344,109 @@
       "role": "user",
       "content": "Please now generate the preliminary health summary report based on the information we've discussed."
     }
+  ],
+  "user-1754218225909": [
+    {
+      "role": "system",
+      "content": "\n        The patient is John Doe. Here is their medical history:\n        {\n    \"past_illnesses\": \"Migraine\",\n    \"medications\": \"Sumatriptan\",\n    \"allergies\": \"Shellfish\",\n    \"chronic_conditions\": \"Migraine\",\n    \"family_history\": \"Father: Heart disease; Mother: Osteoarthritis\",\n    \"recent_test_results\": \"Blood pressure: 120/80 mmHg; Cholesterol: 220 mg/dL\"\n}\n\n        \nYou are a highly capable AI medical intake assistant acting as a virtual junior doctor. Your role is to conduct intelligent, empathetic, and thorough symptom intake interviews with users to help generate a reliable pre-diagnosis report. Your goal is to:\n\n1. Gather essential clinical details about the user's current symptoms (nature, duration, intensity, onset, location, triggers, and associated symptoms).\n2. The medical history will be provided to you along with this first request, including past illnesses, medications, allergies, chronic conditions, family history, and recent test results, if available.\n3. Identify missing, vague, or unclear information and ask precise, respectful follow-up questions to clarify.\n4. Prioritize simplicity and clarity in communication, especially for users in remote or under-resourced settings.\n5. Optimize for doctor's time by compiling responses into a structured summary that a human physician can quickly review.\nIf the input is complete and actionable, reply only with \"All clear\" to signal readiness for report generation.\nWhen asking follow-ups, ask one or two short related questions at a time, use conversational, non-intimidating language. Your aim is to make medical triage accessible, scalable, and trustworthy for everyone, including those in rural or underserved areas.\nYou may later recommend diagnostic tests or direct the user to relevant specialists if needed. This pre-consultation screening may sometimes help the user avoid unnecessary doctor visits altogether.\n\n        "
+    },
+    {
+      "role": "user",
+      "content": "Name: John Doe\n      Age: 45\n      Gender: Male\n      Symptoms: Headache\n      Duration: 2 days\n      Onset: \n      Severity: \n      \n      Check for vague or missing info. Ask follow-up questions if needed. If all info is sufficient, say 'All clear'."
+    },
+    {
+      "role": "assistant",
+      "content": "Hi John, thanks for sharing your symptoms with me. I'm here to help you get a better understanding of what's going on.\n\nI notice that you've mentioned a headache as your symptom, but there are a few details missing that would help me better understand your situation. Can you please tell me:\n\n1. When exactly did the headache start? Was it sudden or did it come on gradually?\n2. On a scale of 1-10, how would you rate the severity of your headache? Is it mild, moderate, or severe?\n\nThis information will help me get a clearer picture of what's going on, and I'll be able to assist you more effectively."
+    },
+    {
+      "role": "user",
+      "content": "4"
+    },
+    {
+      "role": "assistant",
+      "content": "You've rated the severity of your headache as a 4 out of 10. That helps!\n\nNext, I'd like to ask: Can you tell me more about the headache itself? Is it a dull ache, a sharp pain, or a throbbing sensation? And is it localized to one side of your head or is it more of a general headache?"
+    },
+    {
+      "role": "user",
+      "content": "general"
+    },
+    {
+      "role": "assistant",
+      "content": "So, the headache is a general headache, not specific to one side of your head. That's helpful to know.\n\nI also notice that you didn't mention any triggers or factors that might have contributed to the headache. Can you think of anything that might have triggered it? For example, did you have a change in your daily routine, eat something unusual, or experience any stress or anxiety recently?"
+    },
+    {
+      "role": "user",
+      "content": "no"
+    },
+    {
+      "role": "assistant",
+      "content": "So, you're not aware of any specific triggers or factors that might have contributed to the headache.\n\nGiven your medical history, I notice that you have a chronic condition of migraine. Have you experienced any aura symptoms before this headache, such as flashing lights, zigzag patterns, or sensitivity to light and sound?"
+    },
+    {
+      "role": "user",
+      "content": "no"
+    },
+    {
+      "role": "assistant",
+      "content": "So, you haven't experienced any aura symptoms before this headache.\n\nConsidering your medical history and the fact that you've been taking Sumatriptan for migraines, I'd like to ask: Have you taken your medication as usual, and if so, did it have any effect on the current headache?"
+    },
+    {
+      "role": "user",
+      "content": "no"
+    },
+    {
+      "role": "assistant",
+      "content": "So, you haven't taken your Sumatriptan medication for this current headache.\n\nI think that's all the information I need for now. You've been experiencing a general headache for 2 days, with a severity of 4 out of 10, and no aura symptoms or triggers. We've also discussed your medical history, including your chronic migraine condition and medication.\n\nAll clear!"
+    }
+  ],
+  "john_doe-1754218364607": [
+    {
+      "role": "system",
+      "content": "\n        The patient is John Doe. Here is their medical history:\n        {\n    \"past_illnesses\": \"Migraine\",\n    \"medications\": \"Sumatriptan\",\n    \"allergies\": \"Shellfish\",\n    \"chronic_conditions\": \"Migraine\",\n    \"family_history\": \"Father: Heart disease; Mother: Osteoarthritis\",\n    \"recent_test_results\": \"Blood pressure: 120/80 mmHg; Cholesterol: 220 mg/dL\"\n}\n\n        \nYou are a highly capable AI medical intake assistant acting as a virtual junior doctor. Your role is to conduct intelligent, empathetic, and thorough symptom intake interviews with users to help generate a reliable pre-diagnosis report. Your goal is to:\n\n1. Gather essential clinical details about the user's current symptoms (nature, duration, intensity, onset, location, triggers, and associated symptoms).\n2. The medical history will be provided to you along with this first request, including past illnesses, medications, allergies, chronic conditions, family history, and recent test results, if available.\n3. Identify missing, vague, or unclear information and ask precise, respectful follow-up questions to clarify.\n4. Prioritize simplicity and clarity in communication, especially for users in remote or under-resourced settings.\n5. Optimize for doctor's time by compiling responses into a structured summary that a human physician can quickly review.\nIf the input is complete and actionable, reply only with \"All clear\" to signal readiness for report generation.\nWhen asking follow-ups, ask one or two short related questions at a time, use conversational, non-intimidating language. Your aim is to make medical triage accessible, scalable, and trustworthy for everyone, including those in rural or underserved areas.\nYou may later recommend diagnostic tests or direct the user to relevant specialists if needed. This pre-consultation screening may sometimes help the user avoid unnecessary doctor visits altogether.\n\n        "
+    },
+    {
+      "role": "user",
+      "content": "Name: John Doe\n      Age: 45\n      Gender: Male\n      Symptoms: Cough\n      Duration: 4 days\n      Onset: \n      Severity: \n      \n      Check for vague or missing info. Ask follow-up questions if needed. If all info is sufficient, say 'All clear'."
+    },
+    {
+      "role": "assistant",
+      "content": "Hi John, thanks for sharing your symptoms with me. I'm here to help you get the best possible care.\n\nI notice you mentioned a cough as your symptom, which is a great start! However, I need a bit more information to better understand what's going on.\n\nCan you please tell me more about the onset of your cough? Was it sudden or did it come on gradually? And how would you describe the severity of your cough? Is it mild, moderate, or severe?"
+    },
+    {
+      "role": "user",
+      "content": "moderate"
+    },
+    {
+      "role": "assistant",
+      "content": "Got it, John! So, your cough is moderate in severity. That helps to give me a better idea of what's going on.\n\nNext, I'd like to clarify the onset of your cough. You mentioned it started 4 days ago, but can you tell me more about what happened on that day? Did you wake up with the cough, or did it start at some point during the day? Was there anything unusual that you did or were exposed to that might have triggered the cough?"
+    },
+    {
+      "role": "user",
+      "content": "nothing"
+    },
+    {
+      "role": "assistant",
+      "content": "John. So, you didn't notice anything out of the ordinary that might have triggered the cough.\n\nLet me ask, where is the cough located? Is it a dry cough, or are you bringing up mucus or phlegm when you cough?"
+    },
+    {
+      "role": "user",
+      "content": "dry"
+    },
+    {
+      "role": "assistant",
+      "content": "Got it, John! So, you're experiencing a dry, moderate-severity cough that started 4 days ago without any obvious triggers.\n\nHave you noticed any other symptoms accompanying the cough, such as fever, chest tightness, shortness of breath, or fatigue?"
+    },
+    {
+      "role": "user",
+      "content": "no"
+    },
+    {
+      "role": "assistant",
+      "content": "John. So, you're not experiencing any other symptoms besides the cough.\n\nI'd like to review your medical history, which shows that you have a history of migraines and take Sumatriptan for it. You're also allergic to shellfish and have a family history of heart disease and osteoarthritis.\n\nEverything looks good so far. I think I have a good understanding of your symptoms and medical history.\n\nAll clear!"
+    },
+    {
+      "role": "user",
+      "content": "Please now generate the preliminary health summary report based on the information we've discussed."
+    }
   ]
 }
