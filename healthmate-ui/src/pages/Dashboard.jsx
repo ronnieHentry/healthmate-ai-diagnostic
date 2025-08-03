@@ -15,10 +15,7 @@ const Dashboard = () => {
 
   return (
     <div className="dashboard-wrapper">
-      <ProfileCompletion />
-      <button className="start-check-btn" onClick={handleStartSymptomCheck}>
-        + Start New Symptom Check
-      </button>
+      <ProfileCompletion onStartSymptomCheck={handleStartSymptomCheck} />
       <AssistantHistory onViewDetails={() => {}} />
       <HealthInsights />
       <Reminders />

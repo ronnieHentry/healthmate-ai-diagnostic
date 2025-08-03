@@ -1,3 +1,17 @@
+/* Start New Symptom Check section styling to match other sections */
+.start-check-section {
+  width: 100%;
+  border: 1px solid #e3e8ee;
+  border-radius: 14px;
+  background: #fafdff;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.02);
+  padding: 18px 0 18px 0;
+  margin-bottom: 3px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 /* Center dashboard content and constrain width */
 .dashboard-wrapper {
   width: 100vw;
@@ -40,14 +54,13 @@ padding: 32px 32px 24px 32px; /* Adjusted to match the original */
 
 .start-check-btn {
   width: 100%;
-  max-width: 860px;
+  max-width: 800px;
   background-color: #1a73e8;
   color: white;
   padding: 15px;
   font-size: 16px;
   border: none;
   border-radius: 8px;
-  margin: 20px 0;
   cursor: pointer;
 }
 
