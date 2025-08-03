@@ -1,4 +1,5 @@
 import React from 'react';
+import Container from '@mui/material/Container';
 import './Dashboard.css';
 import { useNavigate } from 'react-router-dom';
 import ProfileCompletion from '../components/ProfileCompletion';
@@ -14,12 +15,14 @@ const Dashboard = () => {
   };
 
   return (
-    <div className="dashboard-wrapper">
-      <ProfileCompletion onStartSymptomCheck={handleStartSymptomCheck} />
-      <AssistantHistory onViewDetails={() => {}} />
-      <HealthInsights />
-      <Reminders />
-    </div>
+    <Container maxWidth={false} disableGutters sx={{ pt: '80px', pb: 2, width: '100vw !important', maxWidth: '100vw !important', px: 0 }}>
+      <div className="dashboard-wrapper">
+        <ProfileCompletion onStartSymptomCheck={handleStartSymptomCheck} />
+        <AssistantHistory onViewDetails={() => {}} />
+        <HealthInsights />
+        <Reminders />
+      </div>
+    </Container>
   );
 };
 

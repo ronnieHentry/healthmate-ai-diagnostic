@@ -7,7 +7,10 @@ const Header = () => {
     <header className="header">
       <div className="logo" style={{ cursor: 'pointer' }} onClick={() => navigate('/')}>💙 HealthMate</div>
       <nav className="nav-links">
-        <div className="profile-pic">John Doe</div>
+        <div className="profile-pic">
+          <span className="avatar">JD</span>
+          John Doe
+        </div>
       </nav>
     </header>
   );
