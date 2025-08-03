@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Container from '@mui/material/Container';
 import './Dashboard.css';
 import { useNavigate } from 'react-router-dom';
@@ -8,16 +8,20 @@ import HealthInsights from '../components/HealthInsights';
 import Reminders from '../components/Reminders';
 
 const Dashboard = () => {
+
   const navigate = useNavigate();
+  const [profile, setProfile] = useState(null);
 
   const handleStartSymptomCheck = () => {
     navigate('/symptomform');
   };
 
+  // ProfileCompletion will handle modal and save logic
+
   return (
     <Container maxWidth={false} disableGutters sx={{ pt: '80px', pb: 2, width: '100vw !important', maxWidth: '100vw !important', px: 0 }}>
       <div className="dashboard-wrapper">
-        <ProfileCompletion onStartSymptomCheck={handleStartSymptomCheck} />
+        <ProfileCompletion onStartSymptomCheck={handleStartSymptomCheck} profile={profile} setProfile={setProfile} />
         <AssistantHistory onViewDetails={() => {}} />
         <HealthInsights />
         <Reminders />
