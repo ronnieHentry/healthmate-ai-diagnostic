@@ -15,20 +15,20 @@ const ProductCard = ({ imageSrc, title, subtitle, buttonLabel, onClick, rating }
   };
 
   return (
-    <div className="card horizontal">
-      <img src={imageSrc} alt={title} className="card-image" />
-      <div className="card-content">
-        <div className="card-text">
-          <p className="card-title">{title}</p>
+    <div className="productcard horizontal">
+      <img src={imageSrc} alt={title} className="productcard-image" />
+      <div className="productcard-content">
+        <div className="productcard-text">
+          <p className="productcard-title">{title}</p>
           {rating !== undefined && (
-            <div className="card-rating">
+            <div className="productcard-rating">
               {renderStars(rating)}
               <span className="rating-number">{rating.toFixed(1)}</span>
             </div>
           )}
-          {subtitle && <p className="card-subtitle">{subtitle}</p>}
+          {subtitle && <p className="productcard-subtitle">{subtitle}</p>}
         </div>
-        <div className="card-actions">
+        <div className="productcard-actions">
           <button className="btn small" onClick={onClick}>
             {buttonLabel}
           </button>
