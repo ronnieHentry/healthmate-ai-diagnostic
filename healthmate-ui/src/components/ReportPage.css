@@ -1,0 +1,198 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 2rem;
+  max-width: 1100px;
+  margin: auto;
+  font-family: Arial, sans-serif;
+  color: #333;  
+  margin-left: 17em;
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+/* New wrapper to group left panel and button */
+.left-column {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+}
+
+/* Center button under left panel */
+.button-group {
+  display: flex;
+  justify-content: center;
+  margin: 2rem 0;
+}
+
+@media (min-width: 768px) {
+  .container {
+    flex-direction: row;
+    align-items: stretch;
+    min-height: 600px;
+  }
+  .panel {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 0;
+  }
+  .left-panel {
+    max-height: 80%;
+    overflow-y:auto;
+  }
+}
+
+.panel {
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+}
+
+.left-panel {
+  flex: 2;
+}
+
+.right-panel {
+  flex: 1;
+  min-width: 280px;
+}
+
+.title {
+  font-size: 1.75rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.section {
+  margin-bottom: 1.5rem;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 1px 4px rgba(44, 62, 80, 0.06);
+  padding: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
+.note {
+  font-size: 0.9rem;
+  color: #555;
+  margin-bottom: 0.5rem;
+}
+
+.button-group {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.btn {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.btn.outline {
+  border: 2px solid #1e90ff;
+  color: #1e90ff;
+  background: transparent;
+}
+
+.btn.primary {
+  background: #1e90ff;
+  color: white;
+  padding: 0.6rem 1.5rem;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.btn.primary:hover {
+  background-color: #187bcd;
+}
+
+.btn.small {
+  padding: 0.4rem 0.8rem;
+  font-size: 0.9rem;
+}
+
+.header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.see-all {
+  color: #1e90ff;
+  font-size: 0.9rem;
+  text-decoration: none;
+}
+
+.product-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.price {
+  font-size: 0.85rem;
+  color: #777;
+}
+
+.doctor-suggestion {
+  margin-top: 2rem;
+}
+
+.doctor-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.doctor-info {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.subtitle {
+  font-size: 0.8rem;
+  color: #666;
+}
+
+.report-container {
+  background: #f8faff;
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(44, 62, 80, 0.08);
+  padding: 2rem 1.5rem;
+  margin: 2rem auto;
+  max-width: 900px;
+}
+
+.report-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #2563eb;
+  margin-bottom: 1.5rem;
+}
+
+.report-section {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 1px 4px rgba(44, 62, 80, 0.06);
+  padding: 1.25rem;
+  margin-bottom: 1.25rem;
+  border: 1.5px solid #2563eb;
+  transition: border-color 0.2s;
+}
