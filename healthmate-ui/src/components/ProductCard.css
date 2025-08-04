@@ -24,8 +24,8 @@
 }
 
 .productcard-image {
-  width: 3em;
-  height: 3em;
+  width: 4em;
+  height: 8em;
   object-fit: contain;
   margin-bottom: 0.5rem;
 }

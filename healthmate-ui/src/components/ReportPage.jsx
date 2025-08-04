@@ -25,13 +25,13 @@ const ReportPage = () => {
     {
       name: "Vitamin B Complex",
       price: "$12.89",
-      image: "https://via.placeholder.com/40x60?text=B",
+      image: "https://www.appleseedsulverston.co.uk/wp-content/uploads/2020/12/natures-aid-vitamin-b-complex-100-p230-1025_image.png",
       rating: 4.5
     },
     {
       name: "Ice Pack Gel filled",
       price: "$9.99",
-      image: "https://via.placeholder.com/40x60?text=Ice",
+      image: "https://www.appleseedsulverston.co.uk/wp-content/uploads/2020/12/natures-aid-vitamin-b-complex-100-p230-1025_image.png",
       rating: 4.0
     },
     {
