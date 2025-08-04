@@ -38,12 +38,6 @@ const ReportPage = () => {
       name: "Acetaminophen 500 mg",
       price: "$5.99",
       image: "https://via.placeholder.com/40x60?text=A",
-      rating: 5.0
-    },
-    {
-      name: "Essential Oil Peppermint",
-      price: "$5.89",
-      image: "https://via.placeholder.com/40x60?text=Oil",
       rating: 3.5
     }
   ];
@@ -52,6 +46,11 @@ const ReportPage = () => {
     {
       name: "Dr. Sarah Collins",
       specialty: "General Practitioner",
+      image: "https://via.placeholder.com/40",
+    },
+    {
+      name: "Dr. Adam Knowles",
+      specialty: "Orthopedic",
       image: "https://via.placeholder.com/40",
     },
   ];
@@ -72,7 +71,7 @@ const ReportPage = () => {
         </div>
 
         <div className="section">
-          <h3>Red Flags</h3>
+          <h3>Red Flags <span className="icon-red-flag">🚩</span> </h3>
           <p>None identified.</p>
         </div>
 

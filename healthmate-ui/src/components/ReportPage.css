@@ -4,7 +4,7 @@
   gap: 2rem;
   padding: 2rem;
   max-width: 1100px;
-  margin: auto;
+  margin: 4em;
   font-family: Arial, sans-serif;
   color: #333;  
   margin-left: 17em;
@@ -41,6 +41,8 @@
   .left-panel {
     max-height: 80%;
     overflow-y:auto;
+    border: 1px solid #1e90ff;
+    flex: 2;
   }
 }
 
@@ -49,10 +51,6 @@
   padding: 1.5rem;
   border-radius: 12px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
-}
-
-.left-panel {
-  flex: 2;
 }
 
 .right-panel {
@@ -195,4 +193,28 @@
   margin-bottom: 1.25rem;
   border: 1.5px solid #2563eb;
   transition: border-color 0.2s;
+}
+
+.section ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 0;
+  margin: 0.5rem 0 0 0;
+  list-style: none;
+}
+.section ul li {
+  background: #2ec4b6;
+  color: #fff;
+  border-radius: 8px;
+  padding: 0.35rem 1rem;
+  font-size: 1rem;
+  font-weight: 500;
+  margin: 0;
+  box-shadow: 0 1px 2px rgba(44,62,80,0.08);
+  transition: background 0.2s;
+  display: inline-block;
+}
+.section ul li:hover {
+  background: #1e9e8a;
 }
