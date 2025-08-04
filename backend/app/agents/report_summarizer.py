@@ -46,7 +46,7 @@ def summarize_medical_report(session_id, file_path):
         }
 
         try:
-            response = requests.post(gemini_url, headers=headers, json=payload)
+            response = requests.post(gemini_url, headers=headers, json=payload, verify=False)
             response.raise_for_status()
             return {"response": response.json()}
         except requests.RequestException as e:
@@ -78,7 +78,7 @@ def summarize_medical_report(session_id, file_path):
         }
 
         try:
-            response = requests.post(url, headers=headers, json=payload)
+            response = requests.post(url, headers=headers, json=payload, verify=False)
             response.raise_for_status()
         except requests.RequestException as e:
             return {"error": "Grok API request failed", "details": str(e)}

@@ -85,7 +85,7 @@
 .cards-row {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: flex-start;
   width: 100vw;
   gap: 1.1rem;
   border-radius: 0 0 12px 12px;
