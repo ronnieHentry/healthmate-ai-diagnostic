@@ -4,7 +4,9 @@ from pydantic import BaseModel
 import os
 import json
 import shutil
+
 from app.agents.report_summarizer import summarize_medical_report
+from app.medical_history_api import router as medical_history_router
 
 # Agent imports
 from app.agents.symptom_agent import symptom_intake_agent
@@ -15,7 +17,11 @@ from app.agents.static_health_products_agent import get_static_health_products
 
 app = FastAPI()
 UPLOAD_FOLDER = 'temp'
+
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
+
+# Register routers
+app.include_router(medical_history_router)
 
 # CORS Middleware
 app.add_middleware(

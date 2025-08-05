@@ -3,7 +3,7 @@ import ProfileCompletionModal from './ProfileCompletionModal';
 import './ProfileCompletion.css';
 import ProfileCompletionForm from './PopupProfile';
 
-const ProfileCompletion = ({ onStartSymptomCheck, profile, setProfile }) => {
+const ProfileCompletion = ({ onStartSymptomCheck, profile, setProfile, medicalHistoryData }) => {
   const [modalOpen, setModalOpen] = useState(false);
 
   const handleProfileSave = (data) => {
@@ -31,7 +31,9 @@ const ProfileCompletion = ({ onStartSymptomCheck, profile, setProfile }) => {
       </div>
       <ProfileCompletionForm  open={modalOpen}
         onClose={() => setModalOpen(false)}
-        onSave={handleProfileSave} />
+        onSave={handleProfileSave}
+        medicalHistoryData={medicalHistoryData}
+      />
       {/* <ProfileCompletionModal
         open={modalOpen}
         onClose={() => setModalOpen(false)}
