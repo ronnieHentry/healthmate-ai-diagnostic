@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import ProfileCompletionModal from './ProfileCompletionModal';
 import './ProfileCompletion.css';
+import ProfileCompletionForm from './PopupProfile';
 
 const ProfileCompletion = ({ onStartSymptomCheck, profile, setProfile }) => {
   const [modalOpen, setModalOpen] = useState(false);
@@ -28,7 +29,10 @@ const ProfileCompletion = ({ onStartSymptomCheck, profile, setProfile }) => {
           + Start New Symptom Check
         </button>
       </div>
-      <ProfileCompletionModal
+      <ProfileCompletionForm  open={modalOpen}
+        onClose={() => setModalOpen(false)}
+        onSave={handleProfileSave} />
+      {/* <ProfileCompletionModal
         open={modalOpen}
         onClose={() => setModalOpen(false)}
         onSave={handleProfileSave}
@@ -41,7 +45,7 @@ const ProfileCompletion = ({ onStartSymptomCheck, profile, setProfile }) => {
           { label: 'Physical Activity (hours/week)', name: 'activityHours', type: 'number' },
           { label: 'Dietary Preferences', name: 'diet', type: 'text', placeholder: 'e.g. vegetarian, vegan, keto' },
         ]}
-      />
+      /> */}
     </section>
   );
 };
