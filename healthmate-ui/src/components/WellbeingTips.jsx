@@ -13,7 +13,11 @@ const WellbeingTips = () => {
 
   useEffect(() => {
     setLoading(true);
-    fetch('http://localhost:8000/api/wellbeing-tips')
+    fetch('http://localhost:8000/api/wellbeing-tips', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ username: 'john_doe' })
+    })
       .then(res => res.json())
       .then(data => {
         setTips(data);
