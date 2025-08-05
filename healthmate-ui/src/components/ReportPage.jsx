@@ -21,7 +21,7 @@ const ReportPage = () => {
     html2pdf().set(opt).from(element).save();
   };
 
-  const recommendedProducts = [
+const recommendedProducts = [
     {
       name: "Vitamin B Complex",
       price: "$12.89",
@@ -31,49 +31,49 @@ const ReportPage = () => {
     {
       name: "Ice Pack Gel filled",
       price: "$9.99",
-      image: "https://www.appleseedsulverston.co.uk/wp-content/uploads/2020/12/natures-aid-vitamin-b-complex-100-p230-1025_image.png",
+      image: "https://m.media-amazon.com/images/I/81GKoSa00aL._SL1500_.jpg",
       rating: 4.0
     },
     {
       name: "Acetaminophen 500 mg",
       price: "$5.99",
-      image: "https://via.placeholder.com/40x60?text=A",
+      image: "https://images.heb.com/is/image/HEBGrocery/001695755",
       rating: 3.5
     },
     {
-      name: "Vitamin B Complex",
+      name: "Vitamin D3",
       price: "$12.89",
-      image: "https://via.placeholder.com/40x60?text=B",
+      image: "https://i5.walmartimages.com/asr/455b66d0-4399-4826-bc2a-44dc224f4417.deffc79dd659426118296361098b328c.jpeg",
       rating: 4.5
     },
     {
-      name: "Ice Pack Gel filled",
+      name: "Cold-Go Tablets",
       price: "$9.99",
-      image: "https://via.placeholder.com/40x60?text=Ice",
+      image: "https://www.torquepharma.com/wp-content/uploads/2021/08/NEW_COLD_GO_TABLETS.png",
       rating: 4.0
     },
     {
-      name: "Acetaminophen 500 mg",
+      name: "Paracetamol 500 mg",
       price: "$5.99",
-      image: "https://via.placeholder.com/40x60?text=A",
+      image: "https://tse2.mm.bing.net/th/id/OIP.R_SYA34g2dikbYtO-5OMPgHaIp?rs=1&pid=ImgDetMain&o=7&rm=3",
       rating: 3.5
     },
     {
-      name: "Vitamin B Complex",
+      name: "Vitamin C",
       price: "$12.89",
-      image: "https://via.placeholder.com/40x60?text=B",
+      image: "https://tse3.mm.bing.net/th/id/OIP.-TzrjCqaQ2ZFiBpgoGPNhQHaHa?w=185&h=185&c=7&r=0&o=7&dpr=1.5&pid=1.7&rm=3",
       rating: 4.5
     },
     {
-      name: "Ice Pack Gel filled",
+      name: "Cough Syrup",
       price: "$9.99",
-      image: "https://via.placeholder.com/40x60?text=Ice",
+      image: "https://m.media-amazon.com/images/I/918pLpn6fKL._SL1500_.jpg",
       rating: 4.0
     },
     {
-      name: "Acetaminophen 500 mg",
+      name: "Otrivin",
       price: "$5.99",
-      image: "https://via.placeholder.com/40x60?text=A",
+      image: "https://tse2.mm.bing.net/th/id/OIP.yDVXgg6w-He0OTSq1JocmgHaHb?w=193&h=194&c=7&r=0&o=7&dpr=1.5&pid=1.7&rm=3",
       rating: 3.5
     }
   ];
