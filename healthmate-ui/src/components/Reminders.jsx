@@ -79,7 +79,7 @@ const Reminders = () => {
                   </span>
                   <span style={{ color: '#555', fontSize: 13 }}>({reviews})</span>
                 </div>
-                <div style={{ fontWeight: 700, fontSize: 18, color: '#222', margin: '4px 0', minHeight: 24 }}>{price}</div>
+                <div style={{ fontWeight: 700, fontSize: 18, color: '#222', margin: '4px 0', minHeight: 24 }}>${price}</div>
                 <div style={{ flex: 1 }} />
                 <div style={{ minHeight: 44, display: 'flex', alignItems: 'flex-end', gap: 8 }}>
                   <button className="add-to-cart-btn walmart-btn" style={{ width: '100%' }} onClick={() => alert(`Added '${title}' to cart!`)}>
