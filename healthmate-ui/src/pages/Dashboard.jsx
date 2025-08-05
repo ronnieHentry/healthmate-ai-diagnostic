@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import ProfileCompletion from '../components/ProfileCompletion';
 import AssistantHistory from '../components/AssistantHistory';
 import HealthInsights from '../components/HealthInsights';
+import WellbeingTips from '../components/WellbeingTips';
 import Reminders from '../components/Reminders';
 
 const Dashboard = () => {
@@ -40,7 +41,10 @@ const Dashboard = () => {
       <div className="dashboard-wrapper">
         <ProfileCompletion onStartSymptomCheck={handleStartSymptomCheck} profile={profile} setProfile={setProfile} medicalHistoryData={medicalHistories} />
         <AssistantHistory onViewDetails={() => {}} />
-        <HealthInsights />
+        <div className="insights-tips-row">
+          <HealthInsights />
+          <WellbeingTips />
+        </div>
         <Reminders />
       </div>
     </Container>

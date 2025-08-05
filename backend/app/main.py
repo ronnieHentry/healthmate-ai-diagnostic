@@ -7,6 +7,7 @@ import shutil
 
 from app.agents.report_summarizer import summarize_medical_report
 from app.medical_history_api import router as medical_history_router
+from app.wellbeing_api import router as wellbeing_router
 
 # Agent imports
 from app.agents.symptom_agent import symptom_intake_agent
@@ -22,6 +23,7 @@ os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
 # Register routers
 app.include_router(medical_history_router)
+app.include_router(wellbeing_router)
 
 # CORS Middleware
 app.add_middleware(

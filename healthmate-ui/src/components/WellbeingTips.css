@@ -1,0 +1,73 @@
+.wellbeing-tips-section {
+  width: 50%;
+  min-width: 320px;
+  max-width: 700px;
+  flex: 1 1 50%;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #e3e8ee;
+  border-radius: 14px;
+  background: #fafdff;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.02);
+  padding: 8px 0 4px 0;
+}
+
+.wellbeing-tips-title {
+  font-size: 1.3rem;
+  margin-bottom: 4px;
+  color: #2a3b4c;
+  font-weight: 600;
+  padding-left: 20px;
+  border-bottom: 1px solid #e3e8ee;
+  padding-bottom: 6px;
+  margin-top: 0;
+  margin-right: 20px;
+  margin-left: 0;
+}
+
+.wellbeing-tips-list {
+  list-style: none !important;
+  padding: 16px 24px 8px 32px;
+  margin: 0;
+}
+.shimmer {
+  background: none !important;
+  box-shadow: none !important;
+  border-left: none !important;
+  min-height: 36px;
+  padding: 0 !important;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.shimmer-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: linear-gradient(90deg, #fafdff 25%, #e3e8ee 50%, #fafdff 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.2s infinite linear;
+  display: inline-block;
+  margin-right: 8px;
+}
+.shimmer-text {
+  width: 70%;
+  height: 18px;
+  background: linear-gradient(90deg, #fafdff 25%, #e3e8ee 50%, #fafdff 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.2s infinite linear;
+  border-radius: 6px;
+  display: inline-block;
+}
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.wellbeing-tip-item {
+  font-size: 1.08rem;
+  color: #2a3b4c;
+  margin-bottom: 10px;
+  line-height: 1.5;
+}

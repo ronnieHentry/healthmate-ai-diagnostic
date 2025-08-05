@@ -94,7 +94,9 @@ const HealthInsights = () => {
   const [modal, setModal] = useState({ open: false, insight: null });
 
   return (
-    <section className="history-section insights-section">
+    <section 
+      className="history-section insights-section"
+    >
       <h2 className="history-title insights-title">Your Health Insights</h2>
       <div className="cards-row insights-row">
         {insightsData.map((insight, i) => (

@@ -1,3 +1,42 @@
+/* Flex row for HealthInsights and WellbeingTips side by side */
+.insights-tips-row {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  gap: 6px;
+  align-items: stretch;
+}
+
+.insights-section,
+.wellbeing-tips-section {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  /* Reduce vertical padding for less height */
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.insights-section {
+  width: 40%;
+  margin-left: 0;
+  flex: 1 1 50%;
+  display: flex;
+  flex-direction: column;
+}
+
+.wellbeing-tips-section {
+  width: 50%;
+  min-width: 320px;
+  max-width: 700px;
+  flex: 1 1 50%;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #e3e8ee;
+  border-radius: 14px;
+  background: #fafdff;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.02);
+  padding: 8px 0 4px 0;
+}
 /* Start New Symptom Check section styling to match other sections */
 .start-check-section {
   width: 100%;

@@ -6,6 +6,26 @@ import ProfileCompletionForm from './PopupProfile';
 const ProfileCompletion = ({ onStartSymptomCheck, profile, setProfile, medicalHistoryData }) => {
   const [modalOpen, setModalOpen] = useState(false);
 
+  // List of fields to check for completion
+  const completionFields = [
+    'name', 'occupation', 'blood_group', 'marital_status', 'address', 'emergency_contact', 'contact', 'email',
+    'hasMedicalConditions', 'medicalConditions', 'hadSurgeries', 'surgeries', 'medicalHistory', 'notes',
+    'past_illnesses', 'medications', 'allergies', 'chronic_conditions', 'family_history', 'recent_test_results',
+    'height', 'weight', 'age', 'gender'
+  ];
+
+  let filled = 0;
+  if (medicalHistoryData) {
+    filled = completionFields.filter(
+      (field) => {
+        const value = medicalHistoryData[field];
+        if (Array.isArray(value)) return value.length > 0;
+        return value !== undefined && value !== null && String(value).trim() !== '';
+      }
+    ).length;
+  }
+  const percent = Math.round((filled / completionFields.length) * 100);
+
   const handleProfileSave = (data) => {
     setProfile && setProfile(data);
     setModalOpen(false);
@@ -16,9 +36,9 @@ const ProfileCompletion = ({ onStartSymptomCheck, profile, setProfile, medicalHi
     <section className="profile-section">
       <div className="profile-row-between">
         <div className="profile-left-group">
-          <span className="profile-progress-label">60% Profile Complete</span>
+          <span className="profile-progress-label">{percent}% Profile Complete</span>
           <div className="profile-progress-bar-bg">
-            <div className="profile-progress-bar-fill" style={{ width: '60%' }}></div>
+            <div className="profile-progress-bar-fill" style={{ width: `${percent}%` }}></div>
           </div>
           <button className="complete-profile-btn" onClick={() => setModalOpen(true)}>
             Complete Profile
