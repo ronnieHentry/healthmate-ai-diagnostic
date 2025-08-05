@@ -1,3 +1,29 @@
+.extra-wide-modal {
+  max-width: 1500px;
+  min-width: 1200px;
+  width: 1900px;
+  height: 700px;
+  margin: 40px auto;
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  /* No border-radius here */
+}
+
+.report-analysis-card {
+  margin: 18px 0 0 0;
+  padding: 18px 22px 18px 22px;
+  background: #f7fafd;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(30,64,175,0.06);
+  min-height: 180px;
+  max-height: 180px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
 /* Modal overlay and container */
 .modal-overlay {
   position: fixed;
@@ -20,7 +46,6 @@
   flex-direction: column;
   gap: 18px;
 }
-.modal-close {
   position: absolute;
   top: 18px;
   right: 18px;

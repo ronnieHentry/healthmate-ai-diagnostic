@@ -1,9 +1,10 @@
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi import FastAPI, Request, Body
+from fastapi import FastAPI, Request, Body, UploadFile, File, Form, HTTPException
 from pydantic import BaseModel
 import os
 import json
-
+import shutil
+from app.agents.report_summarizer import summarize_medical_report
 
 # Agent imports
 from app.agents.symptom_agent import symptom_intake_agent
@@ -13,6 +14,8 @@ from app.agents.healthy_products_agent import fetch_healthy_products
 from app.agents.static_health_products_agent import get_static_health_products
 
 app = FastAPI()
+UPLOAD_FOLDER = 'temp'
+os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
 # CORS Middleware
 app.add_middleware(
@@ -114,4 +117,23 @@ async def health_products_static():
     Return static health product suggestions for John Doe.
     """
     return get_static_health_products()
+
+@app.post("/upload_report")
+async def upload_report(
+    file: UploadFile = File(...),
+    session_id: str = Form(default="default_session")
+):
+    file_path = os.path.join(UPLOAD_FOLDER, file.filename)
+
+    try:
+        with open(file_path, "wb") as buffer:
+            shutil.copyfileobj(file.file, buffer)
+
+        summary = summarize_medical_report(session_id, file_path)
+        return {"status": "success", "summary": summary}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+    finally:
+        if os.path.exists(file_path):
+            os.remove(file_path)
 

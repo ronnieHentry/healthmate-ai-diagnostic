@@ -78,16 +78,16 @@ const insightsData = [
     sparkColor: '#4fc3f7',
     dates: last7Days
   },
-  {
-    type: 'magnesium',
-    title: 'Diet Suggestion',
-    summary: 'Consider adding magnesium-rich foods',
-    icon: '🥦',
-    data: [1, 1, 1, 1, 1, 1, 1],
-    unit: '',
-    sparkColor: '#6ad47e',
-    dates: last7Days
-  },
+//   {
+//     type: 'magnesium',
+//     title: 'Diet Suggestion',
+//     summary: 'Consider adding magnesium-rich foods',
+//     icon: '🥦',
+//     data: [1, 1, 1, 1, 1, 1, 1],
+//     unit: '',
+//     sparkColor: '#6ad47e',
+//     dates: last7Days
+//   },
 ];
 
 const HealthInsights = () => {
