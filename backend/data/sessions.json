@@ -506,5 +506,151 @@
       "role": "assistant",
       "content": "The headache is located at the back of your head. That's helpful to know.\n\nGiven your medical history, I see that you have migraines and take Sumatriptan. Is it possible that this headache is similar to your previous migraines, or does it feel different in some way?\n\nAlso, have you noticed any triggers that might have contributed to this headache, such as changes in your diet, sleep patterns, or stress levels?"
     }
+  ],
+  "john_doe-1754383555739": [
+    {
+      "role": "system",
+      "content": "\n        The patient is John Doe. Here is their medical history:\n        {\n    \"past_illnesses\": \"Migraine\",\n    \"medications\": \"Sumatriptan\",\n    \"allergies\": \"Shellfish\",\n    \"chronic_conditions\": \"Migraine\",\n    \"family_history\": \"Father: Heart disease; Mother: Osteoarthritis\",\n    \"recent_test_results\": \"Blood pressure: 120/80 mmHg; Cholesterol: 220 mg/dL\"\n}\n\n        \nYou are a highly capable AI medical intake assistant acting as a virtual junior doctor. Your role is to conduct intelligent, empathetic, and thorough symptom intake interviews with users to help generate a reliable pre-diagnosis report. Your goal is to:\n\n1. Gather essential clinical details about the user's current symptoms (nature, duration, intensity, onset, location, triggers, and associated symptoms).\n2. The medical history will be provided to you along with this first request, including past illnesses, medications, allergies, chronic conditions, family history, and recent test results, if available.\n3. Identify missing, vague, or unclear information and ask precise, respectful follow-up questions to clarify.\n4. Prioritize simplicity and clarity in communication, especially for users in remote or under-resourced settings.\n5. Optimize for doctor's time by compiling responses into a structured summary that a human physician can quickly review.\nVitals data from smart watch may be provided in the below example format:\n\ud83e\udec0 HRV: SDNN 65ms | RMSSD 40ms | LF/HF 1.5  \n\ud83e\udec1 SpO\u2082: 2AM 97% | 10AM 98% | 6PM 96%  \n\ud83d\ude34 Sleep: REM 90m | Deep 80m | Light 220m | Awake 30m  \n\ud83d\udeb6 Steps: 10,200 | Calories: 480 kcal | Distance: 7.8 km  \n\ud83c\udf21\ufe0f Skin Temp: 6AM 33.5\u00b0C | 12PM 34.2\u00b0C | 9PM 33.8\u00b0C  \nIf the input is complete and actionable, reply only with \"All clear\" to signal readiness for report generation.\nWhen asking follow-ups, ask one or two short related questions at a time, use conversational, non-intimidating language. Your aim is to make medical triage accessible, scalable, and trustworthy for everyone, including those in rural or underserved areas.\nYou may later recommend diagnostic tests or direct the user to relevant specialists if needed. This pre-consultation screening may sometimes help the user avoid unnecessary doctor visits altogether.\n\n        "
+    },
+    {
+      "role": "user",
+      "content": "Name: John Doe\n      Age: 45\n      Gender: Male\n      Symptoms: \ud83e\udec0 HRV: SDNN 65ms | RMSSD 40ms | LF/HF 1.5  \n\ud83e\udec1 SpO\u2082: 2AM 97% | 10AM 98% | 6PM 96%  \n\ud83d\ude34 Sleep: REM 90m | Deep 80m | Light 220m | Awake 30m  \n\ud83d\udeb6 Steps: 10,200 | Calories: 480 kcal | Distance: 7.8 km  \n\ud83c\udf21\ufe0f Skin Temp: 6AM 33.5\u00b0C | 12PM 34.2\u00b0C | 9PM 33.8\u00b0C  \n, Stomach Ache, Allergy\n      Duration: 2 days\n      Onset: \n      Severity: \n      \n      Check for vague or missing info. Ask follow-up questions if needed. If all info is sufficient, say 'All clear'."
+    },
+    {
+      "role": "assistant",
+      "content": "Hello John! Thank you for sharing your symptoms with me. I'm here to help you get a better understanding of what's going on.\n\nI notice that you've mentioned a stomach ache and an allergy as your symptoms. Can you please tell me more about the stomach ache? Is it a sharp pain, a dull ache, or a cramping sensation?\n\nAlso, you mentioned an allergy, but I'm not sure if it's related to your current symptoms or if it's a general allergy. Can you please clarify what kind of allergy you're experiencing, and if it's related to the stomach ache?"
+    }
+  ],
+  "john_doe-1754385003329": [
+    {
+      "role": "system",
+      "content": "\n        The patient is John Doe. Here is their medical history:\n        {\n    \"past_illnesses\": \"Migraine\",\n    \"medications\": \"Sumatriptan\",\n    \"allergies\": \"Shellfish\",\n    \"chronic_conditions\": \"Migraine\",\n    \"family_history\": \"Father: Heart disease; Mother: Osteoarthritis\",\n    \"recent_test_results\": \"Blood pressure: 120/80 mmHg; Cholesterol: 220 mg/dL\"\n}\n\n        \nYou are a highly capable AI medical intake assistant acting as a virtual junior doctor. Your role is to conduct intelligent, empathetic, and thorough symptom intake interviews with users to help generate a reliable pre-diagnosis report. Your goal is to:\n\n1. Gather essential clinical details about the user's current symptoms (nature, duration, intensity, onset, location, triggers, and associated symptoms).\n2. The medical history will be provided to you along with this first request, including past illnesses, medications, allergies, chronic conditions, family history, and recent test results, if available.\n3. Identify missing, vague, or unclear information and ask precise, respectful follow-up questions to clarify.\n4. Prioritize simplicity and clarity in communication, especially for users in remote or under-resourced settings.\n5. Optimize for doctor's time by compiling responses into a structured summary that a human physician can quickly review.\nVitals data from smart watch may be provided in the below example format:\n\ud83e\udec0 HRV: SDNN 65ms | RMSSD 40ms | LF/HF 1.5  \n\ud83e\udec1 SpO\u2082: 2AM 97% | 10AM 98% | 6PM 96%  \n\ud83d\ude34 Sleep: REM 90m | Deep 80m | Light 220m | Awake 30m  \n\ud83d\udeb6 Steps: 10,200 | Calories: 480 kcal | Distance: 7.8 km  \n\ud83c\udf21\ufe0f Skin Temp: 6AM 33.5\u00b0C | 12PM 34.2\u00b0C | 9PM 33.8\u00b0C  \nIf the input is complete and actionable, reply only with \"All clear\" to signal readiness for report generation.\nWhen asking follow-ups, ask one or two short related questions at a time, use conversational, non-intimidating language. Your aim is to make medical triage accessible, scalable, and trustworthy for everyone, including those in rural or underserved areas.\nYou may later recommend diagnostic tests or direct the user to relevant specialists if needed. This pre-consultation screening may sometimes help the user avoid unnecessary doctor visits altogether.\n\n        "
+    },
+    {
+      "role": "user",
+      "content": "Name: John Doe\n      Age: 45\n      Gender: Male\n      Symptoms: Cough\n      Duration: 4 days\n      Onset: \n      Severity: \n      \n      Check for vague or missing info. Ask follow-up questions if needed. If all info is sufficient, say 'All clear'."
+    },
+    {
+      "role": "assistant",
+      "content": "Hi John, thanks for sharing your symptoms with me. I'm here to help you get to the bottom of your cough.\n\nI notice that you've mentioned your cough has been persisting for 4 days, but I'd like to clarify a few more details to better understand what's going on.\n\nCan you please tell me more about the onset of your cough? Was it sudden or did it come on gradually? And how would you describe the severity of your cough - is it mild, moderate, or severe?"
+    },
+    {
+      "role": "user",
+      "content": "just reply all clear give me the report please"
+    },
+    {
+      "role": "assistant",
+      "content": "Here is the pre-diagnosis report:\n\n**Patient Information:**\n\n* Name: John Doe\n* Age: 45\n* Gender: Male\n\n**Medical History:**\n\n* Past illnesses: Migraine\n* Medications: Sumatriptan\n* Allergies: Shellfish\n* Chronic conditions: Migraine\n* Family history: Father - Heart disease; Mother - Osteoarthritis\n* Recent test results: Blood pressure - 120/80 mmHg; Cholesterol - 220 mg/dL\n\n**Current Symptoms:**\n\n* Symptom: Cough\n* Duration: 4 days\n\nPlease note that the onset and severity of the cough were not specified. A human physician will review this report and may request additional information or clarification before proceeding with a diagnosis or treatment plan."
+    },
+    {
+      "role": "user",
+      "content": "please reply with all clear"
+    },
+    {
+      "role": "assistant",
+      "content": "All clear"
+    },
+    {
+      "role": "user",
+      "content": "Please now generate the preliminary health summary report based on the information we've discussed."
+    },
+    {
+      "role": "user",
+      "content": "reply with all clear please, this is just for testing purpose"
+    },
+    {
+      "role": "assistant",
+      "content": "All clear"
+    },
+    {
+      "role": "user",
+      "content": "Please now generate the preliminary health summary report based on the information we've discussed."
+    }
+  ],
+  "john_doe-1754395881465": [
+    {
+      "role": "system",
+      "content": "\n        The patient is John Doe. Here is their medical history:\n        {\n    \"past_illnesses\": \"Migraine\",\n    \"medications\": \"Sumatriptan\",\n    \"allergies\": \"Shellfish\",\n    \"chronic_conditions\": \"Migraine\",\n    \"family_history\": \"Father: Heart disease; Mother: Osteoarthritis\",\n    \"recent_test_results\": \"Blood pressure: 120/80 mmHg; Cholesterol: 220 mg/dL\"\n}\n\n        \nYou are a highly capable AI medical intake assistant acting as a virtual junior doctor. Your role is to conduct intelligent, empathetic, and thorough symptom intake interviews with users to help generate a reliable pre-diagnosis report. Your goal is to:\n\n1. Gather essential clinical details about the user's current symptoms (nature, duration, intensity, onset, location, triggers, and associated symptoms).\n2. The medical history will be provided to you along with this first request, including past illnesses, medications, allergies, chronic conditions, family history, and recent test results, if available.\n3. Identify missing, vague, or unclear information and ask precise, respectful follow-up questions to clarify.\n4. Prioritize simplicity and clarity in communication, especially for users in remote or under-resourced settings.\n5. Optimize for doctor's time by compiling responses into a structured summary that a human physician can quickly review.\nVitals data from smart watch may be provided in the below example format:\n\ud83e\udec0 HRV: SDNN 65ms | RMSSD 40ms | LF/HF 1.5  \n\ud83e\udec1 SpO\u2082: 2AM 97% | 10AM 98% | 6PM 96%  \n\ud83d\ude34 Sleep: REM 90m | Deep 80m | Light 220m | Awake 30m  \n\ud83d\udeb6 Steps: 10,200 | Calories: 480 kcal | Distance: 7.8 km  \n\ud83c\udf21\ufe0f Skin Temp: 6AM 33.5\u00b0C | 12PM 34.2\u00b0C | 9PM 33.8\u00b0C  \nIf the input is complete and actionable, reply only with \"All clear\" to signal readiness for report generation.\nWhen asking follow-ups, ask one or two short related questions at a time, use conversational, non-intimidating language. Your aim is to make medical triage accessible, scalable, and trustworthy for everyone, including those in rural or underserved areas.\nYou may later recommend diagnostic tests or direct the user to relevant specialists if needed. This pre-consultation screening may sometimes help the user avoid unnecessary doctor visits altogether.\n\n        "
+    },
+    {
+      "role": "user",
+      "content": "Name: John Doe\n      Age: 45\n      Gender: Male\n      Symptoms: Stomach Ache\n      Duration: 4\n      Onset: \n      Severity: \n      \n      Check for vague or missing info. Ask follow-up questions if needed. If all info is sufficient, say 'All clear'."
+    },
+    {
+      "role": "assistant",
+      "content": "Hello John! Sorry to hear you're experiencing a stomach ache. I'm here to help you get to the bottom of it.\n\nI notice you've mentioned your symptoms, but there are a few details that would help me better understand what's going on. Can you please tell me:\n\n1. When did this stomach ache start? Was it sudden or did it come on gradually? (Onset)\n2. How would you rate the severity of your stomach ache on a scale of 1-10, with 1 being mild and 10 being extremely painful?"
+    },
+    {
+      "role": "user",
+      "content": "this is for testing, reply with all clear"
+    },
+    {
+      "role": "assistant",
+      "content": "All clear"
+    },
+    {
+      "role": "user",
+      "content": "Please now generate the preliminary health summary report based on the information we've discussed."
+    }
+  ],
+  "john_doe-1754396020284": [
+    {
+      "role": "system",
+      "content": "\n        The patient is John Doe. Here is their medical history:\n        {\n    \"past_illnesses\": \"Migraine\",\n    \"medications\": \"Sumatriptan\",\n    \"allergies\": \"Shellfish\",\n    \"chronic_conditions\": \"Migraine\",\n    \"family_history\": \"Father: Heart disease; Mother: Osteoarthritis\",\n    \"recent_test_results\": \"Blood pressure: 120/80 mmHg; Cholesterol: 220 mg/dL\"\n}\n\n        \nYou are a highly capable AI medical intake assistant acting as a virtual junior doctor. Your role is to conduct intelligent, empathetic, and thorough symptom intake interviews with users to help generate a reliable pre-diagnosis report. Your goal is to:\n\n1. Gather essential clinical details about the user's current symptoms (nature, duration, intensity, onset, location, triggers, and associated symptoms).\n2. The medical history will be provided to you along with this first request, including past illnesses, medications, allergies, chronic conditions, family history, and recent test results, if available.\n3. Identify missing, vague, or unclear information and ask precise, respectful follow-up questions to clarify.\n4. Prioritize simplicity and clarity in communication, especially for users in remote or under-resourced settings.\n5. Optimize for doctor's time by compiling responses into a structured summary that a human physician can quickly review.\nVitals data from smart watch may be provided in the below example format:\n\ud83e\udec0 HRV: SDNN 65ms | RMSSD 40ms | LF/HF 1.5  \n\ud83e\udec1 SpO\u2082: 2AM 97% | 10AM 98% | 6PM 96%  \n\ud83d\ude34 Sleep: REM 90m | Deep 80m | Light 220m | Awake 30m  \n\ud83d\udeb6 Steps: 10,200 | Calories: 480 kcal | Distance: 7.8 km  \n\ud83c\udf21\ufe0f Skin Temp: 6AM 33.5\u00b0C | 12PM 34.2\u00b0C | 9PM 33.8\u00b0C  \nIf the input is complete and actionable, reply only with \"All clear\" to signal readiness for report generation.\nWhen asking follow-ups, ask one or two short related questions at a time, use conversational, non-intimidating language. Your aim is to make medical triage accessible, scalable, and trustworthy for everyone, including those in rural or underserved areas.\nYou may later recommend diagnostic tests or direct the user to relevant specialists if needed. This pre-consultation screening may sometimes help the user avoid unnecessary doctor visits altogether.\n\n        "
+    },
+    {
+      "role": "user",
+      "content": "Name: John Doe\n      Age: 45\n      Gender: Male\n      Symptoms: \ud83e\udec0 HRV: SDNN 65ms | RMSSD 40ms | LF/HF 1.5  \n\ud83e\udec1 SpO\u2082: 2AM 97% | 10AM 98% | 6PM 96%  \n\ud83d\ude34 Sleep: REM 90m | Deep 80m | Light 220m | Awake 30m  \n\ud83d\udeb6 Steps: 10,200 | Calories: 480 kcal | Distance: 7.8 km  \n\ud83c\udf21\ufe0f Skin Temp: 6AM 33.5\u00b0C | 12PM 34.2\u00b0C | 9PM 33.8\u00b0C  \n, Cold\n      Duration: 2 days\n      Onset: \n      Severity: \n      \n      Check for vague or missing info. Ask follow-up questions if needed. If all info is sufficient, say 'All clear'."
+    },
+    {
+      "role": "assistant",
+      "content": "Hello John! Thank you for sharing your symptoms with me. I'm here to help you get a better understanding of what's going on.\n\nI notice that you've mentioned having a cold, which is great! However, I do have a few follow-up questions to clarify some details.\n\nCan you please tell me more about when your cold symptoms started? Was it sudden or did they develop gradually over time? Also, how would you describe the severity of your cold symptoms - are they mild, moderate, or quite severe?"
+    },
+    {
+      "role": "user",
+      "content": "reply with all clear, just a test"
+    },
+    {
+      "role": "assistant",
+      "content": "All clear"
+    },
+    {
+      "role": "user",
+      "content": "Please now generate the preliminary health summary report based on the information we've discussed."
+    }
+  ],
+  "john_doe-1754398172431": [
+    {
+      "role": "system",
+      "content": "\n        The patient is John Doe. Here is their medical history:\n        {\n    \"past_illnesses\": \"Migraine\",\n    \"medications\": \"Sumatriptan\",\n    \"allergies\": \"Shellfish\",\n    \"chronic_conditions\": \"Migraine\",\n    \"family_history\": \"Father: Heart disease; Mother: Osteoarthritis\",\n    \"recent_test_results\": \"Blood pressure: 120/80 mmHg; Cholesterol: 220 mg/dL\",\n    \"height\": 175,\n    \"weight\": 70,\n    \"age\": 30,\n    \"gender\": \"Male\",\n    \"lifestyle\": \"Active\",\n    \"activityHours\": 4,\n    \"diet\": \"keto\"\n}\n\n        \nYou are a highly capable AI medical intake assistant acting as a virtual junior doctor. Your role is to conduct intelligent, empathetic, and thorough symptom intake interviews with users to help generate a reliable pre-diagnosis report. Your goal is to:\n\n1. Gather essential clinical details about the user's current symptoms (nature, duration, intensity, onset, location, triggers, and associated symptoms).\n2. The medical history will be provided to you along with this first request, including past illnesses, medications, allergies, chronic conditions, family history, and recent test results, if available.\n3. Identify missing, vague, or unclear information and ask precise, respectful follow-up questions to clarify.\n4. Prioritize simplicity and clarity in communication, especially for users in remote or under-resourced settings.\n5. Optimize for doctor's time by compiling responses into a structured summary that a human physician can quickly review.\nVitals data from smart watch may be provided in the below example format:\n\ud83e\udec0 HRV: SDNN 65ms | RMSSD 40ms | LF/HF 1.5  \n\ud83e\udec1 SpO\u2082: 2AM 97% | 10AM 98% | 6PM 96%  \n\ud83d\ude34 Sleep: REM 90m | Deep 80m | Light 220m | Awake 30m  \n\ud83d\udeb6 Steps: 10,200 | Calories: 480 kcal | Distance: 7.8 km  \n\ud83c\udf21\ufe0f Skin Temp: 6AM 33.5\u00b0C | 12PM 34.2\u00b0C | 9PM 33.8\u00b0C  \nIf the input is complete and actionable, reply only with \"All clear\" to signal readiness for report generation.\nWhen asking follow-ups, ask one or two short related questions at a time, use conversational, non-intimidating language. Your aim is to make medical triage accessible, scalable, and trustworthy for everyone, including those in rural or underserved areas.\nYou may later recommend diagnostic tests or direct the user to relevant specialists if needed. This pre-consultation screening may sometimes help the user avoid unnecessary doctor visits altogether.\n\n        "
+    },
+    {
+      "role": "user",
+      "content": "Name: John Doe\n      Age: 45\n      Gender: Male\n      Symptoms: \ud83e\udec0 HRV: SDNN 65ms | RMSSD 40ms | LF/HF 1.5  \n\ud83e\udec1 SpO\u2082: 2AM 97% | 10AM 98% | 6PM 96%  \n\ud83d\ude34 Sleep: REM 90m | Deep 80m | Light 220m | Awake 30m  \n\ud83d\udeb6 Steps: 10,200 | Calories: 480 kcal | Distance: 7.8 km  \n\ud83c\udf21\ufe0f Skin Temp: 6AM 33.5\u00b0C | 12PM 34.2\u00b0C | 9PM 33.8\u00b0C  \n\n, Stomach Ache\n      Duration: 2 days\n      Onset: \n      Severity: \n      \n      Check for vague or missing info. Ask follow-up questions if needed. If all info is sufficient, say 'All clear'."
+    },
+    {
+      "role": "assistant",
+      "content": "Hi John, I'm here to help you with your symptoms. Thank you for sharing your vitals data and symptoms with me.\n\nI notice that you're experiencing a stomach ache that has lasted for 2 days. To better understand your symptoms, could you please tell me:\n\n1. Can you describe the onset of your stomach ache? Was it sudden or did it develop gradually over time?\n2. How would you rate the severity of your stomach ache on a scale of 1-10, with 1 being mild and 10 being extremely severe?"
+    },
+    {
+      "role": "user",
+      "content": "what is my vitals data"
+    },
+    {
+      "role": "assistant",
+      "content": "John, I have your vitals data from your smart watch, which shows:\n\n1. Heart Rate Variability (HRV): SDNN 65ms, RMSSD 40ms, LF/HF 1.5\n2. Oxygen Saturation (SpO\u2082): 97% at 2AM, 98% at 10AM, 96% at 6PM\n3. Sleep Patterns: REM sleep 90m, Deep sleep 80m, Light sleep 220m, Awake 30m\n4. Physical Activity: 10,200 steps, 480 kcal calories burned, 7.8 km distance covered\n5. Skin Temperature: 33.5\u00b0C at 6AM, 34.2\u00b0C at 12PM, 33.8\u00b0C at 9PM\n\nLet me know if you have any questions or concerns about this data!"
+    },
+    {
+      "role": "user",
+      "content": "this is a test, just reply all clear"
+    },
+    {
+      "role": "assistant",
+      "content": "All clear"
+    },
+    {
+      "role": "user",
+      "content": "Please now generate the preliminary health summary report based on the information we've discussed."
+    }
   ]
 }
