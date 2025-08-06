@@ -82,16 +82,25 @@ const AssistantHistory = ({ username = "john_doe" }) => {
     <section className="history-section">
       <h2 className="history-title">Assistant History</h2>
       {loading ? (
-        <div className="cards-row-wrapper" style={{ position: "relative" }}>
-          <div className="cards-row" ref={rowRef}>
+        <div className="history-cards-row-wrapper" style={{ position: "relative" }}>
+          <div className="history-cards-row no-scrollbar" ref={rowRef}>
             {[...Array(6)].map((_, i) => (
               <ShimmerCard key={i} />
             ))}
           </div>
           <button
-            className="scroll-btn scroll-btn-abs"
+            className="scroll-btn scroll-btn-abs left"
+            onClick={() => scroll(-1)}
+            title="Scroll left"
+            style={{ left: 0, position: "absolute", top: "50%", transform: "translateY(-50%)" }}
+          >
+            &#8592;
+          </button>
+          <button
+            className="scroll-btn scroll-btn-abs right"
             onClick={() => scroll(1)}
             title="Scroll right"
+            style={{ right: 0, position: "absolute", top: "50%", transform: "translateY(-50%)" }}
           >
             &#8594;
           </button>
@@ -99,8 +108,8 @@ const AssistantHistory = ({ username = "john_doe" }) => {
       ) : error ? (
         <div style={{ color: "red" }}>{error}</div>
       ) : (
-        <div className="cards-row-wrapper" style={{ position: "relative" }}>
-          <div className="cards-row" ref={rowRef}>
+        <div className="history-cards-row-wrapper" style={{ position: "relative" }}>
+          <div className="history-cards-row no-scrollbar" ref={rowRef}>
             {historyData.length === 0 ? (
               <div style={{ padding: 16 }}>No history found.</div>
             ) : (
@@ -138,9 +147,18 @@ const AssistantHistory = ({ username = "john_doe" }) => {
             )}
           </div>
           <button
-            className="scroll-btn scroll-btn-abs"
+            className="scroll-btn scroll-btn-abs left"
+            onClick={() => scroll(-1)}
+            title="Scroll left"
+            style={{ left: 0, position: "absolute", top: "50%", transform: "translateY(-50%)" }}
+          >
+            &#8592;
+          </button>
+          <button
+            className="scroll-btn scroll-btn-abs right"
             onClick={() => scroll(1)}
             title="Scroll right"
+            style={{ right: 0, position: "absolute", top: "50%", transform: "translateY(-50%)" }}
           >
             &#8594;
           </button>

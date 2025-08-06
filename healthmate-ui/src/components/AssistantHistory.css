@@ -1,4 +1,4 @@
-.cards-row-wrapper {
+.history-cards-row-wrapper {
   position: relative;
 }
 .scroll-btn-abs {
@@ -82,14 +82,14 @@
   margin-right: 20px;
   margin-left: 0;
 }
-.cards-row {
+.history-cards-row {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   width: 100vw;
   gap: 1.1rem;
   border-radius: 0 0 12px 12px;
-  overflow-x: auto;
+  overflow-x: hidden;
   overflow-y: hidden;
   box-shadow: none;
   border-top: none;

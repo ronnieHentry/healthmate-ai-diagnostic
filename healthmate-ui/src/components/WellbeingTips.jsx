@@ -28,9 +28,20 @@ const WellbeingTips = () => {
 
   return (
     <section className="wellbeing-tips-section">
-      <div className="wellbeing-tips-header">
-        <span className="wellbeing-tips-icon">🌱</span>
-        <h2 className="wellbeing-tips-title">Wellbeing Tips</h2>
+      <div className="wellbeing-tips-header" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+        <div style={{ display: 'flex', alignItems: 'center' }}>
+          <span className="wellbeing-tips-icon">🌱</span>
+          <h2 className="wellbeing-tips-title" style={{ marginLeft: 8 }}>Wellbeing Tips</h2>
+        </div>
+        <button
+          className="recommend-products-btn"
+          title="Recommend Wellness Products"
+          style={{ fontSize: 16, padding: '4px 12px', borderRadius: 16, border: 'none', background: '#e0f7fa', cursor: 'pointer', marginLeft: 12, display: 'flex', alignItems: 'center', gap: 6 }}
+          onClick={() => alert('Recommended wellness products coming soon!')}
+        >
+          <span role="img" aria-label="products">🛒</span>
+          <span style={{ fontWeight: 500 }}>Products</span>
+        </button>
       </div>
       <ul className="wellbeing-tips-list">
         {loading

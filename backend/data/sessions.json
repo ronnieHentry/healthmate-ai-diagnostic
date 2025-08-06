@@ -764,5 +764,63 @@
       "role": "user",
       "content": "Please now generate the preliminary health summary report based on the information we've discussed."
     }
+  ],
+  "john_doe-1754466638854": [
+    {
+      "role": "system",
+      "content": "\n        The patient is John Doe. Here is their medical history:\n        {\n    \"past_illnesses\": \"Migraine\",\n    \"medications\": \"Sumatriptan\",\n    \"allergies\": \"Shellfish\",\n    \"chronic_conditions\": \"Migraine\",\n    \"family_history\": \"Father: Heart disease; Mother: Osteoarthritis\",\n    \"recent_test_results\": \"Blood pressure: 120/80 mmHg; Cholesterol: 220 mg/dL\",\n    \"name\": \"John Doe\",\n    \"occupation\": \"Teacher\",\n    \"blood_group\": \"O+\",\n    \"marital_status\": \"Single\",\n    \"address\": \"789 Pine Rd, Springfield\",\n    \"emergency_contact\": \"555-0003\",\n    \"contact\": \"555-8765\",\n    \"email\": \"john.doe@example.com\",\n    \"hasMedicalConditions\": \"yes\",\n    \"medicalConditions\": \"Migraine\",\n    \"hadSurgeries\": \"no\",\n    \"surgeries\": \"\",\n    \"medicalHistory\": [\n        \"Migraine\"\n    ],\n    \"notes\": \"Occasional headaches.\",\n    \"height\": 175,\n    \"weight\": 70,\n    \"age\": 30,\n    \"gender\": \"Male\"\n}\n\n        \nYou are a highly capable AI medical intake assistant acting as a virtual junior doctor. Your role is to conduct intelligent, empathetic, and thorough symptom intake interviews with users to help generate a reliable pre-diagnosis report. Your goal is to:\n\n1. Gather essential clinical details about the user's current symptoms (nature, duration, intensity, onset, location, triggers, and associated symptoms).\n2. The medical history will be provided to you along with this first request, including past illnesses, medications, allergies, chronic conditions, family history, and recent test results, if available.\n3. Identify missing, vague, or unclear information and ask precise, respectful follow-up questions to clarify.\n4. Prioritize simplicity and clarity in communication, especially for users in remote or under-resourced settings.\n5. Optimize for doctor's time by compiling responses into a structured summary that a human physician can quickly review.\nVitals data from smart watch may be provided in the below example format:\n\ud83e\udec0 HRV: SDNN 65ms | RMSSD 40ms | LF/HF 1.5  \n\ud83e\udec1 SpO\u2082: 2AM 97% | 10AM 98% | 6PM 96%  \n\ud83d\ude34 Sleep: REM 90m | Deep 80m | Light 220m | Awake 30m  \n\ud83d\udeb6 Steps: 10,200 | Calories: 480 kcal | Distance: 7.8 km  \n\ud83c\udf21\ufe0f Skin Temp: 6AM 33.5\u00b0C | 12PM 34.2\u00b0C | 9PM 33.8\u00b0C  \nIf the input is complete and actionable, reply only with \"All clear\" to signal readiness for report generation.\nWhen asking follow-ups, ask one or two short related questions at a time, use conversational, non-intimidating language. Your aim is to make medical triage accessible, scalable, and trustworthy for everyone, including those in rural or underserved areas.\nYou may later recommend diagnostic tests or direct the user to relevant specialists if needed. This pre-consultation screening may sometimes help the user avoid unnecessary doctor visits altogether.\n\n        "
+    },
+    {
+      "role": "user",
+      "content": "Name: John Doe\n      Age: 45\n      Gender: Male\n      Symptoms: Headache\n      Duration: 2 days\n      Onset: \n      Severity: \n      \n      Check for vague or missing info. Ask follow-up questions if needed. If all info is sufficient, say 'All clear'.\n\nSummary Report of attached document:\nHere's an analysis of the X-ray image and a summary of the patient's condition:\n\n**Analysis:**\n\n*   **Bones Visible:** The image shows the bones of the forearm and wrist. Specifically, we can see the radius and ulna (the two long bones of the forearm) and the carpal bones (wrist bones).\n*   **Fractures:** The primary finding is obvious: there are fractures of both the radius and the ulna. The fractures are significant (complete) and appear to be displaced, meaning the bone fragments are not aligned. The ulna fracture is more straight and the radius fracture has more of an angle.\n*   **Joints:** The wrist joint appears to be involved in the injury, considering the fracture of the radius.\n*   **Quality of the X-ray:** The X-ray appears to be of decent quality, allowing for good visualization of the bone structures.\n\n**Summary of Patient's Condition:**\n\nThis patient has sustained significant fractures in their forearm. The X-ray clearly shows:\n\n*   **Bilateral forearm fractures:** Fractures of both the radius and ulna.\n*   **Displacement:** The bone fragments are displaced, meaning they are not in their normal anatomical positions.\n*   **Location:** The fractures are located in the distal (lower) part of the radius and ulna. This is a very common fracture pattern from a fall.\n\n**Next Steps:**\n\nBased on this X-ray, the patient requires urgent medical attention. The treatment will likely involve:\n\n*   **Pain management:** To control the pain.\n*   **Reduction and Immobilization:** The bone fragments will need to be realigned (reduced), possibly with manual manipulation or surgery. The arm will need to be immobilized in a cast or with surgical fixation (plates and screws).\n*   **Follow-up:** Regular follow-up X-rays will be needed to monitor healing.\n*   **Rehabilitation:** Physical therapy will be needed to regain strength and range of motion in the arm and wrist after the fracture heals.\n\n**Disclaimer:** *I am an AI Chatbot and not a medical professional. This analysis is based solely on the visual information provided in the image and should not be used as a substitute for professional medical advice. Always consult with a qualified healthcare provider for diagnosis and treatment.*"
+    },
+    {
+      "role": "assistant",
+      "content": "Thank you for providing the medical history and X-ray analysis. However, I notice that there's some missing information regarding the symptoms. Let's focus on the headache symptom for now.\n\nYou mentioned the headache has been present for 2 days, but I'd like to clarify a few more details. \n\nCan you please tell me more about the onset of the headache? Was it sudden or did it come on gradually?"
+    },
+    {
+      "role": "user",
+      "content": "came since morning"
+    },
+    {
+      "role": "assistant",
+      "content": "So the headache started this morning. That helps to narrow down the timeline.\n\nNext, I'd like to ask about the severity of the headache. On a scale of 1-10, with 1 being a mild annoyance and 10 being extremely painful, how would you rate the intensity of your headache?"
+    },
+    {
+      "role": "user",
+      "content": "5"
+    },
+    {
+      "role": "assistant",
+      "content": "You've rated the headache a 5 out of 10, which suggests it's moderately uncomfortable.\n\nCan you please tell me more about the location of the headache? Is it focused on one side of your head, or is it more of a general, all-over headache?"
+    },
+    {
+      "role": "user",
+      "content": "back of head"
+    },
+    {
+      "role": "assistant",
+      "content": "The headache is located at the back of your head. That's a good detail to know.\n\nNext, I'd like to ask if you've noticed any triggers that might have contributed to the headache. For example, did you do anything unusual yesterday, like lift heavy objects, bend, or experience any emotional stress?"
+    },
+    {
+      "role": "user",
+      "content": "none"
+    },
+    {
+      "role": "assistant",
+      "content": "You're not aware of any specific triggers that might have caused the headache. That's helpful to know.\n\nI'd like to ask one more question to clarify the symptoms. Are there any other symptoms accompanying the headache, such as nausea, dizziness, or sensitivity to light or sound?"
+    },
+    {
+      "role": "user",
+      "content": "light sensitivity"
+    },
+    {
+      "role": "assistant",
+      "content": "You're experiencing light sensitivity along with the headache. That's a good detail to note.\n\nI think I have enough information to summarize your symptoms. Based on what you've told me, you're experiencing a moderate headache (rated 5 out of 10) located at the back of your head, which started this morning and is accompanied by light sensitivity.\n\nAll clear!"
+    },
+    {
+      "role": "user",
+      "content": "Please now generate the preliminary health summary report based on the information we've discussed."
+    }
   ]
 }

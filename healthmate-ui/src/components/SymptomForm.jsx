@@ -62,11 +62,11 @@ const SymptomForm = ({ user = { name: 'John Doe', age: '45', gender: 'Male' } })
   };
 
   const pullFormSmartWatch = () => {
-    const str = `🫀 HRV: SDNN 65ms | RMSSD 40ms | LF/HF 1.5  
-🫁 SpO₂: 2AM 97% | 10AM 98% | 6PM 96%  
-😴 Sleep: REM 90m | Deep 80m | Light 220m | Awake 30m  
-🚶 Steps: 10,200 | Calories: 480 kcal | Distance: 7.8 km  
-🌡️ Skin Temp: 6AM 33.5°C | 12PM 34.2°C | 9PM 33.8°C  
+    const str = `HRV: SDNN 65ms | RMSSD 40ms | LF/HF 1.5  
+SpO₂: 2AM 97% | 10AM 98% | 6PM 96%  
+Sleep: REM 90m | Deep 80m | Light 220m | Awake 30m  
+Steps: 10,200 | Calories: 480 kcal | Distance: 7.8 km  
+Skin Temp: 6AM 33.5°C | 12PM 34.2°C | 9PM 33.8°C  
 `
     setFormData(state => ({ ...state, symptoms: str }))
   }

@@ -38,31 +38,41 @@ def extract_json(text):
     raise ValueError("No valid JSON array found in response.")
 
 def get_wellbeing_tips(username=None):
-    # Load user medical history
+    # Load user medical history and summarized history
     med_hist = None
+    summarized_history = None
     if username:
         data_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '../../data'))
         med_hist_file = os.path.join(data_dir, 'medical_histories.json')
+        summarized_file = os.path.join(data_dir, 'summarized_history.json')
+        # Load medical history
         if os.path.exists(med_hist_file):
             with open(med_hist_file, 'r', encoding='utf-8') as f:
                 histories = json.load(f)
             med_hist = histories.get(username)
+        # Load summarized history
+        if os.path.exists(summarized_file):
+            with open(summarized_file, 'r', encoding='utf-8') as f:
+                summarized = json.load(f)
+            summarized_history = summarized.get(username)
 
-    if med_hist:
-        med_hist_str = json.dumps(med_hist, ensure_ascii=False, indent=2)
+    if med_hist or summarized_history:
+        med_hist_str = json.dumps(med_hist, ensure_ascii=False, indent=2) if med_hist else "None"
+        summarized_str = json.dumps(summarized_history, ensure_ascii=False, indent=2) if summarized_history else "None"
         prompt = (
             f"The following is the user's medical history:\n{med_hist_str}\n"
+            f"The following is the user's recent summarized health history (diagnoses, symptoms, etc.):\n{summarized_str}\n"
             "Based on this, give 6 short, personalized wellbeing tips that are specifically related to diet and nutrition. "
             "Each tip should recommend a specific food or dietary habit that can help with the user's conditions or risks (e.g., oranges for vitamin C if the user has a history of colds). "
             "Respond ONLY as a JSON array of objects, each with 'icon' and 'text' keys. "
-            "Example: [ {\"icon\": \"🍊\", \"text\": \"Eat oranges for vitamin C to boost immunity\"}, ... ]"
+            "Example: [{\"icon\": \"🍊\", \"text\": \"Eat oranges for vitamin C to boost immunity\"}, ... ]"
         )
     else:
         prompt = (
             "Give me 6 short wellbeing tips for a healthy lifestyle, focusing only on diet and nutrition. "
             "Each tip should recommend a specific food or dietary habit and its benefit. "
             "Respond ONLY as a JSON array of objects, each with 'icon' and 'text' keys. "
-            "Example: [ {\"icon\": \"🍊\", \"text\": \"Eat oranges for vitamin C to boost immunity\"}, ... ]"
+            "Example: [{\"icon\": \"🍊\", \"text\": \"Eat oranges for vitamin C to boost immunity\"}, ... ]"
         )
     try:
         llm_response = get_groq_response(prompt)
