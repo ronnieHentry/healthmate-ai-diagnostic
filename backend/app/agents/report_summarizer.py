@@ -6,14 +6,23 @@ from dotenv import load_dotenv
 from app.utils.pdf_utils import extract_text_from_pdf
 from app.utils.prompt import MEDICAL_REPORT_PROMPT_TEMPLATE
 
+
 load_dotenv()
 GROQ_API_KEY = os.getenv("GROQ_API_KEY3")
-GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
+GEMINI_API_KEYS = [os.getenv("GEMINI_API_KEY"), os.getenv("GEMINI_API_KEY2")]
+_gemini_key_index = 0
+
+def get_next_gemini_key():
+    global _gemini_key_index
+    key = GEMINI_API_KEYS[_gemini_key_index % len(GEMINI_API_KEYS)]
+    _gemini_key_index += 1
+    return key
 
 def summarize_medical_report(session_id, file_path):
     file_ext = os.path.splitext(file_path)[1].lower()
 
     # Image file handling (use Gemini)
+
     if file_ext in [".png", ".jpg", ".jpeg"]:
         try:
             with open(file_path, "rb") as image_file:
@@ -24,7 +33,7 @@ def summarize_medical_report(session_id, file_path):
         gemini_url = "https://generativelanguage.googleapis.com/v1/models/gemini-2.0-flash-lite:generateContent"
         headers = {
             "Content-Type": "application/json",
-            "x-goog-api-key": GEMINI_API_KEY
+            "x-goog-api-key": get_next_gemini_key()
         }
 
         payload = {
