@@ -1,3 +1,58 @@
+/* Modern upload button and preview UI styles */
+.upload-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  cursor: pointer;
+  color: #1976d2;
+  font-weight: 500;
+  background: #f5faff;
+  border: 1px solid #1976d2;
+  border-radius: 6px;
+  padding: 7px 16px;
+  transition: background 0.2s, box-shadow 0.2s;
+  box-shadow: 0 1px 4px rgba(25, 118, 210, 0.07);
+}
+
+.upload-btn:hover {
+  background: #e3f2fd;
+  box-shadow: 0 2px 8px rgba(25, 118, 210, 0.12);
+}
+
+.attachment-icon {
+  vertical-align: middle;
+  margin-right: 6px;
+}
+
+.upload-btn-text {
+  font-size: 1rem;
+}
+
+.inline-file-preview {
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #eee;
+  background: #fafafa;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-left: 10px;
+}
+
+.file-preview-image-fixed {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+}
+
+.file-preview-link {
+  font-size: 0.95rem;
+  color: #1976d2;
+  text-decoration: underline;
+  word-break: break-all;
+}
 /* Form title and section styling */
 .form-title {
   font-size: 2.2rem;
@@ -17,7 +72,6 @@
   background: #f3f6fa;
   border-radius: 12px;
   padding: 18px 18px 12px 18px;
-  margin-bottom: 18px;
   box-shadow: 0 1px 4px rgba(30, 64, 175, 0.04);
 }
 
@@ -94,9 +148,7 @@
   border: 1px solid #b6c4d5;
   border-radius: 10px;
   font-size: 17px;
-  height: 48px;
-  width: 95%;
-  max-width: 600px;
+  width: 55%;
   margin: 0 auto 10px auto;
   display: block;
   background: #fafdff;
