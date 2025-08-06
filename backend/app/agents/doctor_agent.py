@@ -7,7 +7,7 @@ from dotenv import load_dotenv
 from app.utils.prompt import DOCTOR_AGENT_PROMPT
 
 load_dotenv()
-GROQ_API_KEY = os.getenv("GROQ_API_KEY")
+GROQ_API_KEY = os.getenv("GROQ_API_KEY2")
 DIAGNOSIS_REPORT_FILE = "data/report.json"
 
 def load_diagnosis_reports():

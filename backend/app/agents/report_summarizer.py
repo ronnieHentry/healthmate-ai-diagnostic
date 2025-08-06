@@ -7,7 +7,7 @@ from app.utils.pdf_utils import extract_text_from_pdf
 from app.utils.prompt import MEDICAL_REPORT_PROMPT_TEMPLATE
 
 load_dotenv()
-GROQ_API_KEY = os.getenv("GROQ_API_KEY")
+GROQ_API_KEY = os.getenv("GROQ_API_KEY3")
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 
 def summarize_medical_report(session_id, file_path):

@@ -1,0 +1,70 @@
+{
+  "john_doe": [
+    {
+      "title": "Itchy Skin with Redness",
+      "shortSummary": "Moderate itchy skin and redness on torso, possibly an allergic reaction to shellfish consumption, further evaluation and management by a specialist are necessary.",
+      "date": "May 15",
+      "fullDate": "2025-05-15"
+    },
+    {
+      "title": "Cough",
+      "shortSummary": "Moderate dry cough for 4 days, likely due to upper respiratory tract infection or environmental irritant, further testing recommended.",
+      "date": "August 03",
+      "fullDate": "2025-08-03"
+    },
+    {
+      "title": "Fever and Body Aches",
+      "shortSummary": "Mild fever and body aches likely due to viral infection, rest and monitor symptoms.",
+      "date": "August 04",
+      "fullDate": "2025-08-04"
+    },
+    {
+      "title": "Mild Stomach Pain",
+      "shortSummary": "Mild stomach pain after eating spicy food, likely gastritis, avoid spicy food and consider antacids if needed.",
+      "date": "August 05",
+      "fullDate": "2025-08-05"
+    },
+    {
+      "title": "Headache and Fatigue",
+      "shortSummary": "Experiencing mild headache and fatigue, likely due to tension and stress. Recommended to rest, hydrate, and manage stress.",
+      "date": "August 06",
+      "fullDate": "2025-08-06"
+    },
+    {
+      "title": "Cough",
+      "shortSummary": "A 4-day history of cough, possibly related to upper respiratory tract infection or allergic reaction, further testing and evaluation are necessary.",
+      "date": "August 05",
+      "fullDate": "2025-08-05"
+    },
+    {
+      "title": "Stomach Ache",
+      "shortSummary": "The stomach ache may be related to gastrointestinal issues or a medication side effect, and further evaluation is necessary to determine the underlying cause and develop an appropriate treatment plan.",
+      "date": "August 05",
+      "fullDate": "2025-08-05"
+    },
+    {
+      "title": "Cold Symptoms",
+      "shortSummary": "You have symptoms of a common cold, possibly related to a viral upper respiratory tract infection, with indications of stress or anxiety. Further tests and consultation with a healthcare professional are recommended.",
+      "date": "August 05",
+      "fullDate": "2025-08-05"
+    },
+    {
+      "title": "Stomach Ache",
+      "shortSummary": "The patient presents with a 2-day history of stomach ache, possibly related to gastrointestinal issues, migraine, or other causes, requiring further evaluation.",
+      "date": "August 05",
+      "fullDate": "2025-08-05"
+    },
+    {
+      "title": "Forearm Fracture",
+      "shortSummary": "Severe forearm fracture from an accident, requiring further evaluation and treatment by an orthopedic surgeon to promote healing and proper function.",
+      "date": "August 06",
+      "fullDate": "2025-08-06"
+    },
+    {
+      "title": "Forearm Fracture",
+      "shortSummary": "You have a fracture of both radius and ulna bones in your forearm, which requires immediate medical attention to avoid further complications. You may need additional tests and orthopedic surgery.",
+      "date": "August 06",
+      "fullDate": "2025-08-06"
+    }
+  ]
+}

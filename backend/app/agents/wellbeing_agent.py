@@ -7,7 +7,7 @@ from dotenv import load_dotenv
 from fastapi.responses import JSONResponse
 
 load_dotenv()
-GROQ_API_KEY = os.getenv("GROQ_API_KEY")
+GROQ_API_KEY = os.getenv("GROQ_API_KEY3")
 
 
 def get_groq_response(prompt):

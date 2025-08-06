@@ -7,7 +7,7 @@ from app.utils.prompt import DIAGNOSIS_AGENT_PROMPT
 import re
 
 load_dotenv()
-GROQ_API_KEY = os.getenv("GROQ_API_KEY")
+GROQ_API_KEY = os.getenv("GROQ_API_KEY2")
 
 DATA_FILE = "data/sessions.json"
 DIAGNOSIS_REPORT_FILE = "data/report.json"
@@ -193,6 +193,14 @@ def diagnosis_agent(session_id):
     # Save the diagnosis report
     save_diagnosis_report(session_id, diagnosis_report)
     save_session(session_id, messages)
+
+    # Update summarized history using history_agent
+    try:
+        from app.agents.history_agent import get_user_history
+        # Use patient_name as user_key
+        get_user_history(patient_name)
+    except Exception as e:
+        print(f"Error updating summarized history: {e}")
 
     return {
         "diagnosis_raw": diagnosis_report,

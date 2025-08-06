@@ -4,7 +4,7 @@ import re
 import os
 
 load_dotenv()
-GROQ_API_KEY = os.getenv("GROQ_API_KEY")
+GROQ_API_KEY = os.getenv("GROQ_API_KEY3")
 
 def summarize_report(report_text):
     """
@@ -55,48 +55,10 @@ def get_user_history(user_key: str):
     Fetch all previous consultation reports for a user from report.json and summarize them.
     Returns a list of dicts: {date, title, shortSummary}
     """
-    from datetime import datetime
-    import calendar
-    report_path = os.path.join("data", "report.json")
-    if not os.path.exists(report_path):
+    summarized_path = os.path.join("data", "summarized_history.json")
+    if not os.path.exists(summarized_path):
         return []
-    with open(report_path, "r", encoding="utf-8") as f:
-        all_reports = json.load(f)
-    user_reports = [
-        {"session_id": sid, "report": report}
-        for sid, report in all_reports.items()
-        if sid.lower().startswith(user_key.lower())
-    ]
-    result = []
-    for entry in user_reports:
-        summary = summarize_report(entry["report"])
-        # If no date, use session_id timestamp
-        if not summary.get("date") or not summary["date"]:
-            # Always treat timestamp as milliseconds
-            parts = entry["session_id"].split("-")
-            if len(parts) > 1:
-                try:
-                    ts = int(parts[-1]) // 1000
-                    dt = datetime.fromtimestamp(ts)
-                    summary["date"] = dt.strftime("%b %d")  # Changed to show month and day
-                    summary["fullDate"] = dt.strftime("%Y-%m-%d")
-                except Exception:
-                    summary["date"] = ""
-                    summary["fullDate"] = ""
-            else:
-                summary["date"] = ""
-                summary["fullDate"] = ""
-        else:
-            # If Groq returned a date, also try to add fullDate from session_id
-            parts = entry["session_id"].split("-")
-            if len(parts) > 1:
-                try:
-                    ts = int(parts[-1]) // 1000
-                    dt = datetime.fromtimestamp(ts)
-                    summary["fullDate"] = dt.strftime("%Y-%m-%d")
-                except Exception:
-                    summary["fullDate"] = ""
-            else:
-                summary["fullDate"] = ""
-        result.append(summary)
-    return result
+    with open(summarized_path, "r", encoding="utf-8") as f:
+        all_histories = json.load(f)
+    # Return the user's summarized history if present, else empty list
+    return all_histories.get(user_key, [])
