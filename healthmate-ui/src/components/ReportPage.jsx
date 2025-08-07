@@ -23,13 +23,13 @@ const ReportPage = () => {
   const [diagnosisData, setDiagnosisData] = useState(null);
   const [error, setError] = useState(false);
 
+  // Prevent double API call (e.g., in React Strict Mode) by using a ref
+  const hasFetchedRef = useRef(false);
   useEffect(() => {
+    if (!sessionId) return;
+    if (hasFetchedRef.current) return;
+    hasFetchedRef.current = true;
     const fetchDiagnosis = async () => {
-      if (!sessionId) {
-        setError(true);
-        setLoading(false);
-        return;
-      }
       try {
         const res = await axios.post("http://localhost:8000/api/diagnosis", {
           session_id: sessionId,

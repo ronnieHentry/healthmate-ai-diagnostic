@@ -10,20 +10,47 @@ const SHIMMER_COUNT = 6;
 const WellbeingTips = () => {
   const [tips, setTips] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
 
+  // Prevent double API call (e.g., in React Strict Mode) by using a ref
+  const hasFetchedRef = React.useRef(false);
   useEffect(() => {
+    if (hasFetchedRef.current) return;
+    hasFetchedRef.current = true;
     setLoading(true);
+    setError("");
     fetch('http://localhost:8000/api/wellbeing-tips', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ username: 'john_doe' })
     })
-      .then(res => res.json())
-      .then(data => {
-        setTips(data);
+      .then(async res => {
+        let data;
+        try {
+          data = await res.json();
+        } catch (e) {
+          setError("Invalid response from server.");
+          setLoading(false);
+          return;
+        }
+        if (!res.ok) {
+          setError(data && data.error ? data.error : "Failed to fetch wellbeing tips.");
+          setLoading(false);
+          return;
+        }
+        if (Array.isArray(data)) {
+          setTips(data);
+        } else if (data && data.error) {
+          setError(data.error);
+        } else {
+          setError("Unexpected response from server.");
+        }
         setLoading(false);
       })
-      .catch(() => setLoading(false));
+      .catch((err) => {
+        setError("Could not connect to wellbeing tips service.");
+        setLoading(false);
+      });
   }, []);
 
   return (
@@ -43,15 +70,18 @@ const WellbeingTips = () => {
           <span style={{ fontWeight: 500 }}>Products</span>
         </button>
       </div>
+      {error && (
+        <div style={{ color: 'red', padding: 12, fontWeight: 500 }}>{error}</div>
+      )}
       <ul className="wellbeing-tips-list">
-        {loading
+        {loading && !error
           ? Array.from({ length: SHIMMER_COUNT }).map((_, idx) => (
               <li key={idx} className="wellbeing-tip-item shimmer">
                 <span className="tip-icon shimmer-icon" />
                 <span className="tip-text shimmer-text" />
               </li>
             ))
-          : tips && tips.map((tip, idx) => (
+          : !error && Array.isArray(tips) && tips.map((tip, idx) => (
               <li key={idx} className="wellbeing-tip-item">
                 <span className="tip-icon">{tip.icon}</span>
                 <span className="tip-text">{tip.text}</span>

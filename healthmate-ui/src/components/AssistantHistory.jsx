@@ -44,7 +44,11 @@ const AssistantHistory = ({ username = "john_doe" }) => {
   const [modalOpen, setModalOpen] = useState(false);
   const [modalDetails, setModalDetails] = useState(null);
 
+  // Prevent double API call (e.g., in React Strict Mode) by using a ref
+  const hasFetchedRef = React.useRef(false);
   useEffect(() => {
+    if (hasFetchedRef.current) return;
+    hasFetchedRef.current = true;
     const fetchHistory = async () => {
       setLoading(true);
       setError(null);

@@ -13,7 +13,11 @@ const Dashboard = () => {
   const [profile, setProfile] = useState(null);
   const [medicalHistories, setMedicalHistories] = useState(null);
 
+  // Prevent double API call (e.g., in React Strict Mode) by using a ref
+  const hasFetchedRef = React.useRef(false);
   useEffect(() => {
+    if (hasFetchedRef.current) return;
+    hasFetchedRef.current = true;
     fetch('http://localhost:8000/api/medical-history', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },

@@ -1,16 +1,19 @@
-
-
-
 import os
 import requests
 from dotenv import load_dotenv
 from fastapi.responses import JSONResponse
 
+
+import logging
 load_dotenv()
-GROQ_API_KEY = os.getenv("GROQ_API_KEY3")
+GROQ_API_KEY = os.getenv("GROQ_API_KEY2")
+if not GROQ_API_KEY:
+    logging.error("GROQ_API_KEY3 is not set in environment variables.")
 
 
 def get_groq_response(prompt):
+    if not GROQ_API_KEY:
+        raise RuntimeError("GROQ_API_KEY3 is not set in environment variables.")
     url = 'https://api.groq.com/openai/v1/chat/completions'
     headers = {
         'Authorization': f'Bearer {GROQ_API_KEY}',
@@ -24,9 +27,13 @@ def get_groq_response(prompt):
         "temperature": 0.7,
         "max_tokens": 256
     }
-    response = requests.post(url, headers=headers, json=payload, timeout=30, verify=False)
-    response.raise_for_status()
-    return response.json()['choices'][0]['message']['content']
+    try:
+        response = requests.post(url, headers=headers, json=payload, timeout=30, verify=False)
+        response.raise_for_status()
+        return response.json()['choices'][0]['message']['content']
+    except Exception as e:
+        logging.error(f"Groq API call failed: {e}")
+        raise
 
 # Helper to extract JSON from LLM response (like diagnosis_agent)
 import re
@@ -83,4 +90,6 @@ def get_wellbeing_tips(username=None):
         else:
             return JSONResponse(status_code=500, content={"error": "LLM response not in expected JSON format.", "raw": llm_response})
     except Exception as e:
+        import traceback
+        logging.error(f"Error in get_wellbeing_tips: {e}\n{traceback.format_exc()}")
         return JSONResponse(status_code=500, content={"error": str(e)})
