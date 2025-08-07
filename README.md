@@ -16,21 +16,20 @@ HealthMate is purpose-built for healthcare. Each agent handles a specific taskâ€
 
 # Steps to setup backend:
 
-cd to backend directory
-Create .env file and add the API key to the variable GROQ_API_KEY (Can get free API key at https://groq.com/)
+1. cd to backend directory
+Create .env file and add the API key to the variable GROQ_API_KEY & GEMINI_API_KEY (Can get free API key at https://groq.com/)
 Run the following commands one by one:
 
 1. python -m venv venv
-2. .\venv\Scripts\activate
-   # If activation fails, run this:
-   Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
-3. pip install uvicorn fastapi python-dotenv pydantic requests
-4. uvicorn app.main:app --reload
+2. Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+3. .\venv\Scripts\activate
+4. pip install uvicorn fastapi python-dotenv pydantic requests PyPDF2 python-multipart
+5. uvicorn app.main:app --reload
 
 # Steps to setup frontend:
 
 cd to healthmate-ui
-
-1. npm install
-2. npm run dev
-3. open http://localhost:5173/ in the browser (Ensure backend is running first)
+1. Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+2. npm install
+3. npm run dev
+4. open http://localhost:5173/ in the browser (Ensure backend is running first)
