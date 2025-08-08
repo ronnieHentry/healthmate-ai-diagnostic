@@ -72,85 +72,9 @@ const ReportPage = () => {
   };
 
 
-  const recommendedProducts = [
-    {
-      name: "Vitamin B Complex",
-      price: "$12.89",
-      image: "https://www.appleseedsulverston.co.uk/wp-content/uploads/2020/12/natures-aid-vitamin-b-complex-100-p230-1025_image.png",
-      rating: 4.5
-    },
-    {
-      name: "Ice Pack Gel filled",
-      price: "$9.99",
-      image: "https://m.media-amazon.com/images/I/81GKoSa00aL._SL1500_.jpg",
-      rating: 4.0
-    },
-    {
-      name: "Acetaminophen 500 mg",
-      price: "$5.99",
-      image: "https://images.heb.com/is/image/HEBGrocery/001695755",
-      rating: 3.5
-    },
-    {
-      name: "Vitamin D3",
-      price: "$12.89",
-      image: "https://i5.walmartimages.com/asr/455b66d0-4399-4826-bc2a-44dc224f4417.deffc79dd659426118296361098b328c.jpeg",
-      rating: 4.5
-    },
-    {
-      name: "Cold-Go Tablets",
-      price: "$9.99",
-      image: "https://www.torquepharma.com/wp-content/uploads/2021/08/NEW_COLD_GO_TABLETS.png",
-      rating: 4.0
-    },
-    {
-      name: "Paracetamol 500 mg",
-      price: "$5.99",
-      image: "https://tse2.mm.bing.net/th/id/OIP.R_SYA34g2dikbYtO-5OMPgHaIp?rs=1&pid=ImgDetMain&o=7&rm=3",
-      rating: 3.5
-    },
-    {
-      name: "Vitamin C",
-      price: "$12.89",
-      image: "https://tse3.mm.bing.net/th/id/OIP.-TzrjCqaQ2ZFiBpgoGPNhQHaHa?w=185&h=185&c=7&r=0&o=7&dpr=1.5&pid=1.7&rm=3",
-      rating: 4.5
-    },
-    {
-      name: "Cough Syrup",
-      price: "$9.99",
-      image: "https://m.media-amazon.com/images/I/918pLpn6fKL._SL1500_.jpg",
-      rating: 4.0
-    },
-    {
-      name: "Otrivin",
-      price: "$5.99",
-      image: "https://tse2.mm.bing.net/th/id/OIP.yDVXgg6w-He0OTSq1JocmgHaHb?w=193&h=194&c=7&r=0&o=7&dpr=1.5&pid=1.7&rm=3",
-      rating: 3.5
-    }
-  ];
-  // Loading state
-  const suggestedDoctors = [
-    {
-      name: "Dr. Sarah Collins",
-      specialty: "General Practitioner",
-      image: "https://via.placeholder.com/40",
-    },
-    {
-      name: "Dr. Adam Knowles",
-      specialty: "Orthopedic",
-      image: "https://via.placeholder.com/40",
-    },
-    {
-      name: "Dr. Sarah Collins",
-      specialty: "General Practitioner",
-      image: "https://via.placeholder.com/40",
-    },
-    {
-      name: "Dr. Adam Knowles",
-      specialty: "Orthopedic",
-      image: "https://via.placeholder.com/40",
-    },
-  ];
+  // No separate state for recommendedProducts; will use from diagnosisData
+  // Suggested doctors state
+  // No separate state for suggestedDoctors; will use from diagnosisData
   if (loading) {
     return (
       <div className="container">
@@ -225,15 +149,26 @@ const ReportPage = () => {
   }
 
   // Diagnosis data loaded
-  const { diagnosis_structured } = diagnosisData;
+  const { diagnosis_structured, recommended_products = [], suggested_doctors = [] } = diagnosisData;
 
-  // Define sections dynamically
+
+  // Helper to capitalize first letter of a string
+  const capitalizeFirst = (str) => {
+    if (!str || typeof str !== "string") return str;
+    return str.charAt(0).toUpperCase() + str.slice(1);
+  };
+
+  // Capitalize all items in a list (if array)
+  const capItems = (arr) => Array.isArray(arr) ? arr.map(capitalizeFirst) : arr;
+
+  // Define sections dynamically, including dietary recommendations, with capitalized items
   const sections = [
-    { title: "Possible Causes", items: diagnosis_structured?.possible_causes },
-    { title: "Red Flags", items: diagnosis_structured?.red_flags, fallback: "None identified." },
-    { title: "Tests Suggested", items: diagnosis_structured?.tests_suggested },
+    { title: "Possible Causes", items: capItems(diagnosis_structured?.possible_causes) },
+    { title: "Red Flags", items: capItems(diagnosis_structured?.red_flags), fallback: "None identified." },
+    { title: "Tests Suggested", items: capItems(diagnosis_structured?.tests_suggested) },
     { title: "Doctor Recommendation", content: diagnosis_structured?.doctor_recommendation },
-    { title: "Doctor's Summary", content: diagnosis_structured?.doctor_summary },
+    { title: "Dietary Recommendations", items: capItems(diagnosis_structured?.dietary_recommendations), fallback: "No specific dietary advice." },
+    { title: "Summary", content: diagnosis_structured?.doctor_summary },
   ];
 
   return (
@@ -258,17 +193,27 @@ const ReportPage = () => {
         </div>
 
         <div className="product-grid">
-          {recommendedProducts.map((product, index) => (
-            <ProductCard
-              key={index}
-              imageSrc={product.image}
-              title={product.name}
-              subtitle={product.price}
-              rating={product.rating}
-              buttonLabel="Add to cart"
-              onClick={() => console.log(`Added ${product.name} to cart`)}
-            />
-          ))}
+          {recommended_products.length === 0
+            ? [...Array(6)].map((_, i) => (
+                <Skeleton
+                  key={i}
+                  variant="rectangular"
+                  width={180}
+                  height={220}
+                  sx={{ borderRadius: 2, m: 1 }}
+                />
+              ))
+            : recommended_products.map((product, index) => (
+                <ProductCard
+                  key={index}
+                  imageSrc={product.image}
+                  title={product.name}
+                  subtitle={product.price}
+                  rating={product.rating}
+                  buttonLabel="Add to cart"
+                  onClick={() => console.log(`Added ${product.name} to cart`)}
+                />
+              ))}
         </div>
 
         <div className="doctor-suggestion">
@@ -276,15 +221,25 @@ const ReportPage = () => {
           <div className="doctors-carousel-wrapper">
             <button className="carousel-arrow left" onClick={() => scrollDoctors(-1)}>&lt;</button>
             <div className="doctors-carousel" ref={doctorsCarouselRef}>
-              {suggestedDoctors.map((doctor, index) => (
-                <DoctorCard
-                  key={index}
-                  name={doctor.name}
-                  specialty={doctor.specialty}
-                  imageSrc={doctor.image}
-                  onView={() => console.log(`Viewing ${doctor.name}`)}
-                />
-              ))}
+              {suggested_doctors.length === 0
+                ? [...Array(4)].map((_, i) => (
+                    <Skeleton
+                      key={i}
+                      variant="rectangular"
+                      width={180}
+                      height={60}
+                      sx={{ borderRadius: 2, m: 1 }}
+                    />
+                  ))
+                : suggested_doctors.map((doctor, index) => (
+                    <DoctorCard
+                      key={index}
+                      name={doctor.name}
+                      specialty={doctor.specialty}
+                      imageSrc={doctor.image}
+                      onView={() => console.log(`Viewing ${doctor.name}`)}
+                    />
+                  ))}
             </div>
             <button className="carousel-arrow right" onClick={() => scrollDoctors(1)}>&gt;</button>
           </div>

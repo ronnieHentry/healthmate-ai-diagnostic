@@ -1,0 +1,12 @@
+{
+  "john_doe": { "password": "johndoe" },
+  "jane_doe": { "password": "janedoe" },
+  "jimmy_james": { "password": "jimmyjames" },
+  "susan_smith": { "password": "susansmith" },
+  "robert_williams": { "password": "robertwilliams" },
+  "emily_brown": { "password": "emilybrown" },
+  "michael_johnson": { "password": "michaeljohnson" },
+  "linda_martin": { "password": "lindamartin" },
+  "david_moore": { "password": "davidmoore" },
+  "nancy_taylor": { "password": "nancytaylor" }
+}

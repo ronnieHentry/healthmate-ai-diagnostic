@@ -182,7 +182,8 @@ def diagnosis_agent(session_id):
         "red_flags": [],
         "tests_suggested": [],
         "doctor_recommendation": "",
-        "doctor_summary": ""
+        "doctor_summary": "",
+        "dietary_recommendations": []
     }
 
     try:
@@ -202,9 +203,26 @@ def diagnosis_agent(session_id):
     except Exception as e:
         print(f"Error updating summarized history: {e}")
 
+    # Fetch recommended products and suggested doctors from their agents
+    try:
+        from app.agents.recommended_products_agent import get_recommended_products_for_session
+        recommended_products = get_recommended_products_for_session(session_id).get("products", [])
+    except Exception as e:
+        recommended_products = []
+        print(f"Error fetching recommended products: {e}")
+
+    try:
+        from app.agents.suggested_doctors_agent import get_suggested_doctors_for_session
+        suggested_doctors = get_suggested_doctors_for_session(session_id).get("doctors", [])
+    except Exception as e:
+        suggested_doctors = []
+        print(f"Error fetching suggested doctors: {e}")
+
     return {
         "diagnosis_raw": diagnosis_report,
         "diagnosis_structured": structured_report,
+        "recommended_products": recommended_products,
+        "suggested_doctors": suggested_doctors,
         "session_id": session_id,
         "timestamp": datetime.now().isoformat()
     }

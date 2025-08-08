@@ -14,16 +14,22 @@ from app.agents.symptom_agent import symptom_intake_agent
 from app.agents.diagnosis_agent import diagnosis_agent
 from app.agents.doctor_agent import doctor_recommendation_agent
 from app.agents.healthy_products_agent import fetch_healthy_products
+
 from app.agents.static_health_products_agent import get_static_health_products
+from app.agents.recommended_products_agent import router as recommended_products_router
+from app.agents.suggested_doctors_agent import router as suggested_doctors_router
 
 app = FastAPI()
 UPLOAD_FOLDER = 'temp'
 
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
+
 # Register routers
 app.include_router(medical_history_router)
 app.include_router(wellbeing_router)
+app.include_router(recommended_products_router, prefix="/api")
+app.include_router(suggested_doctors_router, prefix="/api")
 
 # CORS Middleware
 app.add_middleware(
