@@ -37,26 +37,16 @@ Instructions:
     )
     response.raise_for_status()
     content = response.json()["choices"][0]["message"]["content"]
-    import sys
-    print("\n[Groq LLM raw response for suggested doctors]:\n", content)
-    sys.stdout.flush()
     try:
         start = content.index("[")
         end = content.rindex("]") + 1
         doctors = json.loads(content[start:end])
-        print("\n[Final doctors returned]:\n", json.dumps(doctors, indent=2))
-        sys.stdout.flush()
         return doctors
     except Exception as e:
-        print("[Groq LLM parsing error]:", e)
-        sys.stdout.flush()
         raise
 
 # Direct Python function for internal use (diagnosis agent)
 def get_suggested_doctors_for_session(session_id: str):
-    import sys
-    print(f"[DEBUG] [INTERNAL] get_suggested_doctors_for_session called with session_id: {session_id}")
-    sys.stdout.flush()
     data_dir = Path(__file__).parent.parent.parent / "data"
     report_path = data_dir / "report.json"
     template_path = data_dir / "suggested_doctors.json"
@@ -65,10 +55,7 @@ def get_suggested_doctors_for_session(session_id: str):
     try:
         with open(template_path, "r", encoding="utf-8") as f:
             template_doctors = json.load(f)
-        print(f"[DEBUG] Loaded {len(template_doctors)} template doctors.")
     except Exception as e:
-        print(f"[ERROR] Failed to load template doctors: {e}")
-        sys.stdout.flush()
         template_doctors = []
 
     # Load diagnosis report for session_id
@@ -76,32 +63,19 @@ def get_suggested_doctors_for_session(session_id: str):
         with open(report_path, "r", encoding="utf-8") as f:
             all_reports = json.load(f)
         report_text = all_reports.get(session_id, "")
-        print(f"[DEBUG] Loaded report text for session_id: {session_id}, length: {len(report_text)}")
     except Exception as e:
-        print(f"[ERROR] Failed to load report text: {e}")
-        sys.stdout.flush()
         report_text = ""
 
     if not report_text:
-        print("[ERROR] No report text found for session_id:", session_id)
-        sys.stdout.flush()
         return {"error": "No report text found for session_id."}
     if not template_doctors:
-        print("[ERROR] No template doctors found.")
-        sys.stdout.flush()
         return {"error": "No template doctors found."}
 
     # Call Groq LLM to get doctor recommendations
     try:
-        print("[DEBUG] Calling Groq LLM for doctor specialties...")
-        sys.stdout.flush()
         doctors = call_groq_for_doctors(report_text, template_doctors)
-        print(f"[DEBUG] Groq LLM returned {len(doctors)} doctors.")
-        sys.stdout.flush()
         return {"doctors": doctors}
     except Exception as e:
-        print("[ERROR] Failed to get AI doctor recommendations:", e)
-        sys.stdout.flush()
         return {"error": "Failed to get AI doctor recommendations."}
 
 # FastAPI endpoint for FE (remains compatible)
