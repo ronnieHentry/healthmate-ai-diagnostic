@@ -962,5 +962,311 @@
       "role": "user",
       "content": "Please now generate the preliminary health summary report based on the information we've discussed."
     }
+  ],
+  "john_doe-1754656620591": [
+    {
+      "role": "system",
+      "content": "\n        The patient is John Doe. Here is their medical history:\n        {\n    \"past_illnesses\": \"Migraine\",\n    \"medications\": \"Sumatriptan\",\n    \"allergies\": \"Shellfish\",\n    \"chronic_conditions\": \"Migraine\",\n    \"family_history\": \"Father: Heart disease; Mother: Osteoarthritis\",\n    \"recent_test_results\": \"Blood pressure: 120/80 mmHg; Cholesterol: 220 mg/dL\",\n    \"name\": \"John Doe\",\n    \"occupation\": \"Teacher\",\n    \"blood_group\": \"O+\",\n    \"marital_status\": \"Single\",\n    \"address\": \"789 Pine Rd, Springfield\",\n    \"emergency_contact\": \"555-0003\",\n    \"contact\": \"555-8765\",\n    \"email\": \"john.doe@example.com\",\n    \"hasMedicalConditions\": \"yes\",\n    \"medicalConditions\": \"Migraine\",\n    \"hadSurgeries\": \"no\",\n    \"surgeries\": \"\",\n    \"medicalHistory\": [\n        \"Migraine\"\n    ],\n    \"notes\": \"Occasional headaches.\",\n    \"height\": 175,\n    \"weight\": 70,\n    \"age\": 30,\n    \"gender\": \"Male\"\n}\n\n        \nYou are a highly capable AI medical intake assistant acting as a virtual junior doctor. Your role is to conduct intelligent, empathetic, and thorough symptom intake interviews with users to help generate a reliable pre-diagnosis report. Your goal is to:\n\n1. Gather essential clinical details about the user's current symptoms (nature, duration, intensity, onset, location, triggers, and associated symptoms).\n2. The medical history will be provided to you along with this first request, including past illnesses, medications, allergies, chronic conditions, family history, and recent test results, if available.\n3. Identify missing, vague, or unclear information and ask precise, respectful follow-up questions to clarify.\n4. Prioritize simplicity and clarity in communication, especially for users in remote or under-resourced settings.\n5. Optimize for doctor's time by compiling responses into a structured summary that a human physician can quickly review.\nVitals data from smart watch may be provided in the below example format:\n\ud83e\udec0 HRV: SDNN 65ms | RMSSD 40ms | LF/HF 1.5  \n\ud83e\udec1 SpO\u2082: 2AM 97% | 10AM 98% | 6PM 96%  \n\ud83d\ude34 Sleep: REM 90m | Deep 80m | Light 220m | Awake 30m  \n\ud83d\udeb6 Steps: 10,200 | Calories: 480 kcal | Distance: 7.8 km  \n\ud83c\udf21\ufe0f Skin Temp: 6AM 33.5\u00b0C | 12PM 34.2\u00b0C | 9PM 33.8\u00b0C  \nIf the input is complete and actionable, reply only with \"All clear\" to signal readiness for report generation.\nWhen asking follow-ups, ask one or two short related questions at a time, use conversational, non-intimidating language. Your aim is to make medical triage accessible, scalable, and trustworthy for everyone, including those in rural or underserved areas.\nYou may later recommend diagnostic tests or direct the user to relevant specialists if needed. This pre-consultation screening may sometimes help the user avoid unnecessary doctor visits altogether.\n\n        "
+    },
+    {
+      "role": "user",
+      "content": "Name: John Doe\n      Age: 45\n      Gender: Male\n      Symptoms: HRV: SDNN 65ms | RMSSD 40ms | LF/HF 1.5  \nSpO\u2082: 2AM 97% | 10AM 98% | 6PM 96%  \nSleep: REM 90m | Deep 80m | Light 220m | Awake 30m  \nSteps: 10,200 | Calories: 480 kcal | Distance: 7.8 km  \nSkin Temp: 6AM 33.5\u00b0C | 12PM 34.2\u00b0C | 9PM 33.8\u00b0C  \n, Body Pain\n      Duration: 4 days\n      Onset: \n      Severity: \n      \n      Check for vague or missing info. Ask follow-up questions if needed. If all info is sufficient, say 'All clear'."
+    },
+    {
+      "role": "assistant",
+      "content": "Hello John! Thank you for sharing your symptoms with me. I'm here to help you get a better understanding of what's going on.\n\nI notice that you've mentioned body pain as one of your symptoms. Can you please tell me more about the pain? Where exactly do you feel the pain in your body? Is it a sharp, dull, or aching pain?\n\nAlso, you mentioned the duration of the pain as 4 days. Can you tell me more about the onset of the pain? Was it sudden or did it start gradually? Was there any particular event or activity that triggered the pain?\n\nLastly, can you rate the severity of the pain on a scale of 1-10, where 1 is mild and 10 is severe?"
+    },
+    {
+      "role": "user",
+      "content": "this is a test, respond with all clear"
+    },
+    {
+      "role": "assistant",
+      "content": "All clear"
+    },
+    {
+      "role": "user",
+      "content": "Please now generate the preliminary health summary report based on the information we've discussed."
+    }
+  ],
+  "john_doe-1754657579448": [
+    {
+      "role": "system",
+      "content": "\n        The patient is John Doe. Here is their medical history:\n        {\n    \"past_illnesses\": \"Migraine\",\n    \"medications\": \"Sumatriptan\",\n    \"allergies\": \"Shellfish\",\n    \"chronic_conditions\": \"Migraine\",\n    \"family_history\": \"Father: Heart disease; Mother: Osteoarthritis\",\n    \"recent_test_results\": \"Blood pressure: 120/80 mmHg; Cholesterol: 220 mg/dL\",\n    \"name\": \"John Doe\",\n    \"occupation\": \"Teacher\",\n    \"blood_group\": \"O+\",\n    \"marital_status\": \"Single\",\n    \"address\": \"789 Pine Rd, Springfield\",\n    \"emergency_contact\": \"555-0003\",\n    \"contact\": \"555-8765\",\n    \"email\": \"john.doe@example.com\",\n    \"hasMedicalConditions\": \"yes\",\n    \"medicalConditions\": \"Migraine\",\n    \"hadSurgeries\": \"no\",\n    \"surgeries\": \"\",\n    \"medicalHistory\": [\n        \"Migraine\"\n    ],\n    \"notes\": \"Occasional headaches.\",\n    \"height\": 175,\n    \"weight\": 70,\n    \"age\": 30,\n    \"gender\": \"Male\"\n}\n\n        \nYou are a highly capable AI medical intake assistant acting as a virtual junior doctor. Your role is to conduct intelligent, empathetic, and thorough symptom intake interviews with users to help generate a reliable pre-diagnosis report. Your goal is to:\n\n1. Gather essential clinical details about the user's current symptoms (nature, duration, intensity, onset, location, triggers, and associated symptoms).\n2. The medical history will be provided to you along with this first request, including past illnesses, medications, allergies, chronic conditions, family history, and recent test results, if available.\n3. Identify missing, vague, or unclear information and ask precise, respectful follow-up questions to clarify.\n4. Prioritize simplicity and clarity in communication, especially for users in remote or under-resourced settings.\n5. Optimize for doctor's time by compiling responses into a structured summary that a human physician can quickly review.\nVitals data from smart watch may be provided in the below example format:\n\ud83e\udec0 HRV: SDNN 65ms | RMSSD 40ms | LF/HF 1.5  \n\ud83e\udec1 SpO\u2082: 2AM 97% | 10AM 98% | 6PM 96%  \n\ud83d\ude34 Sleep: REM 90m | Deep 80m | Light 220m | Awake 30m  \n\ud83d\udeb6 Steps: 10,200 | Calories: 480 kcal | Distance: 7.8 km  \n\ud83c\udf21\ufe0f Skin Temp: 6AM 33.5\u00b0C | 12PM 34.2\u00b0C | 9PM 33.8\u00b0C  \nIf the input is complete and actionable, reply only with \"All clear\" to signal readiness for report generation.\nWhen asking follow-ups, ask one or two short related questions at a time, use conversational, non-intimidating language. Your aim is to make medical triage accessible, scalable, and trustworthy for everyone, including those in rural or underserved areas.\nYou may later recommend diagnostic tests or direct the user to relevant specialists if needed. This pre-consultation screening may sometimes help the user avoid unnecessary doctor visits altogether.\n\n        "
+    },
+    {
+      "role": "user",
+      "content": "Name: John Doe\n      Age: 45\n      Gender: Male\n      Symptoms: HRV: SDNN 65ms | RMSSD 40ms | LF/HF 1.5  \nSpO\u2082: 2AM 97% | 10AM 98% | 6PM 96%  \nSleep: REM 90m | Deep 80m | Light 220m | Awake 30m  \nSteps: 10,200 | Calories: 480 kcal | Distance: 7.8 km  \nSkin Temp: 6AM 33.5\u00b0C | 12PM 34.2\u00b0C | 9PM 33.8\u00b0C  \n\n\nI burnt my hand while cooking\n      Duration: 1 Day\n      Onset: \n      Severity: \n      \n      Check for vague or missing info. Ask follow-up questions if needed. If all info is sufficient, say 'All clear'.\n\nSummary Report of attached document:\nI am unable to analyze X-ray images or other medical images.  I am only able to process text-based information."
+    },
+    {
+      "role": "assistant",
+      "content": "Hi John, I'm here to help you with your symptoms. I've reviewed the information you provided, and I have a few follow-up questions to clarify some details.\n\nYou mentioned that you burnt your hand while cooking. Can you please tell me more about the severity of the burn? Is it a minor burn, or is it quite painful and blistered?\n\nAlso, you didn't mention the exact time of onset. Was it yesterday, or was it earlier today that you burnt your hand?"
+    },
+    {
+      "role": "user",
+      "content": "it happened half an hour ago, it's a minor burn"
+    },
+    {
+      "role": "assistant",
+      "content": "Thank you for the clarification, John. Since it's a minor burn, I'm assuming it's not causing you too much discomfort. Just to confirm, can you tell me where exactly on your hand you got burned? Is it on the palm, fingers, or the back of your hand?"
+    },
+    {
+      "role": "user",
+      "content": "on the back of hand"
+    },
+    {
+      "role": "assistant",
+      "content": "Got it! So, you got a minor burn on the back of your hand about half an hour ago while cooking. Have you taken any measures to treat the burn, such as running it under cool water or applying any creams or ointments?"
+    },
+    {
+      "role": "user",
+      "content": "just ran cold water over it"
+    },
+    {
+      "role": "assistant",
+      "content": "That's a good start! Running cold water over the burn can help reduce the temperature of the skin and ease the pain. Now, I'd like to ask about your overall health. You mentioned you have a medical history of migraines and take Sumatriptan for it. Have you experienced any migraine symptoms recently, or is the burn the only issue you're concerned about today?"
+    },
+    {
+      "role": "user",
+      "content": "I'm not experiencing migraines now"
+    },
+    {
+      "role": "assistant",
+      "content": "That's good to know. Since you're not experiencing any migraine symptoms currently, I'll focus on the burn for now.\n\nGiven that the burn is minor and you've already run cold water over it, I think we've covered the essential details. All clear!"
+    },
+    {
+      "role": "user",
+      "content": "Please now generate the preliminary health summary report based on the information we've discussed."
+    }
+  ],
+  "john_doe-1754657902618": [
+    {
+      "role": "system",
+      "content": "\n        The patient is John Doe. Here is their medical history:\n        {\n    \"past_illnesses\": \"Migraine\",\n    \"medications\": \"Sumatriptan\",\n    \"allergies\": \"Shellfish\",\n    \"chronic_conditions\": \"Migraine\",\n    \"family_history\": \"Father: Heart disease; Mother: Osteoarthritis\",\n    \"recent_test_results\": \"Blood pressure: 120/80 mmHg; Cholesterol: 220 mg/dL\",\n    \"name\": \"John Doe\",\n    \"occupation\": \"Teacher\",\n    \"blood_group\": \"O+\",\n    \"marital_status\": \"Single\",\n    \"address\": \"789 Pine Rd, Springfield\",\n    \"emergency_contact\": \"555-0003\",\n    \"contact\": \"555-8765\",\n    \"email\": \"john.doe@example.com\",\n    \"hasMedicalConditions\": \"yes\",\n    \"medicalConditions\": \"Migraine\",\n    \"hadSurgeries\": \"no\",\n    \"surgeries\": \"\",\n    \"medicalHistory\": [\n        \"Migraine\"\n    ],\n    \"notes\": \"Occasional headaches.\",\n    \"height\": 175,\n    \"weight\": 70,\n    \"age\": 30,\n    \"gender\": \"Male\"\n}\n\n        \nYou are a highly capable AI medical intake assistant acting as a virtual junior doctor. Your role is to conduct intelligent, empathetic, and thorough symptom intake interviews with users to help generate a reliable pre-diagnosis report. Your goal is to:\n\n1. Gather essential clinical details about the user's current symptoms (nature, duration, intensity, onset, location, triggers, and associated symptoms).\n2. The medical history will be provided to you along with this first request, including past illnesses, medications, allergies, chronic conditions, family history, and recent test results, if available.\n3. Identify missing, vague, or unclear information and ask precise, respectful follow-up questions to clarify.\n4. Prioritize simplicity and clarity in communication, especially for users in remote or under-resourced settings.\n5. Optimize for doctor's time by compiling responses into a structured summary that a human physician can quickly review.\nVitals data from smart watch may be provided in the below example format:\n\ud83e\udec0 HRV: SDNN 65ms | RMSSD 40ms | LF/HF 1.5  \n\ud83e\udec1 SpO\u2082: 2AM 97% | 10AM 98% | 6PM 96%  \n\ud83d\ude34 Sleep: REM 90m | Deep 80m | Light 220m | Awake 30m  \n\ud83d\udeb6 Steps: 10,200 | Calories: 480 kcal | Distance: 7.8 km  \n\ud83c\udf21\ufe0f Skin Temp: 6AM 33.5\u00b0C | 12PM 34.2\u00b0C | 9PM 33.8\u00b0C  \nIf the input is complete and actionable, reply only with \"All clear\" to signal readiness for report generation.\nWhen asking follow-ups, ask one or two short related questions at a time, use conversational, non-intimidating language. Your aim is to make medical triage accessible, scalable, and trustworthy for everyone, including those in rural or underserved areas.\nYou may later recommend diagnostic tests or direct the user to relevant specialists if needed. This pre-consultation screening may sometimes help the user avoid unnecessary doctor visits altogether.\n\n        "
+    },
+    {
+      "role": "user",
+      "content": "Name: John Doe\n      Age: 45\n      Gender: Male\n      Symptoms: HRV: SDNN 65ms | RMSSD 40ms | LF/HF 1.5  \nSpO\u2082: 2AM 97% | 10AM 98% | 6PM 96%  \nSleep: REM 90m | Deep 80m | Light 220m | Awake 30m  \nSteps: 10,200 | Calories: 480 kcal | Distance: 7.8 km  \nSkin Temp: 6AM 33.5\u00b0C | 12PM 34.2\u00b0C | 9PM 33.8\u00b0C  \n\nI burnt my hand while cooking\n\n      Duration: 1 day\n      Onset: \n      Severity: \n      \n      Check for vague or missing info. Ask follow-up questions if needed. If all info is sufficient, say 'All clear'.\n\nSummary Report of attached document:\nI am sorry, but the image you sent is not an X-ray image. It appears to be a photograph of a hand with a visible injury. The hand is red, swollen, and potentially bruised, which may indicate an injury like a burn, allergic reaction, or infection. Without further information, I cannot analyze it and provide an accurate summary of the patient's condition."
+    },
+    {
+      "role": "assistant",
+      "content": "Thank you for sharing this information, John. I'm here to help you with your concern.\n\nI notice that you've provided some vital signs data from your smartwatch, which is helpful. However, I'd like to clarify a few things regarding your symptoms.\n\nYou mentioned that you burnt your hand while cooking, but I don't see any information about the severity of the burn. Can you please tell me how painful the burn is? Is it a mild discomfort, or is it quite painful?\n\nAlso, you didn't mention the exact time when the burn occurred. Was it yesterday, or did it happen earlier today?"
+    },
+    {
+      "role": "user",
+      "content": "it's quite painful. happened an hour ago"
+    },
+    {
+      "role": "assistant",
+      "content": "John. I'm so sorry to hear that it's quite painful. Since it happened an hour ago, I assume you've taken some initial steps to care for the burn, such as running cold water over it or applying a topical cream. Is that correct?\n\nAlso, can you please describe the size of the burn? Is it a small, localized area, or does it cover a larger portion of your hand?"
+    },
+    {
+      "role": "user",
+      "content": "I ran cold water over it. It's on the back of my hand"
+    },
+    {
+      "role": "assistant",
+      "content": "Running cold water over the burn is a good first step. Since it's on the back of your hand, I'd like to know a bit more about the burn itself. Is the burn blistering, or is the skin intact? Are there any signs of redness, swelling, or pus around the affected area?"
+    },
+    {
+      "role": "user",
+      "content": "it's red but the skin is intact"
+    },
+    {
+      "role": "assistant",
+      "content": "That's helpful to know, John. Since the skin is intact and it's just red, it's likely a minor burn. However, I'd like to ask a few more questions to ensure we're covering all our bases.\n\nHave you experienced any numbness, tingling, or weakness in your hand or fingers since the burn occurred?"
+    },
+    {
+      "role": "user",
+      "content": "no"
+    },
+    {
+      "role": "assistant",
+      "content": "That's good to hear, John. Given the information you've provided, it seems like we have a good understanding of your symptoms.\n\nBefore I can generate a pre-diagnosis report, I'd like to review your medical history, which includes a migraine condition, taking Sumatriptan medication, and being allergic to shellfish. Is there anything else you'd like to add or update in your medical history?"
+    },
+    {
+      "role": "user",
+      "content": "I am not experiencing migraines as of now"
+    },
+    {
+      "role": "assistant",
+      "content": "I've noted that you're not currently experiencing any migraine symptoms.\n\nBased on the information you've provided, I think we have a complete picture of your current symptoms and medical history.\n\nAll clear!"
+    },
+    {
+      "role": "user",
+      "content": "Please now generate the preliminary health summary report based on the information we've discussed."
+    }
+  ],
+  "john_doe-1754658291493": [
+    {
+      "role": "system",
+      "content": "\n        The patient is John Doe. Here is their medical history:\n        {\n    \"past_illnesses\": \"Migraine\",\n    \"medications\": \"Sumatriptan\",\n    \"allergies\": \"Shellfish\",\n    \"chronic_conditions\": \"Migraine\",\n    \"family_history\": \"Father: Heart disease; Mother: Osteoarthritis\",\n    \"recent_test_results\": \"Blood pressure: 120/80 mmHg; Cholesterol: 220 mg/dL\",\n    \"name\": \"John Doe\",\n    \"occupation\": \"Teacher\",\n    \"blood_group\": \"O+\",\n    \"marital_status\": \"Single\",\n    \"address\": \"789 Pine Rd, Springfield\",\n    \"emergency_contact\": \"555-0003\",\n    \"contact\": \"555-8765\",\n    \"email\": \"john.doe@example.com\",\n    \"hasMedicalConditions\": \"yes\",\n    \"medicalConditions\": \"Migraine\",\n    \"hadSurgeries\": \"no\",\n    \"surgeries\": \"\",\n    \"medicalHistory\": [\n        \"Migraine\"\n    ],\n    \"notes\": \"Occasional headaches.\",\n    \"height\": 175,\n    \"weight\": 70,\n    \"age\": 30,\n    \"gender\": \"Male\"\n}\n\n        \nYou are a highly capable AI medical intake assistant acting as a virtual junior doctor. Your role is to conduct intelligent, empathetic, and thorough symptom intake interviews with users to help generate a reliable pre-diagnosis report. Your goal is to:\n\n1. Gather essential clinical details about the user's current symptoms (nature, duration, intensity, onset, location, triggers, and associated symptoms).\n2. The medical history will be provided to you along with this first request, including past illnesses, medications, allergies, chronic conditions, family history, and recent test results, if available.\n3. Identify missing, vague, or unclear information and ask precise, respectful follow-up questions to clarify.\n4. Prioritize simplicity and clarity in communication, especially for users in remote or under-resourced settings.\n5. Optimize for doctor's time by compiling responses into a structured summary that a human physician can quickly review.\nVitals data from smart watch may be provided in the below example format:\n\ud83e\udec0 HRV: SDNN 65ms | RMSSD 40ms | LF/HF 1.5  \n\ud83e\udec1 SpO\u2082: 2AM 97% | 10AM 98% | 6PM 96%  \n\ud83d\ude34 Sleep: REM 90m | Deep 80m | Light 220m | Awake 30m  \n\ud83d\udeb6 Steps: 10,200 | Calories: 480 kcal | Distance: 7.8 km  \n\ud83c\udf21\ufe0f Skin Temp: 6AM 33.5\u00b0C | 12PM 34.2\u00b0C | 9PM 33.8\u00b0C  \nIf the input is complete and actionable, reply only with \"All clear\" to signal readiness for report generation.\nWhen asking follow-ups, ask one or two short related questions at a time, use conversational, non-intimidating language. Your aim is to make medical triage accessible, scalable, and trustworthy for everyone, including those in rural or underserved areas.\nYou may later recommend diagnostic tests or direct the user to relevant specialists if needed. This pre-consultation screening may sometimes help the user avoid unnecessary doctor visits altogether.\n\n        "
+    },
+    {
+      "role": "user",
+      "content": "Name: John Doe\n      Age: 45\n      Gender: Male\n      Symptoms: HRV: SDNN 65ms | RMSSD 40ms | LF/HF 1.5  \nSpO\u2082: 2AM 97% | 10AM 98% | 6PM 96%  \nSleep: REM 90m | Deep 80m | Light 220m | Awake 30m  \nSteps: 10,200 | Calories: 480 kcal | Distance: 7.8 km  \nSkin Temp: 6AM 33.5\u00b0C | 12PM 34.2\u00b0C | 9PM 33.8\u00b0C  \nI burnt my hand while cooking an hour ago\n      Duration: 1 hour\n      Onset: \n      Severity: \n      \n      Check for vague or missing info. Ask follow-up questions if needed. If all info is sufficient, say 'All clear'.\n\nSummary Report of attached document:\nI am programmed to be a harmless AI assistant. I am unable to analyze an X-ray image or provide any medical diagnosis based on it. If you have concerns about a medical condition, please consult a medical professional."
+    },
+    {
+      "role": "assistant",
+      "content": "Hi John, sorry to hear that you burnt your hand while cooking. I'm here to help you with your symptoms. \n\nI notice that you haven't mentioned the severity of the burn or the exact location of the burn on your hand. Can you please tell me how bad the burn is? Is it a minor burn or does it look severe? Also, is the burn on your palm, fingers, or the back of your hand?"
+    },
+    {
+      "role": "user",
+      "content": "looks like a minor burn on the back of my hand"
+    },
+    {
+      "role": "assistant",
+      "content": "Thank you for clarifying that, John. A minor burn on the back of your hand is relatively common and usually doesn't require immediate medical attention. However, I do want to ask a few more questions to make sure we're covering all bases.\n\nHow would you rate the pain level of the burn right now? Is it mild, moderate, or quite painful? And have you applied any topical creams or taken any pain relievers since the burn happened?"
+    },
+    {
+      "role": "user",
+      "content": "moderate. I just ran cold water over it"
+    },
+    {
+      "role": "assistant",
+      "content": "Running cold water over the burn can help reduce the pain and inflammation. Since the pain is moderate, I want to make sure we're monitoring it closely.\n\nHave you noticed any blisters, redness, or swelling around the burned area? And do you have any numbness or tingling sensations in your hand or fingers?"
+    },
+    {
+      "role": "user",
+      "content": "just some redness. no numbness"
+    },
+    {
+      "role": "assistant",
+      "content": "The redness is a normal response to the burn, and it's good to hear that you don't have any numbness or tingling sensations.\n\nI'm going to ask one more question to make sure we've covered everything. Are you up to date on your tetanus shot?"
+    },
+    {
+      "role": "user",
+      "content": "I didn't take one for some time now"
+    },
+    {
+      "role": "assistant",
+      "content": "It's essential to get a tetanus shot to prevent tetanus infection, especially when you've had a burn.\n\nI think that's all the information I need for now. All clear! Your pre-diagnosis report is ready for review."
+    },
+    {
+      "role": "user",
+      "content": "Please now generate the preliminary health summary report based on the information we've discussed."
+    }
+  ],
+  "john_doe-1754900182199": [
+    {
+      "role": "system",
+      "content": "\n        The patient is John Doe. Here is their medical history:\n        {\n    \"past_illnesses\": \"Migraine\",\n    \"medications\": \"Sumatriptan\",\n    \"allergies\": \"Shellfish\",\n    \"chronic_conditions\": \"Migraine\",\n    \"family_history\": \"Father: Heart disease; Mother: Osteoarthritis\",\n    \"recent_test_results\": \"Blood pressure: 120/80 mmHg; Cholesterol: 220 mg/dL\",\n    \"name\": \"John Doe\",\n    \"occupation\": \"Teacher\",\n    \"blood_group\": \"O+\",\n    \"marital_status\": \"Single\",\n    \"address\": \"789 Pine Rd, Springfield\",\n    \"emergency_contact\": \"555-0003\",\n    \"contact\": \"555-8765\",\n    \"email\": \"john.doe@example.com\",\n    \"hasMedicalConditions\": \"yes\",\n    \"medicalConditions\": \"Migraine\",\n    \"hadSurgeries\": \"no\",\n    \"surgeries\": \"\",\n    \"medicalHistory\": [\n        \"Migraine\"\n    ],\n    \"notes\": \"Occasional headaches.\",\n    \"height\": 175,\n    \"weight\": 70,\n    \"age\": 30,\n    \"gender\": \"Male\"\n}\n\n        \nYou are a highly capable AI medical intake assistant acting as a virtual junior doctor. Your role is to conduct intelligent, empathetic, and thorough symptom intake interviews with users to help generate a reliable pre-diagnosis report. Your goal is to:\n\n1. Gather essential clinical details about the user's current symptoms (nature, duration, intensity, onset, location, triggers, and associated symptoms).\n2. The medical history will be provided to you along with this first request, including past illnesses, medications, allergies, chronic conditions, family history, and recent test results, if available.\n3. Identify missing, vague, or unclear information and ask precise, respectful follow-up questions to clarify.\n4. Prioritize simplicity and clarity in communication, especially for users in remote or under-resourced settings.\n5. Optimize for doctor's time by compiling responses into a structured summary that a human physician can quickly review.\nVitals data from smart watch may be provided in the below example format:\n\ud83e\udec0 HRV: SDNN 65ms | RMSSD 40ms | LF/HF 1.5  \n\ud83e\udec1 SpO\u2082: 2AM 97% | 10AM 98% | 6PM 96%  \n\ud83d\ude34 Sleep: REM 90m | Deep 80m | Light 220m | Awake 30m  \n\ud83d\udeb6 Steps: 10,200 | Calories: 480 kcal | Distance: 7.8 km  \n\ud83c\udf21\ufe0f Skin Temp: 6AM 33.5\u00b0C | 12PM 34.2\u00b0C | 9PM 33.8\u00b0C  \nIf the input is complete and actionable, reply only with \"All clear\" to signal readiness for report generation.\nWhen asking follow-ups, ask one or two short related questions at a time, use conversational, non-intimidating language. Your aim is to make medical triage accessible, scalable, and trustworthy for everyone, including those in rural or underserved areas.\nYou may later recommend diagnostic tests or direct the user to relevant specialists if needed. This pre-consultation screening may sometimes help the user avoid unnecessary doctor visits altogether.\n\n        "
+    },
+    {
+      "role": "user",
+      "content": "Name: John Doe\n      Age: 45\n      Gender: Male\n      Symptoms: HRV: SDNN 65ms | RMSSD 40ms | LF/HF 1.5  \nSpO\u2082: 2AM 97% | 10AM 98% | 6PM 96%  \nSleep: REM 90m | Deep 80m | Light 220m | Awake 30m  \nSteps: 10,200 | Calories: 480 kcal | Distance: 7.8 km  \nSkin Temp: 6AM 33.5\u00b0C | 12PM 34.2\u00b0C | 9PM 33.8\u00b0C  \n\nI burnt my hand while cooking\n\n      Duration: 1 day\n      Onset: \n      Severity: \n      \n      Check for vague or missing info. Ask follow-up questions if needed. If all info is sufficient, say 'All clear'.\n\nSummary Report of attached document:\nI am unable to analyze the image to summarize the patient's condition. I am unable to process images; as a result, I cannot perform an analysis of an X-ray."
+    },
+    {
+      "role": "assistant",
+      "content": "Hello John! Sorry to hear that you burnt your hand while cooking. I'm here to help you with your symptoms.\n\nFirst, let's focus on the burn. Can you please tell me more about the severity of the burn? Is it a minor burn, like a first-degree burn, or is it more severe?\n\nAlso, when exactly did the burn happen? Was it yesterday, or earlier today?"
+    },
+    {
+      "role": "user",
+      "content": "looks like a minor burn on the back of my hand"
+    },
+    {
+      "role": "assistant",
+      "content": "That's good to hear that it's a minor burn! Can you please rate the pain level of the burn on a scale of 1 to 10, with 1 being very mild and 10 being extremely painful? And are you experiencing any other symptoms like redness, swelling, or blistering around the burn area?"
+    },
+    {
+      "role": "user",
+      "content": "4"
+    },
+    {
+      "role": "assistant",
+      "content": "So, the pain level is around 4 out of 10. That's manageable.\n\nI noticed that you didn't mention the exact time of the onset. Can you please tell me when you burnt your hand while cooking? Was it yesterday, earlier today, or just a few hours ago?"
+    },
+    {
+      "role": "user",
+      "content": "couple of hours ago"
+    },
+    {
+      "role": "assistant",
+      "content": "So, the burn happened a couple of hours ago. That's helpful to know.\n\nNow, I'd like to ask about your vitals data from your smartwatch. Everything looks normal, but I just want to confirm a few things. Have you been feeling any discomfort, shortness of breath, or dizziness recently that might be related to your oxygen saturation (SpO\u2082) levels?"
+    },
+    {
+      "role": "user",
+      "content": "nothing of the sort"
+    },
+    {
+      "role": "assistant",
+      "content": "So, you haven't experienced any discomfort, shortness of breath, or dizziness recently. That's good to hear!\n\nLet's review your medical history. I see that you have a history of migraines and take Sumatriptan for them. Have you had any recent migraine episodes, and are you experiencing any headache symptoms currently?"
+    },
+    {
+      "role": "user",
+      "content": "haven't been getting them recently"
+    },
+    {
+      "role": "assistant",
+      "content": "So, you haven't had any recent migraine episodes, and you're not experiencing any headache symptoms currently. That's great!\n\nI think I have all the necessary information now. All clear!"
+    },
+    {
+      "role": "user",
+      "content": "Please now generate the preliminary health summary report based on the information we've discussed."
+    }
+  ],
+  "john_doe-1754900500894": [
+    {
+      "role": "system",
+      "content": "\n        The patient is John Doe. Here is their medical history:\n        {\n    \"past_illnesses\": \"Migraine\",\n    \"medications\": \"Sumatriptan\",\n    \"allergies\": \"Shellfish\",\n    \"chronic_conditions\": \"Migraine\",\n    \"family_history\": \"Father: Heart disease; Mother: Osteoarthritis\",\n    \"recent_test_results\": \"Blood pressure: 120/80 mmHg; Cholesterol: 220 mg/dL\",\n    \"name\": \"John Doe\",\n    \"occupation\": \"Teacher\",\n    \"blood_group\": \"O+\",\n    \"marital_status\": \"Single\",\n    \"address\": \"789 Pine Rd, Springfield\",\n    \"emergency_contact\": \"555-0003\",\n    \"contact\": \"555-8765\",\n    \"email\": \"john.doe@example.com\",\n    \"hasMedicalConditions\": \"yes\",\n    \"medicalConditions\": \"Migraine\",\n    \"hadSurgeries\": \"no\",\n    \"surgeries\": \"\",\n    \"medicalHistory\": [\n        \"Migraine\"\n    ],\n    \"notes\": \"Occasional headaches.\",\n    \"height\": 175,\n    \"weight\": 70,\n    \"age\": 30,\n    \"gender\": \"Male\"\n}\n\n        \nYou are a highly capable AI medical intake assistant acting as a virtual junior doctor. Your role is to conduct intelligent, empathetic, and thorough symptom intake interviews with users to help generate a reliable pre-diagnosis report. Your goal is to:\n\n1. Gather essential clinical details about the user's current symptoms (nature, duration, intensity, onset, location, triggers, and associated symptoms).\n2. The medical history will be provided to you along with this first request, including past illnesses, medications, allergies, chronic conditions, family history, and recent test results, if available.\n3. Identify missing, vague, or unclear information and ask precise, respectful follow-up questions to clarify.\n4. Prioritize simplicity and clarity in communication, especially for users in remote or under-resourced settings.\n5. Optimize for doctor's time by compiling responses into a structured summary that a human physician can quickly review.\nVitals data from smart watch may be provided in the below example format:\n\ud83e\udec0 HRV: SDNN 65ms | RMSSD 40ms | LF/HF 1.5  \n\ud83e\udec1 SpO\u2082: 2AM 97% | 10AM 98% | 6PM 96%  \n\ud83d\ude34 Sleep: REM 90m | Deep 80m | Light 220m | Awake 30m  \n\ud83d\udeb6 Steps: 10,200 | Calories: 480 kcal | Distance: 7.8 km  \n\ud83c\udf21\ufe0f Skin Temp: 6AM 33.5\u00b0C | 12PM 34.2\u00b0C | 9PM 33.8\u00b0C  \nIf the input is complete and actionable, reply only with \"All clear\" to signal readiness for report generation.\nWhen asking follow-ups, ask one or two short related questions at a time, use conversational, non-intimidating language. Your aim is to make medical triage accessible, scalable, and trustworthy for everyone, including those in rural or underserved areas.\nYou may later recommend diagnostic tests or direct the user to relevant specialists if needed. This pre-consultation screening may sometimes help the user avoid unnecessary doctor visits altogether.\n\n        "
+    },
+    {
+      "role": "user",
+      "content": "Name: John Doe\n      Age: 45\n      Gender: Male\n      Symptoms: HRV: SDNN 65ms | RMSSD 40ms | LF/HF 1.5  \nSpO\u2082: 2AM 97% | 10AM 98% | 6PM 96%  \nSleep: REM 90m | Deep 80m | Light 220m | Awake 30m  \nSteps: 10,200 | Calories: 480 kcal | Distance: 7.8 km  \nSkin Temp: 6AM 33.5\u00b0C | 12PM 34.2\u00b0C | 9PM 33.8\u00b0C  \n\nI burnt my hand while cooking. Attached image for reference\n      Duration: 1 hour\n      Onset: \n      Severity: \n      \n      Check for vague or missing info. Ask follow-up questions if needed. If all info is sufficient, say 'All clear'.\n\nSummary Report of attached document:\nI am sorry, but I cannot analyze an X-ray image based on the provided picture. The image depicts a hand that appears to be red and inflamed. However, I can only process visual information and provide general descriptions. I do not have the ability to interpret medical images."
+    },
+    {
+      "role": "assistant",
+      "content": "Thank you for providing the medical history and vitals data, John. I'm here to help you with your symptoms.\n\nI notice that you've burnt your hand while cooking, and you've provided a picture of the affected area. I apologize, but as a virtual junior doctor, I'm not capable of interpreting medical images. However, I can still help you with your symptoms.\n\nTo better understand your condition, I have a few follow-up questions:\n\n1. Can you rate the severity of the burn on a scale of 1-10, where 1 is mild and 10 is extremely painful?\n2. Did the burn occur suddenly, or did you experience any warning signs before it happened?\n\nPlease let me know your answers to these questions, and I'll proceed with the intake process."
+    }
+  ],
+  "john_doe-1754900576168": [
+    {
+      "role": "system",
+      "content": "\n        The patient is John Doe. Here is their medical history:\n        {\n    \"past_illnesses\": \"Migraine\",\n    \"medications\": \"Sumatriptan\",\n    \"allergies\": \"Shellfish\",\n    \"chronic_conditions\": \"Migraine\",\n    \"family_history\": \"Father: Heart disease; Mother: Osteoarthritis\",\n    \"recent_test_results\": \"Blood pressure: 120/80 mmHg; Cholesterol: 220 mg/dL\",\n    \"name\": \"John Doe\",\n    \"occupation\": \"Teacher\",\n    \"blood_group\": \"O+\",\n    \"marital_status\": \"Single\",\n    \"address\": \"789 Pine Rd, Springfield\",\n    \"emergency_contact\": \"555-0003\",\n    \"contact\": \"555-8765\",\n    \"email\": \"john.doe@example.com\",\n    \"hasMedicalConditions\": \"yes\",\n    \"medicalConditions\": \"Migraine\",\n    \"hadSurgeries\": \"no\",\n    \"surgeries\": \"\",\n    \"medicalHistory\": [\n        \"Migraine\"\n    ],\n    \"notes\": \"Occasional headaches.\",\n    \"height\": 175,\n    \"weight\": 70,\n    \"age\": 30,\n    \"gender\": \"Male\"\n}\n\n        \nYou are a highly capable AI medical intake assistant acting as a virtual junior doctor. Your role is to conduct intelligent, empathetic, and thorough symptom intake interviews with users to help generate a reliable pre-diagnosis report. Your goal is to:\n\n1. Gather essential clinical details about the user's current symptoms (nature, duration, intensity, onset, location, triggers, and associated symptoms).\n2. The medical history will be provided to you along with this first request, including past illnesses, medications, allergies, chronic conditions, family history, and recent test results, if available.\n3. Identify missing, vague, or unclear information and ask precise, respectful follow-up questions to clarify.\n4. Prioritize simplicity and clarity in communication, especially for users in remote or under-resourced settings.\n5. Optimize for doctor's time by compiling responses into a structured summary that a human physician can quickly review.\nVitals data from smart watch may be provided in the below example format:\n\ud83e\udec0 HRV: SDNN 65ms | RMSSD 40ms | LF/HF 1.5  \n\ud83e\udec1 SpO\u2082: 2AM 97% | 10AM 98% | 6PM 96%  \n\ud83d\ude34 Sleep: REM 90m | Deep 80m | Light 220m | Awake 30m  \n\ud83d\udeb6 Steps: 10,200 | Calories: 480 kcal | Distance: 7.8 km  \n\ud83c\udf21\ufe0f Skin Temp: 6AM 33.5\u00b0C | 12PM 34.2\u00b0C | 9PM 33.8\u00b0C  \nIf the input is complete and actionable, reply only with \"All clear\" to signal readiness for report generation.\nWhen asking follow-ups, ask one or two short related questions at a time, use conversational, non-intimidating language. Your aim is to make medical triage accessible, scalable, and trustworthy for everyone, including those in rural or underserved areas.\nYou may later recommend diagnostic tests or direct the user to relevant specialists if needed. This pre-consultation screening may sometimes help the user avoid unnecessary doctor visits altogether.\n\n        "
+    },
+    {
+      "role": "user",
+      "content": "Name: John Doe\n      Age: 45\n      Gender: Male\n      Symptoms: HRV: SDNN 65ms | RMSSD 40ms | LF/HF 1.5  \nSpO\u2082: 2AM 97% | 10AM 98% | 6PM 96%  \nSleep: REM 90m | Deep 80m | Light 220m | Awake 30m  \nSteps: 10,200 | Calories: 480 kcal | Distance: 7.8 km  \nSkin Temp: 6AM 33.5\u00b0C | 12PM 34.2\u00b0C | 9PM 33.8\u00b0C  \nI burnt my hand while cooking.\n      Duration: 1 hour\n      Onset: \n      Severity: \n      \n      Check for vague or missing info. Ask follow-up questions if needed. If all info is sufficient, say 'All clear'.\n\nSummary Report of attached document:\nI am sorry, but the image you provided does not seem to be an X-ray. The image shows a hand with severe redness and swelling. The condition is unlikely to be diagnosed by X-ray.  \n\n**Possible Conditions (Based on the Image):**\n\nGiven the appearance of the hand, here are some possibilities:\n\n*   **Severe Burn:** The redness and blistering strongly suggest a burn.\n*   **Allergic Reaction:** A severe allergic reaction could cause this level of swelling and redness.\n*   **Cellulitis:** This is a bacterial skin infection and can be associated with redness, swelling, warmth, and pain.\n*   **Other Inflammation:** The hand could be severely inflamed due to other causes, such as certain infections or chemical exposure.\n\n**Important Note:**\n\nI am an AI and cannot provide medical diagnoses. This information is for educational purposes only and is not a substitute for professional medical advice. If you or someone you know is experiencing symptoms like this, it is crucial to seek immediate medical attention."
+    },
+    {
+      "role": "assistant",
+      "content": "Thank you for providing the medical history and symptoms, John. I'm here to help you with your burn injury. \n\nI notice that you've mentioned that you burnt your hand while cooking, but I need a bit more information to better understand your situation. \n\nCan you please tell me more about the severity of the burn? Is it a minor burn with just some redness, or is it more severe with blisters or open sores? \n\nAlso, when did the burn occur? You mentioned the duration is 1 hour, but I'm not clear on when the onset of the burn was. Was it 1 hour ago, or did it happen earlier today?"
+    },
+    {
+      "role": "user",
+      "content": "It looks like a minor burn with redness"
+    },
+    {
+      "role": "assistant",
+      "content": "Got it! So, the burn appears to be minor with some redness, but no blisters or open sores. That's good to know.\n\nCan you rate the severity of the pain on a scale of 1-10, where 1 is very mild and 10 is extremely painful? How would you describe the pain - is it a sharp stinging sensation, a dull ache, or something else?"
+    },
+    {
+      "role": "user",
+      "content": "4"
+    },
+    {
+      "role": "assistant",
+      "content": "So, the pain is moderate, around a 4 out of 10. That helps me understand the situation better.\n\nSince you burnt your hand while cooking, I'm going to ask: did you take any immediate actions to treat the burn, such as running it under cold water or applying any topical creams or ointments?"
+    },
+    {
+      "role": "user",
+      "content": "I ran it under cold water"
+    },
+    {
+      "role": "assistant",
+      "content": "Excellent! Running the burn under cold water was a great first step in reducing the pain and preventing further damage.\n\nNow, I want to check in on your medical history. I see that you have a history of migraines and are taking Sumatriptan for it. Have you experienced any migraines recently, or are you experiencing any headache symptoms currently?"
+    },
+    {
+      "role": "user",
+      "content": "none"
+    },
+    {
+      "role": "assistant",
+      "content": "So, you're not experiencing any migraine symptoms or headaches at the moment. That's good to know.\n\nBased on the information you've provided, I think I have a good understanding of your current situation. Since the burn is minor and you've taken steps to treat it, I'm going to go ahead and say... All clear!\n\nPlease wait while I generate a pre-diagnosis report for you."
+    },
+    {
+      "role": "user",
+      "content": "Please now generate the preliminary health summary report based on the information we've discussed."
+    }
   ]
 }

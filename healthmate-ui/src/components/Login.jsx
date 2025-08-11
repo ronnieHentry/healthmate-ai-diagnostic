@@ -1,5 +1,6 @@
 import React from "react";
 import usersData from "../users.json";
+import "./Login.css";
 
 function Login({ onLogin }) {
   const [username, setUsername] = React.useState("");
@@ -20,16 +21,16 @@ function Login({ onLogin }) {
   };
 
   return (
-    <div style={{ minHeight: "100vh", display: "flex", alignItems: "center", justifyContent: "center", background: "#f5f5f5" }}>
-      <form onSubmit={handleSubmit} style={{ background: "#fff", padding: 32, borderRadius: 12, boxShadow: "0 2px 16px #0001", minWidth: 320 }}>
-        <h2 style={{ textAlign: "center", marginBottom: 24 }}>Login</h2>
+    <div className="login-root">
+      <form className="login-form" onSubmit={handleSubmit}>
+        <h2 className="login-title">Login</h2>
         <div style={{ marginBottom: 16 }}>
           <input
             type="text"
             placeholder="Username"
             value={username}
             onChange={e => setUsername(e.target.value)}
-            style={{ width: '100%', padding: 10, borderRadius: 6, border: '1px solid #ccc' }}
+            className="login-input"
             autoFocus
           />
         </div>
@@ -39,11 +40,13 @@ function Login({ onLogin }) {
             placeholder="Password"
             value={password}
             onChange={e => setPassword(e.target.value)}
-            style={{ width: '100%', padding: 10, borderRadius: 6, border: '1px solid #ccc' }}
+            className="login-input"
           />
         </div>
-        {error && <div style={{ color: 'red', marginBottom: 16 }}>{error}</div>}
-        <button type="submit" style={{ width: '100%', padding: 12, borderRadius: 6, background: '#1976d2', color: '#fff', fontWeight: 600, border: 'none' }}>Login</button>
+        {error && <div className="login-error">{error}</div>}
+        <div className="login-button-container">
+          <button type="submit" className="login-button">Login</button>
+        </div>
       </form>
     </div>
   );

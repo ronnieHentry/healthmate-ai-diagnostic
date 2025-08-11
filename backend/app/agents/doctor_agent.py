@@ -5,9 +5,10 @@ import re
 from datetime import datetime
 from dotenv import load_dotenv
 from app.utils.prompt import DOCTOR_AGENT_PROMPT
+from app.utils.groq_key_rotator import get_next_groq_key
+
 
 load_dotenv()
-GROQ_API_KEY = os.getenv("GROQ_API_KEY2")
 DIAGNOSIS_REPORT_FILE = "data/report.json"
 
 def load_diagnosis_reports():
@@ -29,10 +30,11 @@ def extract_json(text):
     raise ValueError("No valid JSON found in response.")
 
 def call_groq(messages, model="llama3-70b-8192", temperature=0.7):
+    api_key = get_next_groq_key()
     response = requests.post(
         "https://api.groq.com/openai/v1/chat/completions",
         headers={
-            "Authorization": f"Bearer {GROQ_API_KEY}",
+            "Authorization": f"Bearer {api_key}",
             "Content-Type": "application/json"
         },
         json={

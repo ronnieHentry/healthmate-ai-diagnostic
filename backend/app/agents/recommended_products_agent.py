@@ -6,9 +6,11 @@ import requests
 
 router = APIRouter()
 
-# Helper to call Groq LLM
+from app.utils.groq_key_rotator import get_next_groq_key
+
+
 def call_groq_for_products(report_text, template_products):
-    api_key = os.getenv("GROQ_API_KEY2")
+    api_key = get_next_groq_key()
     prompt = f"""
 You are a helpful health assistant. Based on the following diagnosis report, recommend a list of health products that could help the patient. You MUST change the product names and prices to be relevant for the illness, but keep the number of products, images, and ratings the same as the template. Output only a JSON array with the same structure as the template, but with new product names and prices. DO NOT repeat the template product names or prices. If the diagnosis is not specific, invent plausible health product names and prices for the context.
 

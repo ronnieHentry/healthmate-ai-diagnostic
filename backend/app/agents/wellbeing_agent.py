@@ -4,19 +4,17 @@ from dotenv import load_dotenv
 from fastapi.responses import JSONResponse
 
 
+
 import logging
+from app.utils.groq_key_rotator import get_next_groq_key
 load_dotenv()
-GROQ_API_KEY = os.getenv("GROQ_API_KEY2")
-if not GROQ_API_KEY:
-    logging.error("GROQ_API_KEY3 is not set in environment variables.")
 
 
 def get_groq_response(prompt):
-    if not GROQ_API_KEY:
-        raise RuntimeError("GROQ_API_KEY3 is not set in environment variables.")
+    api_key = get_next_groq_key()
     url = 'https://api.groq.com/openai/v1/chat/completions'
     headers = {
-        'Authorization': f'Bearer {GROQ_API_KEY}',
+        'Authorization': f'Bearer {api_key}',
         'Content-Type': 'application/json'
     }
     payload = {

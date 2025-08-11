@@ -1,10 +1,6 @@
 import requests
-from dotenv import load_dotenv
-import re
-import os
 
-load_dotenv()
-GROQ_API_KEY = os.getenv("GROQ_API_KEY3")
+from app.utils.groq_key_rotator import get_next_groq_key
 
 def summarize_report(report_text):
     """
@@ -26,8 +22,9 @@ Report:
 {report_text}
 """
     url = "https://api.groq.com/openai/v1/chat/completions"
+    api_key = get_next_groq_key()
     headers = {
-        "Authorization": f"Bearer {GROQ_API_KEY}",
+        "Authorization": f"Bearer {api_key}",
         "Content-Type": "application/json"
     }
     payload = {

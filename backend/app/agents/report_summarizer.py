@@ -8,7 +8,7 @@ from app.utils.prompt import MEDICAL_REPORT_PROMPT_TEMPLATE
 
 
 load_dotenv()
-GROQ_API_KEY = os.getenv("GROQ_API_KEY3")
+from app.utils.groq_key_rotator import get_next_groq_key
 GEMINI_API_KEYS = [os.getenv("GEMINI_API_KEY"), os.getenv("GEMINI_API_KEY2")]
 _gemini_key_index = 0
 
@@ -75,8 +75,9 @@ def summarize_medical_report(session_id, file_path):
         ]
 
         url = "https://api.groq.com/openai/v1/chat/completions"
+        api_key = get_next_groq_key()
         headers = {
-            "Authorization": f"Bearer {GROQ_API_KEY}",
+            "Authorization": f"Bearer {api_key}",
             "Content-Type": "application/json"
         }
 
