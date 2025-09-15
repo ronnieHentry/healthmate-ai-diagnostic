@@ -70,7 +70,7 @@ def extract_json(text):
         return json.loads(match.group(0))
     raise ValueError("No valid JSON found in response.")
 
-def call_groq(messages, model="llama3-70b-8192", temperature=0.7):
+def call_groq(messages, model="llama-3.3-70b-versatile", temperature=0.7):
     api_key = get_next_groq_key()
     response = requests.post(
         "https://api.groq.com/openai/v1/chat/completions",
